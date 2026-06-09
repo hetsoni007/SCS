@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Soni Consultancy Services | Web, Mobile & AI App Development</title>
+<meta name="description" content="World-class web, mobile & AI app development. React, Next.js, React Native, Flutter & Claude API for founders and CTOs across UK, US, UAE, Canada, Australia & India."/>
+<meta name="robots" content="index,follow,max-image-preview:large"/>
+<meta property="og:title" content="Soni Consultancy Services | Web, Mobile & AI App Development"/>
+<meta property="og:description" content="We build apps that close deals. React, Next.js, React Native & AI — for founders & CTOs worldwide."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://soniconsultancyservices.com"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://soniconsultancyservices.com"/>
+<meta name="theme-color" content="#0A0A0C"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<!-- In production: <link rel="stylesheet" href="/shared.css"/> -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Soni Consultancy Services","url":"https://soniconsultancyservices.com","founder":{"@type":"Person","name":"Het Soni","url":"https://www.linkedin.com/in/hetsoni/"},"areaServed":["United Kingdom","United States","United Arab Emirates","Canada","Australia","India"],"sameAs":["https://www.linkedin.com/company/soniconsultancyservices","https://www.instagram.com/soni.consultancyservices/","https://www.facebook.com/soniconsultancyservices","https://medium.com/@hetsoni9398"],"contactPoint":{"@type":"ContactPoint","contactType":"sales","email":"het.soni@soniconsultancyservices.com","url":"https://calendly.com/het-soni-soniconsultancyservices/introductory"}}
+</script>
+<style>
+/* =============================================
+   SHARED DESIGN SYSTEM — extract to /shared.css
+   ============================================= */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#C9A84C;--gold-light:#E8C97A;--gold-dim:#9A7B2E;
+  --radius:20px;--radius-sm:12px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+html[data-theme="dark"]{
+  --bg:#0A0A0C;--bg2:#0E0E12;
+  --text:#F4F2EC;--text-muted:#A7A39B;--text-dim:#615E58;
+  --glass:rgba(255,255,255,.04);--glass-s:rgba(255,255,255,.07);
+  --gb:rgba(255,255,255,.10);--gbg:rgba(201,168,76,.28);
+  --nav-bg:rgba(14,14,18,.6);--inp:rgba(255,255,255,.03);
+}
+html[data-theme="light"]{
+  --bg:#F6F3EC;--bg2:#FFF;
+  --text:#191712;--text-muted:#5C564B;--text-dim:#928B7E;
+  --glass:rgba(255,255,255,.55);--glass-s:rgba(255,255,255,.8);
+  --gb:rgba(25,23,18,.08);--gbg:rgba(154,123,46,.35);
+  --gold:#A8842C;--gold-light:#C9A84C;
+  --nav-bg:rgba(255,255,255,.7);--inp:rgba(0,0,0,.025);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.7;overflow-x:hidden;transition:background .4s,color .4s}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+::selection{background:rgba(201,168,76,.3)}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:2px}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.001s!important;transition-duration:.001s!important}.reveal{opacity:1!important;transform:none!important}}
+
+/* BG */
+.bg-layer{position:fixed;inset:0;z-index:-2;background:var(--bg);overflow:hidden;transition:background .4s}
+.bg-blob{position:absolute;border-radius:50%;filter:blur(140px);opacity:.18}
+.blob1{width:560px;height:560px;background:radial-gradient(circle,#C9A84C,transparent 70%);top:-120px;right:-80px}
+.blob2{width:480px;height:480px;background:radial-gradient(circle,#6B5BFF,transparent 70%);bottom:5%;left:-120px;opacity:.12}
+.bg-grid{position:fixed;inset:0;z-index:-1;background-image:linear-gradient(rgba(140,120,60,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(140,120,60,.02) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse at 50% 0%,black,transparent 75%)}
+
+/* SCROLL PROGRESS */
+.prog{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));z-index:200;width:0;transition:width .1s}
+
+/* NAV */
+nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:100;width:calc(100% - 40px);max-width:1180px}
+.nav-pill{background:var(--nav-bg);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);border:.5px solid var(--gb);border-radius:100px;padding:0 10px 0 22px;display:flex;align-items:center;justify-content:space-between;height:62px;box-shadow:0 8px 32px rgba(0,0,0,.18)}
+.brand{display:flex;align-items:center;gap:11px}
+.brand-mark{width:34px;height:34px;flex-shrink:0}
+.brand-name{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:700;color:var(--gold);letter-spacing:.04em;white-space:nowrap;line-height:1}
+.brand-name span{color:var(--text);font-weight:400;font-size:11px;letter-spacing:.18em;display:block;margin-top:1px}
+.nav-links{display:flex;gap:6px;list-style:none}
+.nav-links a{color:var(--text-muted);font-size:14px;padding:8px 14px;border-radius:100px;transition:color .2s,background .2s;display:block}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);background:rgba(201,168,76,.07)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.theme-btn{width:38px;height:38px;border-radius:50%;border:.5px solid var(--gb);background:var(--inp);color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.theme-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}
+.theme-btn:hover{border-color:var(--gbg);color:var(--gold)}
+.nav-cta{background:var(--gold);color:#0A0A0C;padding:10px 22px;border-radius:100px;font-size:14px;font-weight:600;transition:all .2s}
+.nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
+.nav-cb{display:none}.hamburger{display:none;flex-direction:column;gap:5px;width:42px;height:42px;border:.5px solid var(--gb);border-radius:50%;align-items:center;justify-content:center;cursor:pointer;background:var(--inp);flex-shrink:0}
+.hamburger span{display:block;width:17px;height:2px;background:var(--text);border-radius:2px}
+.mobile-menu{display:none;flex-direction:column;gap:4px;margin-top:10px;background:var(--nav-bg);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:.5px solid var(--gb);border-radius:18px;padding:14px;box-shadow:0 16px 48px rgba(0,0,0,.3)}
+.mobile-menu a{padding:13px 18px;color:var(--text-muted);font-size:15px;border-radius:12px;transition:background .2s,color .2s;display:block}
+.mobile-menu a:hover{background:var(--inp);color:var(--gold)}
+.nav-cb:checked ~ .mobile-menu{display:flex;animation:fadeUp .35s var(--ease)}
+
+/* LAYOUT */
+.wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+section{padding:120px 0;position:relative}
+.sec-label{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;background:rgba(201,168,76,.08);border:.5px solid var(--gbg);padding:6px 16px;border-radius:100px}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4.5vw,56px);font-weight:700;line-height:1.12;color:var(--text)}
+.sec-sub{font-size:17px;color:var(--text-muted);line-height:1.75;margin-top:18px;max-width:600px}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+.tilt{transform-style:preserve-3d;transition:transform .3s var(--ease)}
+
+/* BUTTONS */
+.btn-gold{background:var(--gold);color:#0A0A0C;padding:16px 38px;border-radius:100px;font-size:15px;font-weight:600;transition:all .2s;box-shadow:0 8px 28px rgba(201,168,76,.25);display:inline-block;cursor:pointer;border:none;font-family:inherit}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-ghost{background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:.5px solid var(--gb);color:var(--text);padding:16px 38px;border-radius:100px;font-size:15px;font-weight:500;transition:all .2s;display:inline-block}
+.btn-ghost:hover{border-color:var(--gbg);background:var(--glass-s)}
+.btn-outline{border:.5px solid var(--gbg);color:var(--gold);padding:12px 28px;border-radius:100px;font-size:14px;font-weight:500;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-outline:hover{background:rgba(201,168,76,.08)}
+.tag{background:rgba(201,168,76,.08);border:.5px solid var(--gbg);color:var(--gold);font-size:11px;padding:5px 13px;border-radius:100px}
+
+/* ---- HERO ---- */
+#hero{min-height:100vh;display:flex;align-items:center;padding:150px 0 90px;text-align:center}
+.hero-inner{width:100%;display:flex;flex-direction:column;align-items:center}
+.hero-emblem{width:96px;height:96px;margin-bottom:28px;animation:bob 8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero-badge{display:inline-flex;align-items:center;gap:9px;background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:.5px solid var(--gbg);border-radius:100px;padding:9px 20px;font-size:13px;color:var(--gold);margin-bottom:36px}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,8vw,98px);font-weight:700;line-height:1.02;margin-bottom:28px;letter-spacing:-.01em}
+.hero-title .grad{background:linear-gradient(120deg,var(--gold-light),var(--gold) 60%,var(--gold-dim));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:20px;color:var(--text-muted);max-width:620px;line-height:1.7;margin-bottom:44px}
+.hero-sub strong{color:var(--text);font-weight:500}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-bottom:72px}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;width:100%;max-width:760px}
+.hstat{background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:.5px solid var(--gb);border-radius:16px;padding:24px 16px}
+.hstat-num{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--gold);line-height:1}
+.hstat-label{font-size:12px;color:var(--text-dim);margin-top:6px}
+
+/* ---- TICKER ---- */
+.ticker{overflow:hidden;border-top:.5px solid var(--gb);border-bottom:.5px solid var(--gb);background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:20px 0;position:relative}
+.ticker::before,.ticker::after{content:'';position:absolute;top:0;bottom:0;width:140px;z-index:2}
+.ticker::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+.ticker::after{right:0;background:linear-gradient(270deg,var(--bg),transparent)}
+.ticker-track{display:flex;gap:56px;width:max-content;animation:scroll 32s linear infinite}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.ticker-item{font-size:14px;color:var(--text-dim);white-space:nowrap;display:flex;align-items:center;gap:10px}
+.ticker-item b{color:var(--gold);font-weight:400}
+
+/* ---- SERVICE CARDS ---- */
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.svc{background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:.5px solid var(--gb);border-radius:22px;padding:40px;transition:border-color .3s,background .3s,transform .35s var(--ease),box-shadow .4s}
+.svc:hover{background:var(--glass-s);border-color:var(--gbg);transform:translateY(-4px);box-shadow:0 20px 56px rgba(0,0,0,.28)}
+.svc-icon{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,rgba(201,168,76,.2),rgba(201,168,76,.05));border:.5px solid var(--gbg);display:flex;align-items:center;justify-content:center;margin-bottom:24px}
+.svc-icon svg{width:26px;height:26px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.svc-name{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:700;margin-bottom:12px}
+.svc-desc{font-size:14px;color:var(--text-muted);line-height:1.7;margin-bottom:22px}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.sec-more{display:flex;align-items:center;justify-content:center;margin-top:48px}
+
+/* ---- CASE CARDS ---- */
+.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.case{background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:.5px solid var(--gb);border-radius:22px;padding:32px;display:flex;flex-direction:column;transition:transform .35s var(--ease),border-color .3s,box-shadow .4s}
+.case:hover{transform:translateY(-6px);border-color:var(--gbg);box-shadow:0 24px 60px rgba(0,0,0,.32)}
+.case:hover .case-name{color:var(--gold)}
+.case-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.case-type{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.case-dur{font-size:10px;color:var(--text-dim);border:.5px solid var(--gb);padding:3px 10px;border-radius:100px}
+.case-name{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:700;margin-bottom:10px;transition:color .3s}
+.case-desc{font-size:13.5px;color:var(--text-muted);line-height:1.65;margin-bottom:18px;flex:1}
+.case-out{border-top:.5px solid var(--gb);padding-top:14px;font-size:13px;color:var(--text-muted)}
+.case-out b{color:var(--gold);font-weight:500}
+.case-stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+
+/* ---- WIDGET ---- */
+.widget{background:var(--glass);backdrop-filter:blur(24px) saturate(150%);-webkit-backdrop-filter:blur(24px) saturate(150%);border:.5px solid var(--gb);border-radius:22px;padding:40px}
+.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+.wq{margin-bottom:22px}
+.wq-label{font-size:14px;font-weight:500;margin-bottom:12px;display:block}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--inp);border:.5px solid var(--gb);color:var(--text-muted);padding:9px 16px;border-radius:100px;font-size:13px;cursor:pointer;transition:all .2s}
+.chip.sel{background:rgba(201,168,76,.14);border-color:var(--gold);color:var(--gold)}
+.wresult{background:var(--glass-s);border:.5px solid var(--gbg);border-radius:var(--radius-sm);padding:32px;text-align:center;position:sticky;top:90px}
+.wresult-label{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px}
+.score-ring{width:150px;height:150px;margin:0 auto 18px}
+.reco-box{background:var(--inp);border:.5px solid var(--gb);border-radius:var(--radius-sm);padding:20px;margin-top:8px;font-size:13.5px;color:var(--text-muted);line-height:1.7;text-align:left}
+.reco-box b{color:var(--gold)}
+
+/* ---- TESTIMONIALS ---- */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.testi{background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:.5px solid var(--gb);border-radius:22px;padding:34px;display:flex;flex-direction:column}
+.stars{color:var(--gold);font-size:14px;letter-spacing:3px;margin-bottom:18px}
+.quote{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;line-height:1.55;flex:1;margin-bottom:22px}
+.testi-by{display:flex;align-items:center;gap:12px;border-top:.5px solid var(--gb);padding-top:18px}
+.tav{width:40px;height:40px;border-radius:50%;background:rgba(201,168,76,.14);border:.5px solid var(--gbg);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--gold);flex-shrink:0}
+.tname{font-size:14px;font-weight:600}.trole{font-size:12px;color:var(--text-dim)}
+
+/* ---- BLOG CARDS ---- */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.blog{background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:.5px solid var(--gb);border-radius:22px;overflow:hidden;transition:border-color .3s,transform .35s var(--ease);display:flex;flex-direction:column}
+.blog:hover{border-color:var(--gbg);transform:translateY(-4px)}
+.blog-thumb{height:140px;display:flex;align-items:center;justify-content:center;border-bottom:.5px solid var(--gb)}
+.blog-body{padding:26px;flex:1;display:flex;flex-direction:column}
+.blog-cat{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.blog-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;line-height:1.3;margin-bottom:10px;color:var(--text)}
+.blog-ex{font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:16px;flex:1}
+.blog-link{font-size:13px;color:var(--gold);display:flex;align-items:center;gap:6px}
+
+/* ---- HIRE STRIP ---- */
+.hire-strip{background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:.5px solid var(--gbg);border-radius:22px;padding:48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:28px}
+.hire-strip h3{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;margin-bottom:8px}
+.hire-strip p{font-size:15px;color:var(--text-muted)}
+
+/* ---- CTA ---- */
+#cta-section{background:var(--glass);border-top:.5px solid var(--gb);padding:120px 0;position:relative;overflow:hidden}
+.cta-orb{position:absolute;width:700px;height:700px;border-radius:50%;background:var(--gold);filter:blur(160px);opacity:.04;top:50%;left:50%;transform:translate(-50%,-50%)}
+.cta-inner{text-align:center;position:relative;z-index:1}
+.cta-inner .sec-title{font-size:clamp(32px,5vw,64px);max-width:700px;margin:0 auto 20px}
+.cta-inner .sec-sub{margin:0 auto 44px;text-align:center}
+.cta-note{font-size:14px;color:var(--text-dim);margin-top:18px}
+.cta-note a{color:var(--gold-dim)}
+
+/* ---- FOOTER ---- */
+footer{border-top:.5px solid var(--gb);padding:64px 0 32px;background:var(--bg2);transition:background .4s}
+.foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
+.foot-brand{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+.foot-desc{font-size:14px;color:var(--text-dim);max-width:280px;line-height:1.7}
+.foot-h{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:18px}
+.foot-col a{display:block;font-size:14px;color:var(--text-muted);margin-bottom:11px;transition:color .2s}
+.foot-col a:hover{color:var(--gold)}
+.foot-bottom{border-top:.5px solid var(--gb);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.foot-copy{font-size:13px;color:var(--text-dim)}
+.foot-social{display:flex;gap:20px}
+.foot-social a{font-size:13px;color:var(--text-dim);transition:color .2s}
+.foot-social a:hover{color:var(--gold)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media(max-width:900px){
+  .nav-links{display:none}.hamburger{display:flex}
+  .svc-grid,.case-grid,.testi-grid,.blog-grid,.wgrid,.hero-stats,.foot-top{grid-template-columns:1fr}
+  .wrap{padding:0 24px}
+  section{padding:80px 0}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .nav-cta{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-layer">
+  <div class="bg-blob blob1"></div>
+  <div class="bg-blob blob2"></div>
+</div>
+<div class="bg-grid"></div>
+<div class="prog" id="prog"></div>
+
+<svg width="0" height="0" style="position:absolute"><symbol id="em" viewBox="0 0 100 100"><g fill="none" stroke="#C9A84C" stroke-width="2"><path d="M20 12H12V20M88 12H80M88 12V20M20 88H12V80M80 88H88V80"/><circle cx="50" cy="46" r="26"/></g><circle cx="58" cy="36" r="5" fill="#C9A84C"/><g stroke="#C9A84C" stroke-width="2.4" stroke-linecap="round"><line x1="38" y1="58" x2="38" y2="40"/><line x1="44" y1="58" x2="44" y2="34"/><line x1="50" y1="58" x2="50" y2="44"/><line x1="56" y1="58" x2="56" y2="48"/><line x1="62" y1="58" x2="62" y2="42"/></g><g stroke="#C9A84C" stroke-width="1.6"><line x1="34" y1="63" x2="66" y2="63"/><line x1="38" y1="67" x2="62" y2="67"/></g></symbol></svg>
+
+<a href="#main" style="position:absolute;left:-999px;top:10px;background:var(--gold);color:#0A0A0C;padding:10px 18px;border-radius:8px;z-index:500;font-size:13px;font-weight:600">Skip to content</a>
+
+<nav>
+  <input type="checkbox" id="navCb" class="nav-cb"/>
+  <div class="nav-pill">
+    <a href="/" class="brand">
+      <svg class="brand-mark"><use href="#em"/></svg>
+      <span class="brand-name">SONI<span>CONSULTANCY SERVICES</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/services/">Services</a></li>
+      <li><a href="/work/">Work</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/hire/">Hire</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <div class="nav-r">
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+        <svg id="themeIcon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+      </button>
+      <a href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener" class="nav-cta">Book a Call</a>
+      <label for="navCb" class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></label>
+    </div>
+  </div>
+  <div class="mobile-menu">
+    <a href="/services/" onclick="document.getElementById('navCb').checked=false">Services</a>
+    <a href="/work/" onclick="document.getElementById('navCb').checked=false">Work</a>
+    <a href="/about/" onclick="document.getElementById('navCb').checked=false">About</a>
+    <a href="/blog/" onclick="document.getElementById('navCb').checked=false">Blog</a>
+    <a href="/hire/" onclick="document.getElementById('navCb').checked=false">Hire</a>
+    <a href="/contact/" onclick="document.getElementById('navCb').checked=false">Contact</a>
+    <a href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener" onclick="document.getElementById('navCb').checked=false" style="color:var(--gold);font-weight:600">Book a Free Call →</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap hero-inner">
+    <svg class="hero-emblem"><use href="#em"/></svg>
+    <div class="hero-badge"><span class="pulse"></span>Available for new projects · UK · US · UAE · India</div>
+    <h1 class="hero-title">We Build Apps<br/><span class="grad">That Close Deals.</span></h1>
+    <p class="hero-sub">World-class web, mobile & AI development for <strong>founders, CTOs & VPs of Engineering</strong> across the UK, US, UAE, Canada, Australia & India. Real apps, live on the App Store & Play Store. Ship in weeks. Scale to millions.</p>
+    <div class="hero-btns">
+      <a href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener" class="btn-gold">Book a Free 30-Min Call</a>
+      <a href="/work/" class="btn-ghost">View Our Work</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat reveal"><div class="hstat-num">10+</div><div class="hstat-label">Products Shipped</div></div>
+      <div class="hstat reveal d1"><div class="hstat-num">6</div><div class="hstat-label">Countries Served</div></div>
+      <div class="hstat reveal d2"><div class="hstat-num">Live</div><div class="hstat-label">On App Stores</div></div>
+      <div class="hstat reveal d3"><div class="hstat-num">48h</div><div class="hstat-label">Avg. Kick-off</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker"><div class="ticker-track" id="ticker"></div></div>
+
+<!-- SERVICES PREVIEW -->
+<section id="services-preview">
+  <div class="wrap">
+    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;flex-wrap:wrap;gap:20px">
+      <div><span class="sec-label">What we build</span><h2 class="sec-title">Full-stack studio.<br/>End-to-end delivery.</h2></div>
+      <a href="/services/" class="btn-outline">View all services <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="svc-grid">
+      <article class="svc tilt reveal">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3 class="svc-name">Web & SaaS Development</h3>
+        <p class="svc-desc">Production-grade web apps and SaaS platforms with SSR-first Next.js — fully SEO-indexed, lightning fast, built to convert.</p>
+        <div class="tags"><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Node.js</span><span class="tag">TypeScript</span></div>
+      </article>
+      <article class="svc tilt reveal d1">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+        <h3 class="svc-name">Mobile App Development</h3>
+        <p class="svc-desc">Cross-platform iOS & Android apps with native performance — live on both stores from one codebase.</p>
+        <div class="tags"><span class="tag">React Native</span><span class="tag">Flutter</span><span class="tag">Expo</span></div>
+      </article>
+      <article class="svc tilt reveal d2">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3"/></svg></div>
+        <h3 class="svc-name">AI & Claude API Integration</h3>
+        <p class="svc-desc">Custom Claude API pipelines, LLM features, AI matching engines and RAG systems that solve real problems.</p>
+        <div class="tags"><span class="tag">Claude API</span><span class="tag">LangChain</span><span class="tag">RAG</span></div>
+      </article>
+      <article class="svc tilt reveal d3">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3 class="svc-name">DevOps & Cloud</h3>
+        <p class="svc-desc">CI/CD pipelines, containerised deployments, auto-scaling AWS infra — we own the ops layer end to end.</p>
+        <div class="tags"><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">GitLab CI</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- WORK PREVIEW -->
+<section id="work-preview" style="background:rgba(255,255,255,.015)">
+  <div class="wrap">
+    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;flex-wrap:wrap;gap:20px">
+      <div><span class="sec-label">Case Studies</span><h2 class="sec-title">Real apps. Real users.<br/>Live on the stores.</h2></div>
+      <a href="/work/" class="btn-outline">View all work <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="case-grid">
+      <article class="case tilt reveal">
+        <div class="case-top"><span class="case-type">Healthcare · Hiring</span><span class="case-dur">26 weeks</span></div>
+        <h3 class="case-name">Carelynk</h3>
+        <p class="case-desc">Healthcare hiring platform — AI-based shift matching, credential vault, real-time booking for hospitals & nurses.</p>
+        <div class="case-out"><b>Goal:</b> shift-fill time from 4–8 hours to under 30 mins.</div>
+        <div class="case-stack"><span class="tag">Next.js</span><span class="tag">React Native</span><span class="tag">PostgreSQL</span></div>
+      </article>
+      <article class="case tilt reveal d1">
+        <div class="case-top"><span class="case-type">Retail · SaaS</span><span class="case-dur">32 weeks</span></div>
+        <h3 class="case-name">POPProbe</h3>
+        <p class="case-desc">Retail chain management — checklists, gamified LMS, issue logs and analytics dashboard. Live on both app stores.</p>
+        <div class="case-out"><b>Outcome:</b> standardised multi-store operations.</div>
+        <div class="case-stack"><span class="tag">React Native</span><span class="tag">Node.js</span><span class="tag">MongoDB</span></div>
+      </article>
+      <article class="case tilt reveal d2">
+        <div class="case-top"><span class="case-type">Creator · Marketplace</span><span class="case-dur">24 weeks</span></div>
+        <h3 class="case-name">Claris</h3>
+        <p class="case-desc">Influencer–venue collaboration platform — slot booking, rewards, chat. Live on the App Store.</p>
+        <div class="case-out"><b>Outcome:</b> <b>35%</b> more downloads, <b>20%</b> more bookings.</div>
+        <div class="case-stack"><span class="tag">React Native</span><span class="tag">Xano</span><span class="tag">Mapbox</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- AI READINESS WIDGET -->
+<section id="ai-widget">
+  <div class="wrap">
+    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:20px">
+      <div><span class="sec-label">Free tool</span><h2 class="sec-title">Check your AI<br/>readiness in 60 seconds.</h2></div>
+    </div>
+    <div class="widget reveal">
+      <div class="wgrid">
+        <div id="ai-qs"></div>
+        <div class="wresult">
+          <div class="wresult-label">Your AI readiness</div>
+          <svg class="score-ring" viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" fill="none" stroke="var(--gb)" stroke-width="10"/><circle id="ai-ring" cx="60" cy="60" r="52" fill="none" stroke="var(--gold)" stroke-width="10" stroke-linecap="round" stroke-dasharray="327" stroke-dashoffset="327" transform="rotate(-90 60 60)" style="transition:stroke-dashoffset .8s var(--ease)"/><text id="ai-pct" x="60" y="68" text-anchor="middle" font-family="Cormorant Garamond" font-size="34" font-weight="700" fill="var(--gold)">0</text></svg>
+          <div class="reco-box" id="ai-reco">Answer all five to see your score and a tailored recommendation.</div>
+          <a href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener" class="btn-gold" style="width:100%;text-align:center;margin-top:18px;display:block">Discuss My AI Roadmap →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" style="background:rgba(255,255,255,.015)">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-label">Client feedback</span><h2 class="sec-title">What founders say.</h2></div>
+    <div class="testi-grid">
+      <blockquote class="testi reveal"><div class="stars">★★★★★</div><p class="quote">"Het and the team turned our vague idea into a working app in under three months. Communication was impeccable — daily updates, no surprises."</p><footer class="testi-by"><div class="tav">JM</div><div><div class="tname">James M.</div><div class="trole">Founder, UK SaaS Startup</div></div></footer></blockquote>
+      <blockquote class="testi reveal d1"><div class="stars">★★★★★</div><p class="quote">"Delivered a polished React Native app on time and under budget. They genuinely cared about our users, not just hitting sprint targets."</p><footer class="testi-by"><div class="tav">SR</div><div><div class="tname">Sarah R.</div><div class="trole">CTO, Healthcare Platform, US</div></div></footer></blockquote>
+      <blockquote class="testi reveal d2"><div class="stars">★★★★★</div><p class="quote">"They understand engineering and business — a rare combination. Our platform launched on both stores without a single fire drill."</p><footer class="testi-by"><div class="tav">DK</div><div><div class="tname">Deepak K.</div><div class="trole">Product Director, UAE</div></div></footer></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG PREVIEW -->
+<section id="blog-preview">
+  <div class="wrap">
+    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:20px">
+      <div><span class="sec-label">Insights</span><h2 class="sec-title">From the studio.</h2></div>
+      <a href="/blog/" class="btn-outline">View all articles <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="blog-grid">
+      <a href="/blog/ai-agent-development-services" class="blog reveal">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(107,91,255,.06))"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.4"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3"/></svg></div>
+        <div class="blog-body"><div class="blog-cat">AI · Agents</div><h3 class="blog-title">AI Agent Development Services in 2026</h3><p class="blog-ex">2026 is the year of the agent. What they are, what they cost, and how to build one that delivers.</p><span class="blog-link">Read more →</span></div>
+      </a>
+      <a href="/blog/ai-app-development-cost-2026" class="blog reveal d1">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(201,168,76,.02))"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 7h8M8 12h8M8 17h5"/></svg></div>
+        <div class="blog-body"><div class="blog-cat">AI · Cost & Strategy</div><h3 class="blog-title">How Much Does It Cost to Build an AI App in 2026?</h3><p class="blog-ex">A real pricing breakdown for founders, CTOs and CMOs — no vague "it depends."</p><span class="blog-link">Read more →</span></div>
+      </a>
+      <a href="/blog/build-vs-buy-ai-cto-framework" class="blog reveal d2">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,rgba(107,91,255,.12),rgba(107,91,255,.02))"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.4"><path d="M12 2L2 7l10 5 10-5-10-5M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <div class="blog-body"><div class="blog-cat">AI · CTO Strategy</div><h3 class="blog-title">Build vs Buy AI: A CTO's Decision Framework</h3><p class="blog-ex">The most expensive AI mistake is building what you should have bought. Here's how to decide.</p><span class="blog-link">Read more →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HIRE STRIP -->
+<section style="background:rgba(255,255,255,.015)">
+  <div class="wrap">
+    <div class="hire-strip reveal">
+      <div>
+        <h3>Need a developer in your team this month?</h3>
+        <p>Senior React, React Native, Flutter, AI & DevOps engineers. IR35-aware. UK-based & remote-global.</p>
+      </div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a href="/hire/" class="btn-ghost">View all roles</a>
+        <a href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener" class="btn-gold">Discuss a Placement →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta-section">
+  <div class="cta-orb"></div>
+  <div class="wrap cta-inner">
+    <span class="sec-label" style="display:inline-block">Let's build together</span>
+    <h2 class="sec-title">Got a product idea?<br/>Let's talk this week.</h2>
+    <p class="sec-sub">30 minutes. No pitch deck. Just an honest conversation about what you're building and whether we're the right team to build it.</p>
+    <a href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener" class="btn-gold" style="font-size:16px;padding:17px 44px">Book Your Free Introductory Call →</a>
+    <div class="cta-note">Or reach us at <a href="mailto:het.soni@soniconsultancyservices.com">het.soni@soniconsultancyservices.com</a></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand"><svg width="36" height="36"><use href="#em"/></svg><span class="brand-name">SONI<span>CONSULTANCY SERVICES</span></span></div>
+        <p class="foot-desc">World-class web, mobile & AI app development for founders and CTOs who ship.</p>
+      </div>
+      <div class="foot-col"><div class="foot-h">Pages</div><a href="/services/">Services</a><a href="/work/">Work</a><a href="/about/">About</a><a href="/hire/">Hire a Dev</a><a href="/blog/">Blog</a><a href="/contact/">Contact</a></div>
+      <div class="foot-col"><div class="foot-h">Company</div><a href="https://www.linkedin.com/in/hetsoni/" target="_blank" rel="noopener">Het Soni (LinkedIn)</a><a href="https://www.linkedin.com/company/soniconsultancyservices" target="_blank" rel="noopener">Company Page</a><a href="https://medium.com/@hetsoni9398" target="_blank" rel="noopener">Medium Blog</a><a href="/privacy/">Privacy Policy</a></div>
+      <div class="foot-col"><div class="foot-h">Regions</div><a href="/contact/">United Kingdom</a><a href="/contact/">United States</a><a href="/contact/">UAE</a><a href="/contact/">India &amp; APAC</a></div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-copy">© 2025 Soni Consultancy Services. All rights reserved.</div>
+      <div class="foot-social"><a href="https://www.instagram.com/soni.consultancyservices/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/soniconsultancyservices" target="_blank" rel="noopener">Facebook</a><a href="https://www.linkedin.com/company/soniconsultancyservices" target="_blank" rel="noopener">LinkedIn</a><a href="https://medium.com/@hetsoni9398" target="_blank" rel="noopener">Medium</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- In production: <script src="/shared.js"></script> -->
+<script>
+/* THEME */
+const root=document.documentElement,tIcon=document.getElementById('themeIcon');
+const sun='<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/>';
+const moon='<path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/>';
+function setTheme(t){root.setAttribute('data-theme',t);tIcon.innerHTML=t==='dark'?sun:moon;try{localStorage.setItem('soni-theme',t)}catch(e){}}
+(function(){let t='dark';try{t=localStorage.getItem('soni-theme')||'dark'}catch(e){}setTheme(t)})();
+document.getElementById('themeBtn').onclick=()=>setTheme(root.getAttribute('data-theme')==='dark'?'light':'dark');
+
+/* SCROLL PROGRESS */
+addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;document.getElementById('prog').style.width=(scrollY/h*100)+'%'},{passive:true});
+
+/* REVEAL */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* 3D TILT */
+document.querySelectorAll('.tilt').forEach(c=>{
+  c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform='perspective(900px) rotateY('+(x*6)+'deg) rotateX('+(-y*6)+'deg) translateY(-4px)'});
+  c.addEventListener('mouseleave',()=>c.style.transform='');
+});
+
+/* TICKER */
+const ti=['React & Next.js','React Native','Flutter','MERN Stack','Claude API','AI Automations','DevOps & CI/CD','PostgreSQL','AWS Cloud','SaaS Platforms','AI Agents','RAG Systems'];
+let th='';for(let i=0;i<2;i++)ti.forEach(t=>th+='<span class="ticker-item"><b>✦</b>'+t+'</span>');document.getElementById('ticker').innerHTML=th;
+
+/* AI READINESS WIDGET */
+const aiQ=[{q:'Do you have repetitive manual processes that follow rules?',w:20},{q:'Is your data digital and reasonably organised?',w:20},{q:'Do you have a specific outcome AI should improve?',w:25},{q:'Is leadership bought in to trying AI?',w:15},{q:'Do you have budget allocated this quarter?',w:20}];
+const aiWrap=document.getElementById('ai-qs');
+aiQ.forEach((o,i)=>{aiWrap.insertAdjacentHTML('beforeend','<div class="wq"><span class="wq-label">'+(i+1)+'. '+o.q+'</span><div class="chip-row" data-ai="'+i+'"><span class="chip" data-s="0">No</span><span class="chip" data-s="0.5">Partly</span><span class="chip" data-s="1">Yes</span></div></div>')});
+function calcAI(){let score=0,answered=0;aiQ.forEach((o,i)=>{const s=document.querySelector('[data-ai="'+i+'"] .sel');if(s){score+=o.w*+s.dataset.s;answered++}});const ring=document.getElementById('ai-ring'),C=327;ring.style.strokeDashoffset=C-(C*score/100);document.getElementById('ai-pct').textContent=Math.round(score);let reco;if(answered<aiQ.length)reco='Answer all five to unlock your full recommendation.';else if(score>=75)reco='<b>You\'re AI-ready.</b> You have the processes, data and buy-in to ship a high-impact AI feature now.';else if(score>=45)reco='<b>Strong foundation.</b> A discovery sprint would pinpoint your highest-ROI AI use case.';else reco='<b>Early stage — that\'s fine.</b> Start with one well-defined automation and prove value before scaling.';document.getElementById('ai-reco').innerHTML=reco}
+document.querySelectorAll('[data-ai]').forEach(row=>row.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{row.querySelectorAll('.chip').forEach(x=>x.classList.remove('sel'));c.classList.add('sel');calcAI()}));
+</script>
+</body>
+</html>
