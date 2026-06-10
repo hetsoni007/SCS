@@ -1,0 +1,71 @@
+{
+  "CallerReference": "scs-prod-20260609-1",
+  "Comment": "Soni Consultancy Services - prod static site",
+  "Enabled": true,
+  "DefaultRootObject": "index.html",
+  "Aliases": { "Quantity": 0 },
+  "Origins": {
+    "Quantity": 1,
+    "Items": [
+      {
+        "Id": "s3origin",
+        "DomainName": "scs-site-prod-043174661808.s3.ap-south-1.amazonaws.com",
+        "OriginPath": "",
+        "CustomHeaders": { "Quantity": 0 },
+        "S3OriginConfig": { "OriginAccessIdentity": "" },
+        "OriginAccessControlId": "EZ1QNNHN5U221",
+        "ConnectionAttempts": 3,
+        "ConnectionTimeout": 10,
+        "OriginShield": { "Enabled": false }
+      }
+    ]
+  },
+  "DefaultCacheBehavior": {
+    "TargetOriginId": "s3origin",
+    "ViewerProtocolPolicy": "redirect-to-https",
+    "Compress": true,
+    "AllowedMethods": {
+      "Quantity": 2,
+      "Items": ["GET", "HEAD"],
+      "CachedMethods": { "Quantity": 2, "Items": ["GET", "HEAD"] }
+    },
+    "SmoothStreaming": false,
+    "FieldLevelEncryptionId": "",
+    "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+    "FunctionAssociations": {
+      "Quantity": 1,
+      "Items": [
+        {
+          "FunctionARN": "arn:aws:cloudfront::043174661808:function/scs-url-rewrite",
+          "EventType": "viewer-request"
+        }
+      ]
+    },
+    "LambdaFunctionAssociations": { "Quantity": 0 }
+  },
+  "CacheBehaviors": { "Quantity": 0 },
+  "CustomErrorResponses": {
+    "Quantity": 2,
+    "Items": [
+      {
+        "ErrorCode": 403,
+        "ResponsePagePath": "/404.html",
+        "ResponseCode": "404",
+        "ErrorCachingMinTTL": 10
+      },
+      {
+        "ErrorCode": 404,
+        "ResponsePagePath": "/404.html",
+        "ResponseCode": "404",
+        "ErrorCachingMinTTL": 10
+      }
+    ]
+  },
+  "PriceClass": "PriceClass_All",
+  "ViewerCertificate": { "CloudFrontDefaultCertificate": true },
+  "Restrictions": { "GeoRestriction": { "RestrictionType": "none", "Quantity": 0 } },
+  "HttpVersion": "http2and3",
+  "IsIPV6Enabled": true,
+  "WebACLId": "",
+  "Logging": { "Enabled": false, "IncludeCookies": false, "Bucket": "", "Prefix": "" }
+}

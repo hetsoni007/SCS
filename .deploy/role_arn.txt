@@ -1,0 +1,1 @@
+ROLE_ARN=arn:aws:iam::043174661808:role/scs-lead-mailer-role
