@@ -198,10 +198,10 @@ html[data-theme="dark"] .foot a:hover{color:var(--gold-light)}
 .blog-thumb img,.blog-thumb svg{transition:transform .6s var(--ease)}
 .blog-card:hover .blog-thumb img,.blog-card:hover .blog-thumb svg{transform:scale(1.08)}
 
-/* (3) animated link underlines — footer columns + inline text links */
-.foot-top a:not(.brand){width:fit-content;background-image:linear-gradient(var(--gold),var(--gold));background-position:0 100%;background-repeat:no-repeat;background-size:0% 1.5px;transition:background-size .35s var(--ease),color .2s}
-html[data-theme="dark"] .foot-top a:not(.brand){background-image:linear-gradient(var(--gold-light),var(--gold-light))}
-.foot-top a:not(.brand):hover{background-size:100% 1.5px}
+/* (3) animated link underlines — footer column links only (h4 ~ a skips the brand block + social icons) */
+.foot-top div>h4~a{width:fit-content;background-image:linear-gradient(var(--gold),var(--gold));background-position:0 100%;background-repeat:no-repeat;background-size:0% 1.5px;transition:background-size .35s var(--ease),color .2s}
+html[data-theme="dark"] .foot-top div>h4~a{background-image:linear-gradient(var(--gold-light),var(--gold-light))}
+.foot-top div>h4~a:hover{background-size:100% 1.5px}
 .ulink{position:relative;display:inline-block}
 .ulink::after{content:'';position:absolute;left:0;bottom:-2px;width:100%;height:1.5px;background:var(--gold-grad);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
 .ulink:hover::after{transform:scaleX(1)}
@@ -211,6 +211,23 @@ html[data-theme="dark"] .foot-top a:not(.brand){background-image:linear-gradient
 .foot-social a{width:40px;height:40px;margin:0;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--glass2);border:1px solid var(--line);color:var(--t2);transition:transform .3s var(--ease),color .3s,border-color .3s,background .3s}
 .foot-social a:hover{transform:translateY(-3px);color:var(--gold);border-color:var(--gold);background:var(--glass3)}
 .foot-social svg{width:18px;height:18px;fill:currentColor;display:block}
+
+/* ---------- WHATSAPP FLOATING BUTTON ---------- */
+.wa-fab{position:fixed;right:22px;bottom:22px;z-index:110;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 32px rgba(0,0,0,.35);transition:transform .3s var(--ease),box-shadow .3s}
+.wa-fab:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 18px 40px rgba(37,211,102,.45)}
+.wa-fab svg{width:30px;height:30px;fill:#fff}
+@media(max-width:620px){.wa-fab{right:16px;bottom:16px;width:52px;height:52px}.wa-fab svg{width:27px;height:27px}}
+
+/* ---------- RESPONSIVE: collapse inline fixed-column grids (.g3/.g4/.g5/.gauto added in HTML) ---------- */
+@media(max-width:980px){
+  .g5{grid-template-columns:repeat(3,1fr)!important}
+  .g4,.g3{grid-template-columns:repeat(2,1fr)!important}
+}
+@media(max-width:620px){
+  .g5,.g3{grid-template-columns:1fr!important}
+  .g4{grid-template-columns:repeat(2,1fr)!important}
+  .gauto{grid-template-columns:1fr!important}
+}
 
 /* ---------- RESPONSIVE ---------- */
 @media(max-width:980px){
