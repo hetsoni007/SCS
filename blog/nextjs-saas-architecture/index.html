@@ -4,8 +4,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <script>(function(){try{var t=localStorage.getItem('scs-theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
-<title>Next.js SaaS Architecture: The Patterns We Use on Every Project | Soni Consultancy Services</title>
-<meta name="description" content="The opinionated Next.js SaaS patterns we use on every build — multi-tenancy, role-based access, the API layer, Stripe webhooks, background jobs and observability."/>
+<title>Next.js SaaS Architecture Patterns</title>
+<meta name="description" content="The opinionated Next.js SaaS patterns we use on every build — multi-tenancy, RBAC, the API layer, Stripe webhooks and observability."/>
 <meta name="robots" content="index,follow,max-image-preview:large"/>
 <meta property="og:title" content="Next.js SaaS Architecture: The Patterns We Use on Every Project"/>
 <meta property="og:description" content="Multi-tenancy, RBAC, API layers, Stripe webhooks — the patterns behind every SaaS we ship."/>
@@ -18,9 +18,7 @@
 <meta name="twitter:image" content="https://soniconsultancyservices.com/assets/og.png"/>
 <link rel="canonical" href="https://soniconsultancyservices.com/blog/nextjs-saas-architecture"/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin/>
 <link rel="stylesheet" href="/liquid.css"/>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","headline":"Next.js SaaS Architecture: The Patterns We Use on Every Project","author":{"@type":"Person","name":"Het Soni"},"publisher":{"@type":"Organization","name":"Soni Consultancy Services"},"datePublished":"2026-04-05","articleSection":"Web"}
@@ -91,9 +89,9 @@ db/             &rarr; schema, migrations, seed</code></pre>
   <div><h4>Company</h4><a href="/about/">About</a><a href="/hire/">Hire a Dev</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a></div>
   <div><h4>Start</h4><a href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener">Book a Call</a><a href="mailto:het.soni@soniconsultancyservices.com">Email us</a></div>
 </div><div class="foot-bottom"><span>&#169; 2026 Soni Consultancy Services. All rights reserved.</span><span>React Native &#183; MERN &#183; AI</span></div></div></footer>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="/assets/js/gsap.min.js"></script>
+<script src="/assets/js/ScrollTrigger.min.js"></script>
+<script src="/assets/js/lenis.min.js"></script>
 <script src="/liquid.js"></script>
 <script src="/analytics.js"></script>
 </body>
