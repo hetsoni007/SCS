@@ -45,6 +45,7 @@ google3c3389cc0cde5740.html   GSC verification file (do not delete)
 - The footer-underline rule must stay scoped to `.foot-top div>h4~a`; a broader selector (`a:not(.brand)`) squashed the social icons to ovals via `width:fit-content`.
 - `sips` on this Mac cannot write WebP. Use Pillow (`python3 -m pip ... --user pillow`); images via pymupdf (`fitz`) + PIL.
 - zsh: unquoted `*` glob-expands; use `/usr/bin/curl` if `curl` not found when sandbox off.
+- **CSP img-src needs `data:`** (grain texture is a JS-built data: SVG via ScrollTrigger) **and `https://www.linkedin.com`** (Insight tag li_sync cookie-sync pixel). Found only by loading live pages in headless Chrome and grepping stderr for "violates" — always do that after CSP edits.
 - The Edit tool often hits "file modified since read" on this repo — Python read-modify-write via Bash is the reliable path for sitewide changes.
 
 ## Infrastructure & deploy
@@ -71,7 +72,7 @@ aws cloudfront create-invalidation --distribution-id <DIST_ID> --paths "/*"
 - No Meta Pixel yet (waiting on ID). No Microsoft Clarity yet.
 - Schema live: Organization (sameAs = LinkedIn/Instagram/Facebook/Medium) sitewide; Service + FAQPage + BreadcrumbList on intent/industry pages; FAQPage on /contact; BlogPosting+Person on articles; WebSite on home; WebApplication on calculator.
 - GSC verified (DNS + HTML file + meta tag). robots.txt + sitemap.xml (21 URLs, auto-generated) + llms.txt live.
-- Unique titles ≤60 / descriptions ≤160 / canonical on every page. Brotli on, TTFB ~90ms, security headers via CloudFront response-headers policy (HSTS, nosniff, X-Frame, referrer-policy). No CSP yet.
+- Unique titles ≤60 / descriptions ≤160 / canonical on every page. Brotli on, TTFB ~90ms, security headers via custom CloudFront response-headers policy `scs-security-headers` (HSTS, nosniff, X-Frame, referrer-policy, CSP, Permissions-Policy).
 
 ## Social / contact facts (the ONLY real ones — never invent others)
 - LinkedIn https://www.linkedin.com/in/hetsoni/ · Instagram https://www.instagram.com/soni.consultancyservices/ · Facebook https://www.facebook.com/soniconsultancyservices · Medium https://medium.com/@hetsoni9398
@@ -90,6 +91,7 @@ aws cloudfront create-invalidation --distribution-id <DIST_ID> --paths "/*"
 9. Lead-gen Sprint 1: /app-cost-calculator/ (email-gated estimator), FAQPage/WebSite/Breadcrumb schema pack, CWV fixes, llms.txt, contact-form validation.
 10. Lead-gen Sprint 2 (content half): /react-native-app-development/ + 4 industry pages (built ONLY from real case studies), footer Industries column, blog pillar expansion of ai-app-development-cost-2026 (~1,400 words, FAQ block).
 11. Mobile/tablet responsive pass (utility grid classes; 0 overflow at 375/768), WhatsApp floating button, LinkedIn tag, footer-icon fix.
+12. Blog pillar expansion of react-native-vs-flutter-2026 (~2.9k words, 12 sections, FAQPage schema, dateModified). CSP + Permissions-Policy headers live via custom response-headers policy `scs-security-headers` (replaced AWS managed policy; verified 0 violations in headless Chrome on home/calculator/blog).
 
 ## PENDING WORK (resume here)
 Blocked on user input:
@@ -99,9 +101,8 @@ Blocked on user input:
 4. Microsoft Clarity → user creates project, then add snippet.
 
 Not blocked (can do anytime):
-5. Deepen remaining blog posts to pillar length (start: react-native-vs-flutter-2026 — top comparison keyword).
+5. Deepen remaining blog posts to pillar length (react-native-vs-flutter-2026 DONE; remaining: ai-agent-development-services, build-vs-buy-ai-cto-framework, mvp-to-product-market-fit, nextjs-saas-architecture).
 6. Email nurture sequence once an ESP is chosen (Brevo suggested; Zoho CRM was REMOVED from scope by user — do not re-add).
-7. CSP + Permissions-Policy headers.
 
 User-side tasks (remind, can't do for them):
 - Create Clutch / DesignRush / GoodFirms / Google Business Profile listings + request client reviews (single biggest lead lever).
