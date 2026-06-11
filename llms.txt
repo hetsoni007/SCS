@@ -1,0 +1,31 @@
+# Soni Consultancy Services
+
+> Soni Consultancy Services (SCS) is an app development studio founded by Het Soni, building cross-platform mobile and web products in React Native and the MERN stack, with AI integration (Claude, GPT). Apps shipped are live on the App Store and Google Play. SCS works with founders and companies worldwide and offers fixed-price proposals.
+
+## What we do
+- React Native cross-platform app development (iOS + Android from one codebase)
+- MERN-stack web and backend development (MongoDB, Express, React, Node.js)
+- AI integration for mobile and web apps (Claude, GPT, RAG, agents)
+- DevOps & cloud (AWS) and dedicated developers / staff augmentation
+
+## Selected work
+- Attled — attendance & payroll system (HR), live on both stores
+- Claris — influencer-to-venue collaboration platform, live on the App Store
+- POPProbe — retail chain operations platform (checklists, LMS), live
+- Station — ride-hailing platform with AI fare prediction
+- NAPA and Mita — product & UI/UX design concepts (Web3 / music investing)
+
+## Key pages
+- Home: https://soniconsultancyservices.com/
+- Services: https://soniconsultancyservices.com/services/
+- Work / case studies: https://soniconsultancyservices.com/work/
+- AI app development: https://soniconsultancyservices.com/ai-app-development/
+- App cost calculator: https://soniconsultancyservices.com/app-cost-calculator/
+- Blog: https://soniconsultancyservices.com/blog/
+- About: https://soniconsultancyservices.com/about/
+- Contact: https://soniconsultancyservices.com/contact/
+
+## Contact
+- Email: het.soni@soniconsultancyservices.com
+- Book a call: https://calendly.com/het-soni-soniconsultancyservices/introductory
+- LinkedIn: https://www.linkedin.com/in/hetsoni/

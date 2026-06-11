@@ -39,6 +39,8 @@
       var href = a.getAttribute('href') || '';
       if (/calendly\.com/i.test(href)) {
         track('book_call_click', { location: location.pathname, link_text: (a.textContent || '').trim().slice(0, 60) });
+      } else if (/wa\.me|api\.whatsapp\.com|whatsapp:\/\//i.test(href)) {
+        track('whatsapp_click', { location: location.pathname });
       } else if (href.indexOf('mailto:') === 0) {
         track('email_click', { location: location.pathname });
       } else if (/^https?:\/\//i.test(href) && a.host !== location.host) {
@@ -66,6 +68,7 @@
     if (!f || !f.id) return;
     if (f.id === 'contactForm') track('generate_lead', { form: 'contact_brief' });
     if (f.id === 'unlockForm') track('generate_lead', { form: 'builder_unlock' });
+    if (f.id === 'calcLeadForm') track('generate_lead', { form: 'app_cost_calculator' });
   }, true);
 
   /* ---------- scroll depth ---------- */

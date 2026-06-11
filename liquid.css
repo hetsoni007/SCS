@@ -49,7 +49,7 @@ html[data-theme="light"]{--gold-dim:#7a5c12;
 html{font-size:16px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 body{background:var(--bg);color:var(--t1);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;font-weight:400;letter-spacing:-.011em;overflow-x:hidden;transition:background .45s var(--ease),color .45s var(--ease)}
 a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%}
+img{display:block;max-width:100%;height:auto}
 ::selection{background:rgba(201,162,75,.30);color:var(--t1)}
 :focus-visible{outline:1.5px solid var(--gold);outline-offset:3px;border-radius:6px}
 
