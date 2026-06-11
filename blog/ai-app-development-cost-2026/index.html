@@ -21,9 +21,10 @@
 <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin/>
 <link rel="stylesheet" href="/liquid.css"/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"How Much Does It Cost to Build an AI App in 2026?","author":{"@type":"Person","name":"Het Soni"},"publisher":{"@type":"Organization","name":"Soni Consultancy Services"},"datePublished":"2026-05-20","articleSection":"AI"}
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"How Much Does It Cost to Build an AI App in 2026?","author":{"@type":"Person","name":"Het Soni"},"publisher":{"@type":"Organization","name":"Soni Consultancy Services"},"datePublished":"2026-05-20","dateModified":"2026-06-11","articleSection":"AI"}
 </script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://soniconsultancyservices.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://soniconsultancyservices.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "How Much Does It Cost to Build an AI App in 2026?", "item": "https://soniconsultancyservices.com/blog/ai-app-development-cost-2026"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does it cost to build an AI app in 2026?", "acceptedAnswer": {"@type": "Answer", "text": "A focused AI MVP typically runs £15k–£35k, a growth product £35k–£80k, and a scale platform £80k–£150k+. The spread comes from integration surface, data work and the accuracy bar — not the AI itself."}}, {"@type": "Question", "name": "What are the ongoing costs of an AI app?", "acceptedAnswer": {"@type": "Answer", "text": "Model usage (which scales with traffic), hosting and monitoring, plus maintenance — budget 15–20% of the build cost annually. Caching and retrieval keep model costs predictable."}}, {"@type": "Question", "name": "How can I reduce AI app development cost?", "acceptedAnswer": {"@type": "Answer", "text": "Scope to the single most valuable feature, ship behind a human review step, use API-based models instead of training your own, and build cross-platform so one codebase serves iOS and Android."}}]}</script>
 </head>
 <body>
 <div class="bg"></div><div class="orb orb-a"></div><div class="orb orb-b"></div><div class="grid-lines"></div><div class="grain"></div><div class="prog" id="prog"></div>
@@ -50,33 +51,64 @@
 <section style="padding-top:0">
   <div class="article-wrap article-body" data-reveal>
     <h2>The honest answer</h2>
-    <p>A production AI app in 2026 ranges from roughly <strong>&pound;15k to &pound;150k+</strong> to build. That spread is real, not evasive — the difference between the low and high end is almost entirely scope and integration surface, not the AI itself.</p>
+    <p>A production AI app in 2026 ranges from roughly <strong>&pound;15k to &pound;150k+</strong> to build. That spread is real, not evasive &mdash; the difference between the low and high end is almost entirely scope and integration surface, not the AI itself. The model is the cheap part now; the engineering around it is what you are paying for.</p>
+    <p>If you want a number for your specific feature set right now, our <a href="/app-cost-calculator/">app cost calculator</a> gives an instant indicative range &mdash; pick platforms and features and watch the estimate move. The rest of this article explains <em>why</em> it moves.</p>
     <h2>What actually drives the cost</h2>
     <ul>
-      <li><strong>Integration surface.</strong> Every external system — CRM, payments, internal databases — adds build and test time. The biggest driver.</li>
-      <li><strong>Data work.</strong> If the AI needs your data (retrieval, embeddings), cleaning and structuring it is often half the project.</li>
-      <li><strong>Accuracy bar.</strong> "Good enough to assist a human" is far cheaper than "trusted to act unattended."</li>
-      <li><strong>Compliance.</strong> Healthcare, finance and anything touching personal data adds audit trails and review cycles.</li>
+      <li><strong>Integration surface.</strong> Every external system &mdash; CRM, payments, internal databases, legacy APIs &mdash; adds build and test time. This is the single biggest driver. An AI feature that lives alone in a clean app is cheap; the same feature wired into five systems is not, because every connection needs auth, error handling, retries and monitoring.</li>
+      <li><strong>Data work.</strong> If the AI needs your data (retrieval, embeddings, fine-tuning), cleaning and structuring it is often half the project. Most companies discover their "data" is four spreadsheets, two databases that disagree, and a PDF archive. Budget for that discovery.</li>
+      <li><strong>Accuracy bar.</strong> "Good enough to assist a human" is far cheaper than "trusted to act unattended." Moving from 90% to 99% reliability can cost more than the first version of the entire app, because the last few percent is all edge cases, evaluation and guardrails.</li>
+      <li><strong>Compliance.</strong> Healthcare, finance and anything touching personal data adds audit trails, data-residency decisions and review cycles. Not a reason to avoid these industries &mdash; just a real line item.</li>
+      <li><strong>Platform count.</strong> iOS, Android and web as three separate builds triples your UI bill. This is why we build cross-platform in <a href="/react-native-app-development/">React Native</a> &mdash; one codebase serves both app stores, and the same AI backend serves every client.</li>
     </ul>
+    <h2>Where the money actually goes</h2>
+    <p>On a typical fixed-price AI app build, the budget splits roughly like this:</p>
+    <ul>
+      <li><strong>Discovery &amp; design (10&ndash;15%).</strong> Scoping the one feature that matters, UX for AI states (loading, uncertainty, failure), and the data audit.</li>
+      <li><strong>Core build (40&ndash;50%).</strong> The app itself &mdash; screens, auth, backend, the model integration and prompt pipeline.</li>
+      <li><strong>Integrations (15&ndash;25%).</strong> Payments, CRMs, internal systems &mdash; the part that varies most between projects.</li>
+      <li><strong>Evaluation &amp; hardening (10&ndash;15%).</strong> Eval sets, guardrails, load testing, security review.</li>
+      <li><strong>Launch (around 5%).</strong> Store submission, review back-and-forth, monitoring setup.</li>
+    </ul>
+    <p>Notice what is <em>not</em> a big line: model API fees during development. Building with Claude- or GPT-class APIs costs pounds, not thousands, until you have real traffic.</p>
     <h2>Three realistic tiers</h2>
     <h3>Tier 1 &mdash; Focused MVP &middot; &pound;15k&ndash;&pound;35k</h3>
-    <p>One core AI feature, one or two integrations, a clean UI, human-in-the-loop. Built in 4&ndash;6 weeks. The right starting point for almost everyone.</p>
+    <p>One core AI feature, one or two integrations, a clean UI, human-in-the-loop. Built in 4&ndash;6 weeks. You get: a shippable product, an eval baseline, and real user data. You don't get: multi-tenant infrastructure, five integrations, or autonomous agents. This is the right starting point for almost everyone &mdash; including funded teams.</p>
     <h3>Tier 2 &mdash; Growth product &middot; &pound;35k&ndash;&pound;80k</h3>
-    <p>Multiple AI features, real auth and roles, several integrations, an evaluation harness and analytics. 8&ndash;14 weeks.</p>
+    <p>Multiple AI features, real auth and roles, several integrations, an evaluation harness and analytics. 8&ndash;14 weeks. This is where most successful Tier 1 products end up six months later &mdash; funded by the traction the MVP proved.</p>
     <h3>Tier 3 &mdash; Scale platform &middot; &pound;80k&ndash;&pound;150k+</h3>
-    <p>Multi-tenant, mobile + web, agentic workflows, strict reliability and compliance, dedicated infra. 4&ndash;6 months.</p>
+    <p>Multi-tenant, mobile + web, agentic workflows, strict reliability and compliance, dedicated infra. 4&ndash;6 months. Justified when you have paying customers and the unit economics to support it &mdash; rarely before.</p>
     <div class="article-callout"><strong>The running cost nobody quotes:</strong> model usage scales with traffic. A busy chat feature can run from tens to thousands of pounds a month depending on context size and model choice. We design for this with caching and retrieval so it stays predictable.</div>
+    <h2>How model choice changes your bill</h2>
+    <p>The pattern that keeps running costs sane in 2026 is <strong>routing</strong>: use a frontier model (Claude, GPT) for the work that genuinely needs reasoning, and smaller, cheaper models for classification, extraction and routine summarisation. Add prompt caching for repeated context and retrieval so you send the model only what it needs. Done properly, this cuts model spend by 60&ndash;80% versus naively sending everything to the biggest model &mdash; without users noticing any difference.</p>
+    <p>What you should almost never do is train your own model. For 95% of products, API-based models plus retrieval beat a custom model on cost, quality and time-to-ship. The exceptions are real but rare &mdash; and if you are one of them, you already know.</p>
     <h2>The hidden costs</h2>
     <ol>
-      <li><strong>Evaluation.</strong> You can't improve what you don't measure. Budget for an eval set — not optional.</li>
-      <li><strong>Prompt &amp; model iteration.</strong> The first version is rarely the shipped version.</li>
-      <li><strong>Guardrails.</strong> Handling the cases where the model is wrong is real engineering.</li>
-      <li><strong>Maintenance.</strong> Budget 15&ndash;20% of build cost annually.</li>
+      <li><strong>Evaluation.</strong> You can't improve what you don't measure. Budget for an eval set &mdash; a few hundred real examples with expected outcomes. Not optional, and cheaper to build early than to retrofit.</li>
+      <li><strong>Prompt &amp; model iteration.</strong> The first version is rarely the shipped version. Models update, prompts drift, and the behaviour you launched with needs re-checking against every change.</li>
+      <li><strong>Guardrails.</strong> Handling the cases where the model is wrong &mdash; gracefully, visibly, and without data damage &mdash; is real engineering, not an afterthought.</li>
+      <li><strong>Maintenance.</strong> Budget 15&ndash;20% of build cost annually. OS updates, store policy changes, dependency patches and model migrations all land on someone's desk &mdash; ideally the team that built it.</li>
     </ol>
     <h2>How to control scope</h2>
-    <p>Start with the single feature that proves the thesis. Ship it behind a human review step. Measure. Only then expand. The teams that blow their budget try to build Tier 3 before validating Tier 1.</p>
+    <p>Start with the single feature that proves the thesis. Ship it behind a human review step. Measure. Only then expand. The teams that blow their budget try to build Tier 3 before validating Tier 1 &mdash; they spend six months on infrastructure for users they don't have yet.</p>
+    <p>The discipline pays twice: a smaller first build costs less, <em>and</em> the usage data from real users makes every subsequent pound better spent, because you expand the features people actually touch.</p>
     <blockquote>The cheapest AI app is the one you scoped down to its single most valuable feature and shipped in six weeks.</blockquote>
-    <p>Want a fixed-price number for your specific idea? We give one within 48 hours of a discovery call.</p>
+    <h2>Agency vs freelancer vs in-house</h2>
+    <p>The build route changes the bill as much as the scope does:</p>
+    <ul>
+      <li><strong>Freelancer.</strong> Cheapest on paper (&pound;300&ndash;&pound;600 a day for someone good), but you become the project manager, the QA department and the continuity plan. Works for well-specified small builds; risky for an AI product where the spec evolves weekly.</li>
+      <li><strong>In-house.</strong> A senior mobile engineer plus a backend engineer runs &pound;130k&ndash;&pound;220k a year before you've shipped anything &mdash; and hiring them takes months. Right once the product is proven and needs constant iteration; expensive as a way to find out whether the idea works.</li>
+      <li><strong>Agency / studio.</strong> A fixed price for a defined outcome, with design, build, QA and store submission in one team. You pay a premium over a freelancer's day rate, but the price is attached to a result &mdash; not to hours. This is the model we run: scope call, fixed-price proposal within 48 hours, weekly demo builds.</li>
+    </ul>
+    <p>The honest tie-breaker: if you can write a complete, stable spec yourself, a freelancer is fine. If the spec will evolve as you learn &mdash; which describes nearly every AI product &mdash; pay for a team that has shipped before. Every product on our <a href="/work/">work page</a> went through exactly that evolution.</p>
+    <h2>What changed in 2026 &mdash; and what didn't</h2>
+    <p>Two real shifts have pushed build costs down. First, model API prices keep falling while quality rises &mdash; features that needed a fine-tuned custom model two years ago are now a well-designed prompt against a frontier API. Second, AI-assisted development genuinely compresses delivery: boilerplate, tests and migrations that took days now take hours, and serious teams pass that saving on through tighter fixed prices.</p>
+    <p>What hasn't changed: integration work, data cleaning and evaluation still cost what they cost, because they are about <em>your</em> systems and <em>your</em> data, not about the model. That is why the floor of the market hasn't moved much even as the ceiling dropped &mdash; and why quotes that sound too cheap usually mean the integration and evaluation work simply isn't in them. It surfaces later as "out of scope."</p>
+    <h2>Quick answers</h2>
+    <p><strong>How much does it cost to build an AI app in 2026?</strong> A focused AI MVP typically runs &pound;15k&ndash;&pound;35k, a growth product &pound;35k&ndash;&pound;80k, and a scale platform &pound;80k&ndash;&pound;150k+. The spread comes from integration surface, data work and the accuracy bar &mdash; not the AI itself.</p>
+    <p><strong>What are the ongoing costs?</strong> Model usage (which scales with traffic), hosting and monitoring, plus maintenance &mdash; budget 15&ndash;20% of the build cost annually. Caching and retrieval keep model costs predictable.</p>
+    <p><strong>How can I reduce the cost?</strong> Scope to the single most valuable feature, ship behind a human review step, use API-based models instead of training your own, and build cross-platform so one codebase serves iOS and Android.</p>
+    <p>Want a fixed-price number for your specific idea? Get an instant range with the <a href="/app-cost-calculator/">app cost calculator</a>, see what we've shipped on the <a href="/work/">work page</a>, or book a call &mdash; we give a fixed-price proposal within 48 hours.</p>
     <div class="article-author"><div class="av">HS</div><div><div class="an">Het Soni</div><div class="ar">Founder &amp; Lead Engineer, Soni Consultancy Services</div></div></div>
   </div>
 </section>
@@ -84,7 +116,8 @@
 </main>
 <footer class="foot"><div class="wrap"><div class="foot-top">
   <div><div class="brand" style="margin-bottom:6px"><svg class="brand-mark"><use href="#em"/></svg><span class="brand-name">SONI<span>CONSULTANCY SERVICES</span></span></div><p class="foot-desc">React Native &amp; MERN-stack mobile app development with AI built in. Live on the App Store &amp; Google Play.</p><div class="foot-social"><a href="https://www.linkedin.com/in/hetsoni/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.84v2.05h.05c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.67 4.8 6.14V23h-4v-6.6c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.49V23h-4V8z"/></svg></a><a href="https://www.instagram.com/soni.consultancyservices/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.52.01-4.76.07-1.15.05-1.77.24-2.19.41-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.16.42-.36 1.04-.41 2.19-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.05 1.15.25 1.77.41 2.19.21.55.47.94.88 1.35.41.41.8.67 1.35.88.42.16 1.04.36 2.19.41 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c1.15-.05 1.77-.25 2.19-.41.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.16-.42.36-1.04.41-2.19.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.05-1.15-.25-1.77-.41-2.19a3.6 3.6 0 00-.88-1.35 3.6 3.6 0 00-1.35-.88c-.42-.16-1.04-.36-2.19-.41-1.24-.06-1.61-.07-4.76-.07zm0 2.76a5.46 5.46 0 110 10.92 5.46 5.46 0 010-10.92zm0 1.62a3.84 3.84 0 100 7.68 3.84 3.84 0 000-7.68zm5.65-2.9a1.28 1.28 0 110 2.55 1.28 1.28 0 010-2.55z"/></svg></a><a href="https://www.facebook.com/soniconsultancyservices" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a><a href="https://medium.com/@hetsoni9398" target="_blank" rel="noopener" aria-label="Medium"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.54 12a6.8 6.8 0 11-13.6 0 6.8 6.8 0 0113.6 0zm7.42 0c0 3.54-1.52 6.42-3.4 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.4-6.42 3.39 2.88 3.39 6.42zM24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a></div></div>
-  <div><h4>Explore</h4><a href="/services/">Services</a><a href="/work/">Work</a><a href="/blog/">Blog</a><a href="/ai-app-development/">AI Apps</a><a href="/about/">About</a></div>
+  <div><h4>Explore</h4><a href="/services/">Services</a><a href="/react-native-app-development/">React Native</a><a href="/work/">Work</a><a href="/blog/">Blog</a><a href="/ai-app-development/">AI Apps</a><a href="/about/">About</a></div>
+  <div><h4>Industries</h4><a href="/fintech-app-development/">FinTech</a><a href="/retail-app-development/">Retail</a><a href="/ride-hailing-app-development/">Ride-Hailing</a><a href="/hr-payroll-app-development/">HR &amp; Payroll</a></div>
   <div><h4>Company</h4><a href="/about/">About</a><a href="/hire/">Hire a Dev</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a></div>
   <div><h4>Start</h4><a href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener">Book a Call</a><a href="/app-cost-calculator/">App cost estimate</a><a href="mailto:het.soni@soniconsultancyservices.com">Email us</a></div>
 </div><div class="foot-bottom"><span>&#169; 2026 Soni Consultancy Services. All rights reserved.</span><span>React Native &#183; MERN &#183; AI</span></div></div></footer>
