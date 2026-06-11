@@ -1,0 +1,6 @@
+# Internal deploy artifacts (infra IDs, Lambda/IAM, resource map) — not for the public repo
+.deploy/
+
+# OS noise
+.DS_Store
+*.DS_Store

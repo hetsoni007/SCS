@@ -1,1 +1,0 @@
-arn:aws:cloudfront::043174661808:function/scs-url-rewrite

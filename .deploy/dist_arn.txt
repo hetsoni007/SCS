@@ -1,1 +1,0 @@
-arn:aws:cloudfront::043174661808:distribution/E3HVJHFD5CQPVI

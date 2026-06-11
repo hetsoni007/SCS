@@ -1,1 +1,0 @@
-ENDPOINT=https://9cjt6qwy71.execute-api.ap-south-1.amazonaws.com
