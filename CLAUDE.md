@@ -45,7 +45,7 @@ google3c3389cc0cde5740.html   GSC verification file (do not delete)
 - The footer-underline rule must stay scoped to `.foot-top div>h4~a`; a broader selector (`a:not(.brand)`) squashed the social icons to ovals via `width:fit-content`.
 - `sips` on this Mac cannot write WebP. Use Pillow (`python3 -m pip ... --user pillow`); images via pymupdf (`fitz`) + PIL.
 - zsh: unquoted `*` glob-expands; use `/usr/bin/curl` if `curl` not found when sandbox off.
-- **CSP img-src needs `data:`** (grain texture is a JS-built data: SVG via ScrollTrigger) **and `https://www.linkedin.com`** (Insight tag li_sync cookie-sync pixel). Found only by loading live pages in headless Chrome and grepping stderr for "violates" — always do that after CSP edits.
+- **CSP img-src needs `data:`** (grain texture is a JS-built data: SVG via ScrollTrigger) **and `https://www.linkedin.com`** (Insight tag li_sync cookie-sync pixel). Meta Pixel needs `https://connect.facebook.net` (script-src) + `https://www.facebook.com` (img-src & connect-src). Found only by loading live pages in headless Chrome and grepping stderr for "violates" — always do that after CSP edits.
 - The Edit tool often hits "file modified since read" on this repo — Python read-modify-write via Bash is the reliable path for sitewide changes.
 
 ## Infrastructure & deploy
@@ -69,7 +69,7 @@ aws cloudfront create-invalidation --distribution-id <DIST_ID> --paths "/*"
 ## Analytics / SEO state
 - GA4 `G-0J9H7CBX0Q` via analytics.js. Custom events: book_call_click, generate_lead, scroll_depth, outbound_click, whatsapp_click (delegated to any wa.me link), calculator events.
 - LinkedIn Insight Tag partner id `10397217` on all 22 pages.
-- No Meta Pixel yet (waiting on ID). No Microsoft Clarity yet.
+- Meta Pixel `4314120685517416` on all pages (added 2026-06-13). No Microsoft Clarity yet.
 - Schema live: Organization (sameAs = LinkedIn/Instagram/Facebook/Medium) sitewide; Service + FAQPage + BreadcrumbList on intent/industry pages; FAQPage on /contact; BlogPosting+Person on articles; WebSite on home; WebApplication on calculator.
 - GSC verified (DNS + HTML file + meta tag). robots.txt + sitemap.xml (21 URLs, auto-generated) + llms.txt live.
 - Unique titles ≤60 / descriptions ≤160 / canonical on every page. Brotli on, TTFB ~90ms, security headers via custom CloudFront response-headers policy `scs-security-headers` (HSTS, nosniff, X-Frame, referrer-policy, CSP, Permissions-Policy).
@@ -95,7 +95,7 @@ aws cloudfront create-invalidation --distribution-id <DIST_ID> --paths "/*"
 
 ## PENDING WORK (resume here)
 Blocked on user input:
-1. **Meta Pixel ID** → add pixel (LinkedIn already done) + retargeting.
+1. ~~Meta Pixel ID~~ **DONE 2026-06-13** — pixel `4314120685517416` live on all pages, CSP updated. Remaining (user task): build retargeting/custom audiences in Meta Events Manager.
 2. **4–8 real client testimonials** (name/role/company/quote/logo) → build social-proof section on home + work, AggregateRating/Review schema. DO NOT fabricate.
 3. **Real pricing/engagement ranges** → build /pricing page (multi-currency) and recalibrate calculator RATE_LO/RATE_HI (currently rough placeholders).
 4. Microsoft Clarity → user creates project, then add snippet.
