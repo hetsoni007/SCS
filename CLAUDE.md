@@ -20,7 +20,7 @@ app-cost-calculator/       interactive lead-gen estimator (email-gated)
 react-native-app-development/                          flagship intent page
 fintech-app-development/ retail-app-development/
 ride-hailing-app-development/ hr-payroll-app-development/   industry pages
-blog/                      index + 6 articles (each its own folder)
+blog/                      index + 10 articles (each its own folder)
 assets/portfolio/          case-study screens (webp + napa jpg)
 assets/js/                 self-hosted gsap.min.js, ScrollTrigger.min.js, lenis.min.js
 assets/fonts/              self-hosted Inter (inter-latin.woff2, inter-latin-ext.woff2)
@@ -68,10 +68,10 @@ aws cloudfront create-invalidation --distribution-id <DIST_ID> --paths "/*"
 
 ## Analytics / SEO state
 - GA4 `G-0J9H7CBX0Q` via analytics.js. Custom events: book_call_click, generate_lead, scroll_depth, outbound_click, whatsapp_click (delegated to any wa.me link), calculator events.
-- LinkedIn Insight Tag partner id `10397217` on all 22 pages.
+- LinkedIn Insight Tag partner id `10397217` on all 26 pages.
 - No Meta Pixel yet (waiting on ID). No Microsoft Clarity yet.
 - Schema live: Organization (sameAs = LinkedIn/Instagram/Facebook/Medium) sitewide; Service + FAQPage + BreadcrumbList on intent/industry pages; FAQPage on /contact; BlogPosting+Person on articles; WebSite on home; WebApplication on calculator.
-- GSC verified (DNS + HTML file + meta tag). robots.txt + sitemap.xml (21 URLs, auto-generated) + llms.txt live.
+- GSC verified (DNS + HTML file + meta tag). robots.txt + sitemap.xml (25 URLs, auto-generated) + llms.txt live.
 - Unique titles ≤60 / descriptions ≤160 / canonical on every page. Brotli on, TTFB ~90ms, security headers via custom CloudFront response-headers policy `scs-security-headers` (HSTS, nosniff, X-Frame, referrer-policy, CSP, Permissions-Policy).
 
 ## Social / contact facts (the ONLY real ones — never invent others)
@@ -92,6 +92,7 @@ aws cloudfront create-invalidation --distribution-id <DIST_ID> --paths "/*"
 10. Lead-gen Sprint 2 (content half): /react-native-app-development/ + 4 industry pages (built ONLY from real case studies), footer Industries column, blog pillar expansion of ai-app-development-cost-2026 (~1,400 words, FAQ block).
 11. Mobile/tablet responsive pass (utility grid classes; 0 overflow at 375/768), WhatsApp floating button, LinkedIn tag, footer-icon fix.
 12. Blog pillar expansion of react-native-vs-flutter-2026 (~2.9k words, 12 sections, FAQPage schema, dateModified). CSP + Permissions-Policy headers live via custom response-headers policy `scs-security-headers` (replaced AWS managed policy; verified 0 violations in headless Chrome on home/calculator/blog).
+13. AI + React Native blog cluster (4 new posts, each Mobile·AI, BlogPosting+Breadcrumb+FAQPage schema, one inline-SVG diagram + one interactive widget each, full CTA): `ai-react-native-app-development` (pillar hub ~1.9k words, architecture explorer tabs), `react-native-chatgpt-integration` (API-key proxy toggle + live streaming-token demo), `on-device-ai-react-native` (where-to-run decision helper; references react-native-executorch / react-native-ai), `ai-chatbot-app-react-native` (animated chat demo + 4-tier complexity selector). Blog index: pillar set as featured, 4 cards added (data-cat="mobile ai", show under both Mobile & AI filters). Sitemap regenerated (25 URLs). All widgets verified working with 0 console errors in headless preview. NOTE: not yet deployed/committed — built on a worktree branch; `.deploy/` (bucket IDs) absent from worktree.
 
 ## PENDING WORK (resume here)
 Blocked on user input:

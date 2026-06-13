@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<script>(function(){try{var t=localStorage.getItem('scs-theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<title>How to Build an AI-Powered React Native App (2026)</title>
+<meta name="description" content="A founder's guide to building AI into a React Native app in 2026 — on-device vs cloud, LLM integration, architecture, security, cost drivers and timeline."/>
+<meta name="robots" content="index,follow,max-image-preview:large"/>
+<meta property="og:title" content="How to Build an AI-Powered React Native App in 2026"/>
+<meta property="og:description" content="The complete founder's guide: where AI runs, how to wire it up, what it costs, and how long it takes."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://soniconsultancyservices.com/blog/ai-react-native-app-development"/>
+<meta name="theme-color" content="#060607"/>
+<meta property="og:site_name" content="Soni Consultancy Services"/>
+<meta property="og:image" content="https://soniconsultancyservices.com/assets/og.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://soniconsultancyservices.com/assets/og.png"/>
+<link rel="canonical" href="https://soniconsultancyservices.com/blog/ai-react-native-app-development"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin/>
+<link rel="stylesheet" href="/liquid.css"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Build an AI-Powered React Native App in 2026","author":{"@type":"Person","name":"Het Soni"},"publisher":{"@type":"Organization","name":"Soni Consultancy Services"},"datePublished":"2026-06-13","dateModified":"2026-06-13","articleSection":"Mobile"}
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://soniconsultancyservices.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://soniconsultancyservices.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "How to Build an AI-Powered React Native App in 2026", "item": "https://soniconsultancyservices.com/blog/ai-react-native-app-development"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can a React Native app run AI models on-device?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. In 2026 libraries like react-native-executorch and Callstack's react-native-ai run small-to-mid sized models directly on the phone — chat, speech-to-text and image classification — with no network call. It is ideal for privacy-sensitive features, offline use and high call volume, at the cost of a larger app binary and a model ceiling lower than the frontier cloud models."}}, {"@type": "Question", "name": "Should I call the OpenAI or Claude API directly from a React Native app?", "acceptedAnswer": {"@type": "Answer", "text": "No. An API key shipped inside a mobile binary can be extracted and abused, running up your bill. Route every model call through your own backend, which holds the key, enforces auth and rate limits, and can swap providers without an app-store release."}}, {"@type": "Question", "name": "How much does it cost to add AI to a React Native app?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the feature set: a single chat or summarise feature on top of an existing app is a small add-on, while retrieval (RAG), voice, vision or multi-step automation each add backend, data and evaluation work. The build is usually predictable; the surprise is per-token running cost, which scales with context size and usage. Our app cost calculator gives an instant indicative range."}}, {"@type": "Question", "name": "How long does it take to build an AI feature into a mobile app?", "acceptedAnswer": {"@type": "Answer", "text": "A focused AI feature on an existing React Native app typically lands in 2–5 weeks including evaluation; a new AI-first app with RAG, auth and a polished UI is more like 8–14 weeks to the stores. Most of the time goes into data plumbing, prompt and retrieval quality, and testing — not the UI."}}]}</script>
+<style>
+/* ---- Architecture explorer widget ---- */
+.arch{border:1px solid var(--line2);border-radius:20px;background:var(--glass);padding:8px;margin:30px 0 6px}
+.arch-tabs{display:flex;gap:6px;padding:6px;flex-wrap:wrap}
+.arch-tab{flex:1;min-width:120px;background:var(--glass2);border:1px solid var(--line);color:var(--t2);padding:11px 14px;border-radius:13px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;transition:.22s}
+.arch-tab:hover{color:var(--t1);border-color:var(--line2)}
+.arch-tab.active{background:var(--btn-bg);color:var(--btn-fg);border-color:var(--btn-bg)}
+.arch-stage{padding:22px 18px 6px}
+.arch-svg{width:100%;height:auto;display:block}
+.arch-svg .seg{stroke-dasharray:5 7;animation:archdash 1.1s linear infinite}
+@keyframes archdash{to{stroke-dashoffset:-24}}
+.arch-svg .dim{opacity:.16;transition:opacity .4s}
+.arch-svg .lit{opacity:1;transition:opacity .4s}
+.arch-panel{padding:4px 22px 6px;font-size:15.5px;color:var(--t2);line-height:1.65}
+.arch-panel b{color:var(--t1)}
+.arch-chips{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:14px 18px 18px}
+.arch-chip{background:var(--glass2);border:1px solid var(--line);border-radius:13px;padding:12px 13px}
+.arch-chip .k{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--t3)}
+.arch-chip .v{font-size:14px;font-weight:600;color:var(--t1);margin-top:4px;line-height:1.3}
+@media(max-width:560px){.arch-chips{grid-template-columns:1fr 1fr}}
+/* ---- Data-flow diagram ---- */
+.flowfig{margin:30px 0}
+.flowfig svg{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:18px;background:var(--glass);padding:10px}
+.flowfig .pulse{animation:flowpulse 2.4s ease-in-out infinite}
+@keyframes flowpulse{0%,100%{opacity:.25}50%{opacity:1}}
+.flowfig figcaption{font-size:13px;color:var(--t3);text-align:center;margin-top:12px}
+.fig-dot{animation:figmove 3s linear infinite}
+@keyframes figmove{0%{transform:translateX(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateX(var(--d,120px));opacity:0}}
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="orb orb-a"></div><div class="orb orb-b"></div><div class="grid-lines"></div><div class="grain"></div><div class="prog" id="prog"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="em" viewBox="0 0 100 100"><linearGradient id="goldg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2DA8C"/><stop offset=".5" stop-color="#C9A24B"/><stop offset="1" stop-color="#9A7B2E"/></linearGradient><g fill="none" stroke="url(#goldg) #C9A24B" stroke-width="2.3" stroke-linejoin="round"><path d="M24 13H13V24M87 13H76M87 13V24M24 87H13V76M76 87H87V76"/><circle cx="50" cy="48" r="27"/></g><circle cx="59" cy="37" r="5.4" fill="url(#goldg) #C9A24B"/><g stroke="url(#goldg) #C9A24B" stroke-width="2.5" stroke-linecap="round"><line x1="38" y1="63" x2="38" y2="49"/><line x1="43" y1="63" x2="43" y2="43"/><line x1="48" y1="63" x2="48" y2="36"/><line x1="53" y1="63" x2="53" y2="46"/><line x1="58" y1="63" x2="58" y2="53"/></g><g stroke="url(#goldg) #C9A24B" stroke-width="2" stroke-linecap="round"><line x1="40" y1="68" x2="64" y2="68"/><line x1="44" y1="72" x2="61" y2="72"/></g></symbol></svg>
+<nav class="nav">
+  <input type="checkbox" id="navCb" class="nav-cb"/>
+  <div class="nav-in">
+    <a href="/" class="brand"><svg class="brand-mark"><use href="#em"/></svg><span class="brand-name">SONI<span>CONSULTANCY SERVICES</span></span></a>
+    <ul class="nav-links"><li><a href="/services/">Services</a></li><li><a href="/work/">Work</a></li><li><a href="/blog/" class="active">Blog</a></li><li><a href="/ai-app-development/">AI Apps</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul>
+    <div class="nav-r"><button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle dark or light mode"><svg id="themeIcon" viewBox="0 0 24 24"></svg></button><a href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener" class="nav-cta">Book a Call</a><label for="navCb" class="burger" aria-label="Menu"><span></span><span></span><span></span></label></div>
+  </div>
+  <div class="mobile"><a href="/services/" onclick="navCb.checked=false">Services</a><a href="/work/" onclick="navCb.checked=false">Work</a><a href="/blog/" onclick="navCb.checked=false">Blog</a><a href="/ai-app-development/" onclick="navCb.checked=false">AI Apps</a><a href="/about/" onclick="navCb.checked=false">About</a><a href="/contact/" onclick="navCb.checked=false">Contact</a><a href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener" style="color:var(--t1);font-weight:600" onclick="navCb.checked=false">Book a Free Call &#8594;</a></div>
+</nav>
+<main>
+<section class="page-hero" style="padding-bottom:36px">
+  <div class="article-wrap" data-reveal>
+    <div class="breadcrumb"><a href="/">Home</a> &#8250; <a href="/blog/">Blog</a> &#8250; Mobile</div>
+    <span class="article-cat">Mobile &middot; AI</span>
+    <h1 class="article-title">How to Build an AI-Powered React Native App in 2026</h1>
+    <p class="article-lead">AI stopped being a feature you bolt on and became a layer you design around. Here's the complete, founder-level guide to building it into a React Native app — where the model runs, how the pieces fit, what it costs, and how long it takes.</p>
+    <div class="article-meta"><span>Het Soni</span><span class="dot"></span><span>14 min read</span><span class="dot"></span><span>June 2026</span></div>
+  </div>
+</section>
+<section style="padding-top:0">
+  <div class="article-wrap article-body" data-reveal>
+    <div class="article-callout"><strong>TL;DR:</strong> The AI part of an AI app is rarely the hard part. The hard parts are deciding <strong>where the model runs</strong> (on-device, cloud, or hybrid), <strong>keeping your API keys out of the binary</strong>, making responses <strong>stream so the app feels fast</strong>, and <strong>controlling the per-token bill</strong>. Get those four right and React Native ships an AI product to both stores from one codebase.</div>
+
+    <h2>Why this is a different conversation in 2026</h2>
+    <p>Two years ago, "an AI app" usually meant one thing: a thin client that posted text to a single model endpoint and rendered whatever came back. That still works, and for some products it is exactly right. But the toolbox has widened dramatically. You can now run capable models <em>on the device itself</em>, stream responses token-by-token for a native-feeling UX, give a model live access to your data through retrieval, and let it call your own functions to take actions. The question is no longer "can React Native do AI" — it obviously can — but "which of these shapes does my product actually need."</p>
+    <p>That is good news for founders, because it turns a technology gamble into a series of fit decisions. This guide walks those decisions in the order they tend to decide real projects, and links out to deeper pieces — on <a href="/blog/react-native-chatgpt-integration">LLM integration</a>, <a href="/blog/on-device-ai-react-native">on-device AI</a>, and <a href="/blog/ai-chatbot-app-react-native">chatbot apps</a> — where each one deserves a full article of its own.</p>
+
+    <h2>The first decision: where does the model run?</h2>
+    <p>Everything else flows from this. A model can run on the phone, in the cloud behind your backend, or in a hybrid split where the easy work happens on-device and the heavy reasoning goes to a cloud model. Each has a distinct profile for latency, privacy, cost and offline behaviour. Use the explorer below to see the trade-offs side by side, then read on.</p>
+
+    <div class="arch" id="arch" aria-label="Where the AI model runs">
+      <div class="arch-tabs" role="tablist">
+        <button class="arch-tab active" data-k="device" role="tab">On-device</button>
+        <button class="arch-tab" data-k="cloud" role="tab">Cloud API</button>
+        <button class="arch-tab" data-k="hybrid" role="tab">Hybrid</button>
+      </div>
+      <div class="arch-stage">
+        <svg class="arch-svg" viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of device and cloud AI">
+          <defs><linearGradient id="ag" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2DA8C"/><stop offset="1" stop-color="#9A7B2E"/></linearGradient></defs>
+          <!-- phone -->
+          <g>
+            <rect x="40" y="50" width="120" height="100" rx="14" fill="var(--glass2)" stroke="var(--line2)"/>
+            <rect x="54" y="64" width="92" height="58" rx="7" fill="none" stroke="var(--line2)"/>
+            <text x="100" y="142" text-anchor="middle" font-size="12" fill="var(--t3)" font-family="Inter,sans-serif">React Native app</text>
+            <g class="g-devicechip"><rect x="66" y="76" width="68" height="34" rx="7" fill="rgba(201,162,75,.12)" stroke="url(#ag)"/><text x="100" y="97" text-anchor="middle" font-size="11" fill="var(--t1)" font-family="Inter,sans-serif">on-device model</text></g>
+          </g>
+          <!-- connector -->
+          <line class="seg g-cloudpath" x1="166" y1="100" x2="430" y2="100" stroke="url(#ag)" stroke-width="2.4" fill="none"/>
+          <!-- backend -->
+          <g class="g-cloudpath">
+            <rect x="300" y="64" width="92" height="72" rx="12" fill="var(--glass2)" stroke="var(--line2)"/>
+            <text x="346" y="96" text-anchor="middle" font-size="11" fill="var(--t1)" font-family="Inter,sans-serif">your</text>
+            <text x="346" y="112" text-anchor="middle" font-size="11" fill="var(--t1)" font-family="Inter,sans-serif">backend</text>
+          </g>
+          <line class="seg g-cloudpath" x1="392" y1="100" x2="470" y2="100" stroke="url(#ag)" stroke-width="2.4" fill="none"/>
+          <!-- cloud model -->
+          <g class="g-cloudpath">
+            <rect x="470" y="58" width="130" height="84" rx="14" fill="rgba(201,162,75,.1)" stroke="url(#ag)"/>
+            <text x="535" y="96" text-anchor="middle" font-size="12" fill="var(--t1)" font-family="Inter,sans-serif">cloud LLM</text>
+            <text x="535" y="114" text-anchor="middle" font-size="10.5" fill="var(--t3)" font-family="Inter,sans-serif">GPT &middot; Claude</text>
+          </g>
+        </svg>
+      </div>
+      <div class="arch-panel" id="archPanel"></div>
+      <div class="arch-chips" id="archChips"></div>
+    </div>
+    <p style="font-size:13.5px;color:var(--t3);margin-top:8px">Tap a tab to compare. Most production apps end up <em>hybrid</em> — cheap, instant work on the phone, heavy reasoning in the cloud.</p>
+
+    <h2>What "AI features" actually means in a mobile product</h2>
+    <p>"Add AI" is not a spec. Before scoping anything, pin down which of these patterns you actually need — each has a very different cost and risk profile:</p>
+    <ul>
+      <li><strong>Conversational / chat</strong> — a natural-language interface over your product or knowledge. The most common request and, done well, the highest-converting. See our <a href="/blog/ai-chatbot-app-react-native">AI chatbot guide</a>.</li>
+      <li><strong>Retrieval (RAG)</strong> — answers grounded in <em>your</em> documents or data, not the model's general training. This is what stops a chatbot from confidently making things up.</li>
+      <li><strong>Vision</strong> — classify, read or describe images straight from the camera (receipts, documents, products, damage assessment).</li>
+      <li><strong>Voice</strong> — speech-to-text in, text-to-speech out, for hands-free and accessibility-first experiences.</li>
+      <li><strong>Recommendations &amp; personalisation</strong> — ranking and suggestions driven by user behaviour.</li>
+      <li><strong>Automation / agents</strong> — multi-step tasks where the model calls your functions to actually get something done. We cover the line between a chatbot and an agent in <a href="/blog/ai-agent-development-services">AI agent development</a>.</li>
+    </ul>
+    <p>The discipline that saves budgets: scope to the one or two patterns that move your core metric, ship them well, and resist the urge to sprinkle a chat box on every screen.</p>
+
+    <h2>Choosing your model and provider</h2>
+    <p>For most cloud features the realistic shortlist in 2026 is the frontier hosted models — Anthropic's Claude and OpenAI's GPT family — plus strong open-weight models (Llama, Mistral, Qwen and friends) that you can host yourself or run on-device. The decision rarely comes down to a benchmark leaderboard; it comes down to four practical questions:</p>
+    <ul>
+      <li><strong>Capability headroom</strong> — does the cheapest model that passes your evaluation set do the job? Don't pay for frontier reasoning a summary task doesn't need.</li>
+      <li><strong>Data &amp; compliance</strong> — where can your users' data legally go, and what does each provider's data-handling policy allow?</li>
+      <li><strong>Latency &amp; streaming</strong> — does the provider stream tokens, and how fast is first-token time for your region?</li>
+      <li><strong>Cost &amp; portability</strong> — per-token price, and how hard it is to switch later. Abstracting the provider behind your backend keeps this a config change, not a rebuild.</li>
+    </ul>
+
+    <h2>The architecture: how an AI React Native app fits together</h2>
+    <p>For any cloud-backed feature, the shape below is the one we reach for again and again. The app never talks to the model directly. It talks to <strong>your</strong> backend, which holds the keys, enforces auth and rate limits, runs retrieval against a vector database, and streams the answer back.</p>
+
+    <figure class="flowfig" data-reveal>
+      <svg viewBox="0 0 700 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI React Native app architecture: app to backend to model and vector database">
+        <defs><linearGradient id="fg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#F2DA8C"/><stop offset="1" stop-color="#9A7B2E"/></linearGradient></defs>
+        <!-- app -->
+        <rect x="26" y="80" width="120" height="70" rx="13" fill="var(--glass2)" stroke="var(--line2)"/>
+        <text x="86" y="110" text-anchor="middle" font-size="12.5" fill="var(--t1)" font-family="Inter,sans-serif">React Native</text>
+        <text x="86" y="128" text-anchor="middle" font-size="11" fill="var(--t3)" font-family="Inter,sans-serif">iOS + Android</text>
+        <!-- backend -->
+        <rect x="290" y="70" width="120" height="90" rx="13" fill="var(--glass2)" stroke="url(#fg)"/>
+        <text x="350" y="100" text-anchor="middle" font-size="12.5" fill="var(--t1)" font-family="Inter,sans-serif">Your backend</text>
+        <text x="350" y="118" text-anchor="middle" font-size="10" fill="var(--t3)" font-family="Inter,sans-serif">keys &middot; auth</text>
+        <text x="350" y="132" text-anchor="middle" font-size="10" fill="var(--t3)" font-family="Inter,sans-serif">rate limit &middot; cache</text>
+        <!-- model -->
+        <rect x="556" y="22" width="120" height="64" rx="13" fill="rgba(201,162,75,.1)" stroke="url(#fg)"/>
+        <text x="616" y="50" text-anchor="middle" font-size="12.5" fill="var(--t1)" font-family="Inter,sans-serif">LLM API</text>
+        <text x="616" y="68" text-anchor="middle" font-size="10.5" fill="var(--t3)" font-family="Inter,sans-serif">GPT &middot; Claude</text>
+        <!-- vector db -->
+        <rect x="556" y="142" width="120" height="64" rx="13" fill="var(--glass2)" stroke="var(--line2)"/>
+        <text x="616" y="170" text-anchor="middle" font-size="12.5" fill="var(--t1)" font-family="Inter,sans-serif">Vector DB</text>
+        <text x="616" y="188" text-anchor="middle" font-size="10.5" fill="var(--t3)" font-family="Inter,sans-serif">your data (RAG)</text>
+        <!-- connectors -->
+        <line x1="146" y1="115" x2="290" y2="115" stroke="url(#fg)" stroke-width="2.4"/>
+        <line x1="410" y1="100" x2="556" y2="58" stroke="url(#fg)" stroke-width="2.4"/>
+        <line x1="410" y1="130" x2="556" y2="172" stroke="url(#fg)" stroke-width="2.4"/>
+        <!-- moving pulses -->
+        <circle class="fig-dot" cx="156" cy="115" r="4.5" fill="url(#fg)" style="--d:124px"/>
+        <circle class="fig-dot" cx="420" cy="98" r="4.5" fill="url(#fg)" style="--d:126px;animation-delay:.6s"/>
+        <circle class="pulse" cx="350" cy="160" r="3" fill="url(#fg)"/>
+      </svg>
+      <figcaption>The pattern behind every cloud-backed AI feature we ship: the app talks only to your backend; the backend owns the keys, the retrieval and the streaming.</figcaption>
+    </figure>
+
+    <h2>The mistake that costs real money: keys in the binary</h2>
+    <p>The single most common error we are asked to fix is an OpenAI or Claude key embedded in the React Native app so it can call the model "directly." A mobile binary is not a secret — anyone can pull it apart and read the key, and the first sign you'll get is a bill. <strong>Never ship a provider key in the app.</strong> Put it on your backend, where you can rotate it, scope it, attach per-user rate limits, and switch providers without shipping an app-store update. This is covered in depth in our <a href="/blog/react-native-chatgpt-integration">ChatGPT &amp; LLM integration guide</a> — if you read one linked piece, read that one.</p>
+
+    <h2>Streaming, latency and UX</h2>
+    <p>An AI response that arrives all at once after four seconds feels broken; the same response streamed word-by-word feels instant. Streaming is the difference between "is this thing frozen" and a product that feels alive, and it is table stakes in 2026. On the backend you forward the model's streamed tokens to the app over Server-Sent Events or a streaming fetch; in React Native you render them as they arrive. Pair that with optimistic UI, a clear typing indicator, and graceful handling of partial responses and timeouts. The model is only half the experience — the other half is how honestly your UI represents waiting.</p>
+
+    <h2>Grounding answers with retrieval (RAG)</h2>
+    <p>A raw model knows the public internet up to its training cut-off and nothing about your business. Retrieval-augmented generation fixes that: you embed your documents into a vector database, fetch the most relevant chunks at query time, and hand them to the model as context so its answer is grounded in <em>your</em> facts. This is what separates a chatbot that quietly invents a refund policy from one that quotes yours correctly. RAG adds real engineering — chunking, embeddings, a vector store, and evaluation — but for any product where being <em>right</em> matters, it is not optional.</p>
+
+    <h2>Cost drivers — and how to keep the bill sane</h2>
+    <p>AI apps have two cost lines and founders usually only budget for one. The <strong>build</strong> is the predictable part. The <strong>running cost</strong> — per-token model spend — is the one that surprises teams, because it scales with how much context every call carries and how many calls each task takes. The levers that keep it under control:</p>
+    <ul>
+      <li><strong>Right-size the model</strong> — route simple calls to a cheaper model, reserve the frontier model for the hard ones.</li>
+      <li><strong>Retrieve, don't stuff</strong> — send the few relevant chunks, not the whole document.</li>
+      <li><strong>Cache</strong> aggressively — prompt caching and response caching cut repeat spend dramatically.</li>
+      <li><strong>Move cheap work on-device</strong> — classification, simple extraction and speech can often run on the phone for free.</li>
+    </ul>
+    <p>For an instant, indicative range on your specific feature set, our <a href="/app-cost-calculator/">app cost calculator</a> exposes exactly the drivers above — integrations, auth, payments and AI features — so you can see what moves the number before you ever get on a call.</p>
+
+    <h2>Timeline: from idea to the stores</h2>
+    <p>Two honest reference points from how these projects actually run:</p>
+    <ul>
+      <li><strong>An AI feature on an existing React Native app</strong> — typically <strong>2&ndash;5 weeks</strong> including an evaluation set, depending on whether it needs retrieval, voice or vision.</li>
+      <li><strong>A new AI-first app</strong> — with auth, RAG, a polished chat UI and store submission, more like <strong>8&ndash;14 weeks</strong>.</li>
+    </ul>
+    <p>The counter-intuitive part: most of that time is not the UI and not the model call. It is data plumbing, getting retrieval and prompts good enough to trust, and the testing that proves it. Teams that skip the evaluation step ship fast and then spend twice as long firefighting hallucinations in production.</p>
+
+    <h2>Common mistakes we are asked to fix</h2>
+    <ul>
+      <li><strong>API keys in the app</strong> — covered above; the most expensive and most common.</li>
+      <li><strong>No evaluation set</strong> — shipping prompts on vibes, with no way to know if a change made things better or worse.</li>
+      <li><strong>No streaming</strong> — a technically-correct app that feels frozen.</li>
+      <li><strong>RAG skipped where it was needed</strong> — a confident chatbot that invents facts about your own business.</li>
+      <li><strong>Unbounded cost</strong> — no caps, no caching, no per-user limits, discovered via the invoice.</li>
+      <li><strong>AI for its own sake</strong> — a chat box bolted onto a screen a single button would have served better.</li>
+    </ul>
+
+    <h2>How we'd build yours</h2>
+    <ol>
+      <li><strong>Define the win and the eval first.</strong> What metric does this move, and what test cases prove it works on your data?</li>
+      <li><strong>Pick where the model runs</strong> — on-device, cloud or hybrid — from the trade-offs above, not by default.</li>
+      <li><strong>Stand up the backend proxy</strong> — keys, auth, rate limits, streaming, and a provider abstraction so you're never locked in.</li>
+      <li><strong>Add retrieval if being right matters</strong>, with evaluation on real questions.</li>
+      <li><strong>Build the React Native UI for streaming</strong> — fast-feeling, honest about waiting, graceful on failure.</li>
+      <li><strong>Instrument cost and quality</strong> from day one, and ship to both stores from the one codebase.</li>
+    </ol>
+    <p>That last line is the quiet reason we build mobile in <a href="/react-native-app-development/">React Native</a>: the AI layer, the UI and the release train all live in one place, so every improvement lands once and ships to iOS and Android together.</p>
+
+    <blockquote>The AI is the easy part. The product is deciding where it runs, keeping it cheap, making it feel fast, and proving it's right.</blockquote>
+
+    <h2>Quick answers</h2>
+    <p><strong>Can a React Native app run AI on-device?</strong> Yes — libraries like react-native-executorch and react-native-ai run capable models on the phone for chat, speech and vision, with no network call. Great for privacy, offline and high volume; the trade-off is a bigger binary and a lower model ceiling than frontier cloud models. More in our <a href="/blog/on-device-ai-react-native">on-device AI guide</a>.</p>
+    <p><strong>Should I call the LLM API directly from the app?</strong> No. Route every call through your own backend so the key never ships in the binary, and you can rate-limit, cache and switch providers freely.</p>
+    <p><strong>What does it cost?</strong> The build is predictable; the running per-token cost is the one to plan for. Right-size models, retrieve instead of stuffing, and cache. Our <a href="/app-cost-calculator/">calculator</a> gives an instant indicative range.</p>
+    <p><strong>How long does it take?</strong> A feature on an existing app: 2&ndash;5 weeks. A new AI-first app: 8&ndash;14 weeks to the stores. Most of it is data and evaluation, not UI.</p>
+    <p>Planning an AI feature or a full AI-first product? We build them in React Native end to end — see our <a href="/work/">work</a>, or bring us the idea and we'll give you a straight recommendation on a call.</p>
+    <div class="article-author"><div class="av">HS</div><div><div class="an">Het Soni</div><div class="ar">Founder &amp; Lead Engineer, Soni Consultancy Services</div></div></div>
+  </div>
+</section>
+<section style="padding-bottom:60px"><div class="wrap"><div class="glass" data-reveal style="padding:64px 48px;text-align:center"><svg width="48" height="48" style="margin:0 auto 20px"><use href="#em"/></svg><h2 class="h2" style="max-width:560px;margin:0 auto">Building an AI-powered app?</h2><p class="lead" style="max-width:480px;margin:18px auto 0">Tell us the feature and the users. We'll recommend where the model should run, what it'll cost, and a realistic path to the stores.</p><div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px"><a href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener" class="btn btn-primary btn-lg" data-magnetic="0.25">Book a Free Call &#8594;</a><a href="/app-cost-calculator/" class="btn btn-glass btn-lg">Estimate the cost</a></div></div></div></section>
+</main>
+<footer class="foot"><div class="wrap"><div class="foot-top">
+  <div><div class="brand" style="margin-bottom:6px"><svg class="brand-mark"><use href="#em"/></svg><span class="brand-name">SONI<span>CONSULTANCY SERVICES</span></span></div><p class="foot-desc">React Native &amp; MERN-stack mobile app development with AI built in. Live on the App Store &amp; Google Play.</p><div class="foot-social"><a href="https://www.linkedin.com/in/hetsoni/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.84v2.05h.05c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.67 4.8 6.14V23h-4v-6.6c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.49V23h-4V8z"/></svg></a><a href="https://www.instagram.com/soni.consultancyservices/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.52.01-4.76.07-1.15.05-1.77.24-2.19.41-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.16.42-.36 1.04-.41 2.19-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.05 1.15.25 1.77.41 2.19.21.55.47.94.88 1.35.41.41.8.67 1.35.88.42.16 1.04.36 2.19.41 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c1.15-.05 1.77-.25 2.19-.41.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.16-.42.36-1.04.41-2.19.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.05-1.15-.25-1.77-.41-2.19a3.6 3.6 0 00-.88-1.35 3.6 3.6 0 00-1.35-.88c-.42-.16-1.04-.36-2.19-.41-1.24-.06-1.61-.07-4.76-.07zm0 2.76a5.46 5.46 0 110 10.92 5.46 5.46 0 010-10.92zm0 1.62a3.84 3.84 0 100 7.68 3.84 3.84 0 000-7.68zm5.65-2.9a1.28 1.28 0 110 2.55 1.28 1.28 0 010-2.55z"/></svg></a><a href="https://www.facebook.com/soniconsultancyservices" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a><a href="https://medium.com/@hetsoni9398" target="_blank" rel="noopener" aria-label="Medium"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.54 12a6.8 6.8 0 11-13.6 0 6.8 6.8 0 0113.6 0zm7.42 0c0 3.54-1.52 6.42-3.4 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.4-6.42 3.39 2.88 3.39 6.42zM24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a></div></div>
+  <div><h4>Explore</h4><a href="/services/">Services</a><a href="/react-native-app-development/">React Native</a><a href="/work/">Work</a><a href="/blog/">Blog</a><a href="/ai-app-development/">AI Apps</a><a href="/about/">About</a></div>
+  <div><h4>Industries</h4><a href="/fintech-app-development/">FinTech</a><a href="/retail-app-development/">Retail</a><a href="/ride-hailing-app-development/">Ride-Hailing</a><a href="/hr-payroll-app-development/">HR &amp; Payroll</a></div>
+  <div><h4>Company</h4><a href="/about/">About</a><a href="/hire/">Hire a Dev</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a></div>
+  <div><h4>Start</h4><a href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener">Book a Call</a><a href="/app-cost-calculator/">App cost estimate</a><a href="mailto:het.soni@soniconsultancyservices.com">Email us</a></div>
+</div><div class="foot-bottom"><span>&#169; 2026 Soni Consultancy Services. All rights reserved.</span><span>React Native &#183; MERN &#183; AI</span></div></div></footer>
+<script src="/assets/js/gsap.min.js"></script>
+<script src="/assets/js/ScrollTrigger.min.js"></script>
+<script src="/assets/js/lenis.min.js"></script>
+<script src="/liquid.js"></script>
+<script>
+(function(){
+  var data={
+    device:{txt:"The model lives <b>inside the app binary</b> and runs on the phone's own chip. No request ever leaves the device.",chips:[["Latency","Instant, no round-trip"],["Privacy","Data never leaves device"],["Cost","$0 per call"],["Offline","Fully offline"]],lit:["g-devicechip"],dim:["g-cloudpath"]},
+    cloud:{txt:"The app calls <b>your backend</b>, which calls a frontier model in the cloud and streams the answer back. Most capable, needs a connection.",chips:[["Latency","Network round-trip"],["Privacy","Leaves device (your control)"],["Cost","Per-token"],["Offline","Needs connection"]],lit:["g-cloudpath"],dim:["g-devicechip"]},
+    hybrid:{txt:"Cheap, instant work runs <b>on-device</b>; heavy reasoning routes to a <b>cloud model</b>. The default shape for most production AI apps.",chips:[["Latency","Best of both"],["Privacy","Sensitive bits stay local"],["Cost","Lower per-token"],["Offline","Core works offline"]],lit:["g-devicechip","g-cloudpath"],dim:[]}
+  };
+  var panel=document.getElementById('archPanel'),chips=document.getElementById('archChips'),svg=document.querySelector('#arch .arch-svg');
+  function setGroup(cls,on){svg.querySelectorAll('.'+cls).forEach(function(el){el.classList.remove('lit','dim');el.classList.add(on?'lit':'dim');});}
+  function render(k){var d=data[k];panel.innerHTML=d.txt;chips.innerHTML=d.chips.map(function(c){return '<div class="arch-chip"><div class="k">'+c[0]+'</div><div class="v">'+c[1]+'</div></div>';}).join('');['g-devicechip','g-cloudpath'].forEach(function(g){setGroup(g,d.lit.indexOf(g)>-1);});}
+  document.querySelectorAll('#arch .arch-tab').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('#arch .arch-tab').forEach(function(x){x.classList.remove('active');});b.classList.add('active');render(b.dataset.k);});});
+  render('device');
+})();
+</script>
+<script src="/analytics.js"></script>
+<a href="https://wa.me/918160682185?text=Hi%20Het%2C%20I%27d%20like%20to%20discuss%20building%20an%20AI%20app." target="_blank" rel="noopener" class="wa-fab" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<script type="text/javascript">_linkedin_partner_id="10397217";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);</script><script type="text/javascript">(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s);})(window.lintrk);</script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=10397217&fmt=gif"/></noscript>
+</body>
+</html>
