@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<script>(function(){try{var t=localStorage.getItem('scs-theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<title>On-Device AI in React Native (Offline &amp; Private)</title>
+<meta name="description" content="Run AI models on-device in React Native with ExecuTorch and react-native-ai — full privacy, offline support and no per-call API cost. When it's worth it."/>
+<meta name="robots" content="index,follow,max-image-preview:large"/>
+<meta property="og:title" content="On-Device AI in React Native: Private, Offline, $0 per Call"/>
+<meta property="og:description" content="When to run AI on the phone instead of the cloud — the libraries, the trade-offs, and why hybrid usually wins."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://soniconsultancyservices.com/blog/on-device-ai-react-native"/>
+<meta name="theme-color" content="#060607"/>
+<meta property="og:site_name" content="Soni Consultancy Services"/>
+<meta property="og:image" content="https://soniconsultancyservices.com/assets/og.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://soniconsultancyservices.com/assets/og.png"/>
+<link rel="canonical" href="https://soniconsultancyservices.com/blog/on-device-ai-react-native"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin/>
+<link rel="stylesheet" href="/liquid.css"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"On-Device AI in React Native: Private, Offline, $0 per Call","author":{"@type":"Person","name":"Het Soni"},"publisher":{"@type":"Organization","name":"Soni Consultancy Services"},"datePublished":"2026-06-13","dateModified":"2026-06-13","articleSection":"Mobile"}
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://soniconsultancyservices.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://soniconsultancyservices.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "On-Device AI in React Native", "item": "https://soniconsultancyservices.com/blog/on-device-ai-react-native"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can you run an LLM on-device in React Native?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. In 2026, react-native-executorch (Software Mansion) and react-native-ai (Callstack), along with runtimes like MLC LLM, run small-to-mid sized language, speech and vision models directly on the phone's hardware — no network call and no API key. The trade-off is a larger app and a capability ceiling below the frontier cloud models."}}, {"@type": "Question", "name": "What are the best on-device AI libraries for React Native?", "acceptedAnswer": {"@type": "Answer", "text": "The leading options are react-native-executorch, which wraps PyTorch's ExecuTorch runtime for LLMs, speech-to-text and image classification, and Callstack's react-native-ai for on-device inference. MLC LLM is another mature runtime for running quantised LLMs locally."}}, {"@type": "Question", "name": "Is on-device AI cheaper than cloud AI?", "acceptedAnswer": {"@type": "Answer", "text": "There is no per-call cost because inference runs on the user's device rather than a paid API, which is a major saving at high volume. You trade that against a one-time engineering cost to integrate and optimise the model, a larger app binary, and a lower capability ceiling than cloud frontier models."}}, {"@type": "Question", "name": "When should I use on-device AI instead of a cloud API?", "acceptedAnswer": {"@type": "Answer", "text": "Choose on-device when privacy is non-negotiable, the feature must work offline, call volume would make cloud costs painful, or instant latency matters. Choose cloud when you need the most capable models or the largest context. Most production apps end up hybrid: cheap, private work on-device, heavy reasoning in the cloud."}}]}</script>
+<style>
+.figdev{margin:28px auto;max-width:360px}
+.figdev svg{width:100%;height:auto;display:block}
+.figdev .ring{transform-origin:center;animation:spin 9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.figdev .sp{animation:sppulse 2s ease-in-out infinite}
+@keyframes sppulse{0%,100%{opacity:.3}50%{opacity:1}}
+.dm{border:1px solid var(--line2);border-radius:20px;background:var(--glass);padding:18px;margin:30px 0 8px}
+.dm-q{font-size:14px;font-weight:600;color:var(--t1);margin-bottom:12px}
+.dm-opts{display:flex;flex-wrap:wrap;gap:8px}
+.dm-opt{background:var(--glass2);border:1px solid var(--line);color:var(--t2);padding:9px 15px;border-radius:100px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:.2s}
+.dm-opt:hover{color:var(--t1);border-color:var(--line2)}
+.dm-opt.active{background:var(--btn-bg);color:var(--btn-fg);border-color:var(--btn-bg)}
+.dm-res{margin-top:16px;border-top:1px solid var(--line);padding-top:16px}
+.dm-pick{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-dim);background:rgba(201,162,75,.12);border:1px solid rgba(201,162,75,.4);padding:7px 13px;border-radius:100px}
+html[data-theme="dark"] .dm-pick{color:var(--gold-light)}
+.dm-why{font-size:15px;color:var(--t2);line-height:1.65;margin-top:12px}
+.dm-why b{color:var(--t1)}
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="orb orb-a"></div><div class="orb orb-b"></div><div class="grid-lines"></div><div class="grain"></div><div class="prog" id="prog"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="em" viewBox="0 0 100 100"><linearGradient id="goldg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2DA8C"/><stop offset=".5" stop-color="#C9A24B"/><stop offset="1" stop-color="#9A7B2E"/></linearGradient><g fill="none" stroke="url(#goldg) #C9A24B" stroke-width="2.3" stroke-linejoin="round"><path d="M24 13H13V24M87 13H76M87 13V24M24 87H13V76M76 87H87V76"/><circle cx="50" cy="48" r="27"/></g><circle cx="59" cy="37" r="5.4" fill="url(#goldg) #C9A24B"/><g stroke="url(#goldg) #C9A24B" stroke-width="2.5" stroke-linecap="round"><line x1="38" y1="63" x2="38" y2="49"/><line x1="43" y1="63" x2="43" y2="43"/><line x1="48" y1="63" x2="48" y2="36"/><line x1="53" y1="63" x2="53" y2="46"/><line x1="58" y1="63" x2="58" y2="53"/></g><g stroke="url(#goldg) #C9A24B" stroke-width="2" stroke-linecap="round"><line x1="40" y1="68" x2="64" y2="68"/><line x1="44" y1="72" x2="61" y2="72"/></g></symbol></svg>
+<nav class="nav">
+  <input type="checkbox" id="navCb" class="nav-cb"/>
+  <div class="nav-in">
+    <a href="/" class="brand"><svg class="brand-mark"><use href="#em"/></svg><span class="brand-name">SONI<span>CONSULTANCY SERVICES</span></span></a>
+    <ul class="nav-links"><li><a href="/services/">Services</a></li><li><a href="/work/">Work</a></li><li><a href="/blog/" class="active">Blog</a></li><li><a href="/ai-app-development/">AI Apps</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul>
+    <div class="nav-r"><button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle dark or light mode"><svg id="themeIcon" viewBox="0 0 24 24"></svg></button><a href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener" class="nav-cta">Book a Call</a><label for="navCb" class="burger" aria-label="Menu"><span></span><span></span><span></span></label></div>
+  </div>
+  <div class="mobile"><a href="/services/" onclick="navCb.checked=false">Services</a><a href="/work/" onclick="navCb.checked=false">Work</a><a href="/blog/" onclick="navCb.checked=false">Blog</a><a href="/ai-app-development/" onclick="navCb.checked=false">AI Apps</a><a href="/about/" onclick="navCb.checked=false">About</a><a href="/contact/" onclick="navCb.checked=false">Contact</a><a href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener" style="color:var(--t1);font-weight:600" onclick="navCb.checked=false">Book a Free Call &#8594;</a></div>
+</nav>
+<main>
+<section class="page-hero" style="padding-bottom:36px">
+  <div class="article-wrap" data-reveal>
+    <div class="breadcrumb"><a href="/">Home</a> &#8250; <a href="/blog/">Blog</a> &#8250; Mobile</div>
+    <span class="article-cat">Mobile &middot; AI</span>
+    <h1 class="article-title">On-Device AI in React Native: Private, Offline, $0 per Call</h1>
+    <p class="article-lead">Some AI features shouldn't touch the cloud at all. In 2026 you can run real models on the phone itself from a React Native app — here's what's possible, the honest trade-offs, and when it's the right call.</p>
+    <div class="article-meta"><span>Het Soni</span><span class="dot"></span><span>8 min read</span><span class="dot"></span><span>June 2026</span></div>
+  </div>
+</section>
+<section style="padding-top:0">
+  <div class="article-wrap article-body" data-reveal>
+    <div class="article-callout"><strong>TL;DR:</strong> On-device AI means the model runs on the user's phone &mdash; <strong>no network call, no API key, no per-call cost, full privacy, works offline.</strong> Libraries like <strong>react-native-executorch</strong> and <strong>react-native-ai</strong> make it real in 2026. The catch: a bigger app and a lower capability ceiling than cloud frontier models, which is why most products end up <strong>hybrid</strong>. This is one path in our wider <a href="/blog/ai-react-native-app-development">guide to building AI-powered React Native apps</a>.</div>
+
+    <figure class="figdev" data-reveal>
+      <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Phone running an AI model on-device with no network">
+        <defs><linearGradient id="dg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2DA8C"/><stop offset="1" stop-color="#9A7B2E"/></linearGradient></defs>
+        <circle class="ring" cx="110" cy="110" r="92" fill="none" stroke="url(#dg)" stroke-width="1.2" stroke-dasharray="3 9" opacity=".5"/>
+        <rect x="74" y="44" width="72" height="132" rx="14" fill="var(--glass2)" stroke="var(--line2)"/>
+        <rect x="84" y="58" width="52" height="80" rx="6" fill="none" stroke="var(--line2)"/>
+        <!-- chip -->
+        <rect x="92" y="74" width="36" height="36" rx="6" fill="rgba(201,162,75,.14)" stroke="url(#dg)"/>
+        <g stroke="url(#dg)" stroke-width="2" stroke-linecap="round">
+          <line x1="92" y1="84" x2="86" y2="84"/><line x1="92" y1="92" x2="86" y2="92"/><line x1="92" y1="100" x2="86" y2="100"/>
+          <line x1="128" y1="84" x2="134" y2="84"/><line x1="128" y1="92" x2="134" y2="92"/><line x1="128" y1="100" x2="134" y2="100"/>
+        </g>
+        <circle class="sp" cx="110" cy="92" r="6" fill="url(#dg)"/>
+        <text x="110" y="128" text-anchor="middle" font-size="9.5" fill="var(--t3)" font-family="Inter,sans-serif">model on-device</text>
+        <text x="110" y="160" text-anchor="middle" font-size="10" fill="var(--t1)" font-family="Inter,sans-serif">no network</text>
+      </svg>
+      <figcaption style="font-size:13px;color:var(--t3);text-align:center;margin-top:8px">Inference happens on the phone's own chip — nothing leaves the device.</figcaption>
+    </figure>
+
+    <h2>What "on-device AI" actually means now</h2>
+    <p>For years, "AI in a mobile app" implicitly meant "a request to someone else's server." That assumption broke in 2026. The phones in people's pockets ship with neural accelerators, and the tooling finally caught up. From a React Native app you can now load a quantised model and run inference locally:</p>
+    <ul>
+      <li><strong>react-native-executorch</strong> (Software Mansion) — wraps PyTorch's ExecuTorch runtime to run LLMs, speech-to-text and image classification on-device, with a React-friendly API.</li>
+      <li><strong>react-native-ai</strong> (Callstack) — on-device inference aimed squarely at React Native, so you can ship an offline chatbot or classifier inside the app.</li>
+      <li><strong>MLC LLM</strong> — a mature runtime for running quantised LLMs locally, usable from React Native with native glue.</li>
+    </ul>
+    <p>The headline is simple: no API key, no network round-trip, and no per-call bill — the model is just part of your app.</p>
+
+    <h2>Why founders ask for it</h2>
+    <p>On-device isn't a novelty; it solves real product problems that the cloud can't:</p>
+    <ul>
+      <li><strong>Privacy by architecture</strong> — for health, finance or legal data, "it never leaves the device" is a stronger promise than any policy. This is why it draws <a href="/fintech-app-development/">fintech</a> and healthcare teams.</li>
+      <li><strong>Offline</strong> — field tools, travel, transit and low-connectivity markets keep working with no signal.</li>
+      <li><strong>Zero marginal cost</strong> — inference runs on the user's hardware, so a feature used a million times a day costs the same in API fees as one used once: nothing.</li>
+      <li><strong>Instant latency</strong> — no round-trip means responses start immediately.</li>
+    </ul>
+
+    <h2>Where should your model run?</h2>
+    <p>The honest answer depends on what you're optimising for. Pick your top priority and see where it points:</p>
+
+    <div class="dm" id="dm" aria-label="On-device vs cloud decision helper">
+      <div class="dm-q">What matters most for this feature?</div>
+      <div class="dm-opts">
+        <button class="dm-opt active" data-k="privacy">Data privacy</button>
+        <button class="dm-opt" data-k="offline">Works offline</button>
+        <button class="dm-opt" data-k="cost">Low per-call cost</button>
+        <button class="dm-opt" data-k="capability">Max capability</button>
+        <button class="dm-opt" data-k="context">Huge context</button>
+      </div>
+      <div class="dm-res"><span class="dm-pick" id="dmPick"></span><div class="dm-why" id="dmWhy"></div></div>
+    </div>
+
+    <h2>The honest trade-offs</h2>
+    <p>On-device is powerful, not magic. The costs are real and you should weigh them openly:</p>
+    <ul>
+      <li><strong>Capability ceiling</strong> — a model small enough to run on a phone won't match a frontier cloud model on hard reasoning or broad knowledge.</li>
+      <li><strong>App size</strong> — bundling a model adds tens to hundreds of megabytes to the download.</li>
+      <li><strong>Device variance</strong> — a flagship runs it smoothly; a three-year-old budget phone may struggle. You design for the floor, not the ceiling.</li>
+      <li><strong>Battery &amp; heat</strong> — sustained inference draws power; you batch and throttle accordingly.</li>
+      <li><strong>Update friction</strong> — improving an on-device model means shipping an app update, not just changing a server.</li>
+    </ul>
+
+    <h2>What runs well on-device today</h2>
+    <p>Match the task to the tier. These are comfortable on-device in 2026: speech-to-text and text-to-speech, image classification and on-device vision, text embeddings for local search, and small-to-mid chat and summarisation. What still belongs in the cloud: frontier reasoning, very large context windows, and anything needing the absolute strongest model. For wiring up that cloud half correctly, see <a href="/blog/react-native-chatgpt-integration">integrating ChatGPT &amp; LLMs into React Native</a>.</p>
+
+    <h2>Hybrid is usually the answer</h2>
+    <p>The best architecture rarely picks a side. It runs the cheap, private, latency-sensitive work on-device — speech, classification, a quick first-pass — and escalates only the genuinely hard requests to a cloud model behind your backend. Users get instant, private interactions most of the time, you get frontier capability when it matters, and your API bill reflects only the calls that truly needed it.</p>
+
+    <blockquote>On-device AI is the right tool when "your data never leaves your phone" is a feature you can sell — and a quiet superpower for keeping costs flat at scale.</blockquote>
+
+    <h2>Quick answers</h2>
+    <p><strong>Can you run an LLM on-device in React Native?</strong> Yes — react-native-executorch, react-native-ai and MLC LLM run language, speech and vision models locally with no network call.</p>
+    <p><strong>Best libraries?</strong> react-native-executorch and Callstack's react-native-ai, with MLC LLM as a runtime option.</p>
+    <p><strong>Is it cheaper than cloud?</strong> There's no per-call fee since inference runs on the user's device; you trade that for integration effort, a bigger app and a lower model ceiling.</p>
+    <p><strong>When over cloud?</strong> Privacy, offline, high volume or instant latency favour on-device; maximum capability and huge context favour cloud. Most apps do both.</p>
+    <p>Weighing on-device, cloud or hybrid for a privacy-sensitive feature? We build all three in <a href="/react-native-app-development/">React Native</a> — <a href="/contact/">tell us the constraint</a> and we'll recommend the architecture honestly.</p>
+    <div class="article-author"><div class="av">HS</div><div><div class="an">Het Soni</div><div class="ar">Founder &amp; Lead Engineer, Soni Consultancy Services</div></div></div>
+  </div>
+</section>
+<section style="padding-bottom:60px"><div class="wrap"><div class="glass" data-reveal style="padding:64px 48px;text-align:center"><svg width="48" height="48" style="margin:0 auto 20px"><use href="#em"/></svg><h2 class="h2" style="max-width:560px;margin:0 auto">Need AI that respects privacy?</h2><p class="lead" style="max-width:480px;margin:18px auto 0">If your data can't leave the device, we'll architect an on-device or hybrid React Native app that delivers anyway.</p><div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px"><a href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener" class="btn btn-primary btn-lg" data-magnetic="0.25">Book a Free Call &#8594;</a><a href="/blog/ai-react-native-app-development" class="btn btn-glass btn-lg">Read the full guide</a></div></div></div></section>
+</main>
+<footer class="foot"><div class="wrap"><div class="foot-top">
+  <div><div class="brand" style="margin-bottom:6px"><svg class="brand-mark"><use href="#em"/></svg><span class="brand-name">SONI<span>CONSULTANCY SERVICES</span></span></div><p class="foot-desc">React Native &amp; MERN-stack mobile app development with AI built in. Live on the App Store &amp; Google Play.</p><div class="foot-social"><a href="https://www.linkedin.com/in/hetsoni/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.84v2.05h.05c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.67 4.8 6.14V23h-4v-6.6c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.49V23h-4V8z"/></svg></a><a href="https://www.instagram.com/soni.consultancyservices/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.52.01-4.76.07-1.15.05-1.77.24-2.19.41-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.16.42-.36 1.04-.41 2.19-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.05 1.15.25 1.77.41 2.19.21.55.47.94.88 1.35.41.41.8.67 1.35.88.42.16 1.04.36 2.19.41 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c1.15-.05 1.77-.25 2.19-.41.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.16-.42.36-1.04.41-2.19.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.05-1.15-.25-1.77-.41-2.19a3.6 3.6 0 00-.88-1.35 3.6 3.6 0 00-1.35-.88c-.42-.16-1.04-.36-2.19-.41-1.24-.06-1.61-.07-4.76-.07zm0 2.76a5.46 5.46 0 110 10.92 5.46 5.46 0 010-10.92zm0 1.62a3.84 3.84 0 100 7.68 3.84 3.84 0 000-7.68zm5.65-2.9a1.28 1.28 0 110 2.55 1.28 1.28 0 010-2.55z"/></svg></a><a href="https://www.facebook.com/soniconsultancyservices" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a><a href="https://medium.com/@hetsoni9398" target="_blank" rel="noopener" aria-label="Medium"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.54 12a6.8 6.8 0 11-13.6 0 6.8 6.8 0 0113.6 0zm7.42 0c0 3.54-1.52 6.42-3.4 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.4-6.42 3.39 2.88 3.39 6.42zM24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a></div></div>
+  <div><h4>Explore</h4><a href="/services/">Services</a><a href="/react-native-app-development/">React Native</a><a href="/work/">Work</a><a href="/blog/">Blog</a><a href="/ai-app-development/">AI Apps</a><a href="/about/">About</a></div>
+  <div><h4>Industries</h4><a href="/fintech-app-development/">FinTech</a><a href="/retail-app-development/">Retail</a><a href="/ride-hailing-app-development/">Ride-Hailing</a><a href="/hr-payroll-app-development/">HR &amp; Payroll</a></div>
+  <div><h4>Company</h4><a href="/about/">About</a><a href="/hire/">Hire a Dev</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a></div>
+  <div><h4>Start</h4><a href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener">Book a Call</a><a href="/app-cost-calculator/">App cost estimate</a><a href="mailto:het.soni@soniconsultancyservices.com">Email us</a></div>
+</div><div class="foot-bottom"><span>&#169; 2026 Soni Consultancy Services. All rights reserved.</span><span>React Native &#183; MERN &#183; AI</span></div></div></footer>
+<script src="/assets/js/gsap.min.js"></script>
+<script src="/assets/js/ScrollTrigger.min.js"></script>
+<script src="/assets/js/lenis.min.js"></script>
+<script src="/liquid.js"></script>
+<script>
+(function(){
+  var d={
+    privacy:{pick:"On-device",why:"When data <b>can't legally or ethically leave the phone</b> &mdash; health, finance, legal &mdash; on-device makes privacy an architectural guarantee, not a policy promise."},
+    offline:{pick:"On-device",why:"Inference runs locally, so the feature <b>keeps working with no signal</b> &mdash; ideal for field tools, travel and low-connectivity markets."},
+    cost:{pick:"On-device",why:"There's <b>no per-call API fee</b>: the model runs on the user's hardware, so cost stays flat whether a feature is used once or a million times a day."},
+    capability:{pick:"Cloud",why:"For the <b>hardest reasoning and broadest knowledge</b>, a frontier cloud model behind your backend beats anything small enough to run on a phone."},
+    context:{pick:"Cloud",why:"Very large context windows need cloud models. Keep the key on your <b>backend proxy</b> and stream the result &mdash; see our LLM integration guide."}
+  };
+  var pick=document.getElementById('dmPick'),why=document.getElementById('dmWhy');
+  function render(k){pick.textContent=d[k].pick;why.innerHTML=d[k].why;}
+  document.querySelectorAll('#dm .dm-opt').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('#dm .dm-opt').forEach(function(x){x.classList.remove('active');});b.classList.add('active');render(b.dataset.k);});});
+  render('privacy');
+})();
+</script>
+<script src="/analytics.js"></script>
+<a href="https://wa.me/918160682185?text=Hi%20Het%2C%20I%27d%20like%20to%20discuss%20an%20on-device%20AI%20app." target="_blank" rel="noopener" class="wa-fab" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<script type="text/javascript">_linkedin_partner_id="10397217";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);</script><script type="text/javascript">(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s);})(window.lintrk);</script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=10397217&fmt=gif"/></noscript>
+</body>
+</html>
