@@ -332,3 +332,11 @@ html[data-theme="dark"] .blog-card .more{color:var(--gold-light)}
 
 @media(max-width:980px){.proc-grid{grid-template-columns:1fr 1fr}.region-grid{grid-template-columns:1fr 1fr}.field-row{grid-template-columns:1fr}.blog-grid{grid-template-columns:1fr}}
 @media(max-width:620px){.proc-grid{grid-template-columns:1fr}.region-grid{grid-template-columns:1fr}.article-wrap{padding:0 22px}}
+
+/* ---------- ARTICLE SOCIAL SHARE ---------- */
+.share-row{display:flex;align-items:center;gap:10px;margin-top:8px;flex-wrap:wrap}
+.share-row .share-label{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-right:4px}
+.share-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line2);background:var(--glass2);color:var(--t2);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .25s var(--ease),color .25s,border-color .25s,background .25s;font:inherit;padding:0}
+.share-btn svg{width:17px;height:17px}
+.share-btn:hover{transform:translateY(-2px);color:var(--gold-light);border-color:rgba(201,162,75,.5);background:var(--glass3)}
+.share-copy.ok{color:#6ee7a8;border-color:#6ee7a8}
