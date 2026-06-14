@@ -69,6 +69,8 @@
     if (f.id === 'contactForm') track('generate_lead', { form: 'contact_brief' });
     if (f.id === 'unlockForm') track('generate_lead', { form: 'builder_unlock' });
     if (f.id === 'calcLeadForm') track('generate_lead', { form: 'app_cost_calculator' });
+    if (f.id === 'cloudCalcForm') track('generate_lead', { form: 'cloud_cost_calculator' });
+    if (f.id === 'devopsAssessForm') track('generate_lead', { form: 'devops_maturity_assessment' });
   }, true);
 
   /* ---------- scroll depth ---------- */

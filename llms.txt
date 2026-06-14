@@ -6,7 +6,8 @@
 - React Native cross-platform app development (iOS + Android from one codebase)
 - MERN-stack web and backend development (MongoDB, Express, React, Node.js)
 - AI integration for mobile and web apps (Claude, GPT, RAG, agents)
-- DevOps & cloud (AWS) and dedicated developers / staff augmentation
+- DevOps & cloud engineering — CI/CD pipelines, Kubernetes, Terraform infrastructure-as-code, AWS & Azure migration, observability/SRE, cloud cost optimization, and mobile CI/CD for React Native
+- Dedicated developers / staff augmentation
 
 ## Selected work
 - Attled — attendance & payroll system (HR), live on both stores
@@ -20,7 +21,10 @@
 - Services: https://soniconsultancyservices.com/services/
 - Work / case studies: https://soniconsultancyservices.com/work/
 - AI app development: https://soniconsultancyservices.com/ai-app-development/
+- DevOps & Cloud engineering: https://soniconsultancyservices.com/devops-cloud-engineering/
 - App cost calculator: https://soniconsultancyservices.com/app-cost-calculator/
+- Cloud cost calculator: https://soniconsultancyservices.com/cloud-cost-calculator/
+- DevOps maturity assessment: https://soniconsultancyservices.com/devops-maturity-assessment/
 - Blog: https://soniconsultancyservices.com/blog/
 - About: https://soniconsultancyservices.com/about/
 - Contact: https://soniconsultancyservices.com/contact/
