@@ -45,7 +45,7 @@ google3c3389cc0cde5740.html   GSC verification file (do not delete)
 - The footer-underline rule must stay scoped to `.foot-top div>h4~a`; a broader selector (`a:not(.brand)`) squashed the social icons to ovals via `width:fit-content`.
 - `sips` on this Mac cannot write WebP. Use Pillow (`python3 -m pip ... --user pillow`); images via pymupdf (`fitz`) + PIL.
 - zsh: unquoted `*` glob-expands; use `/usr/bin/curl` if `curl` not found when sandbox off.
-- **CSP img-src needs `data:`** (grain texture is a JS-built data: SVG via ScrollTrigger) **and `https://www.linkedin.com`** (Insight tag li_sync cookie-sync pixel). Meta Pixel needs `https://connect.facebook.net` (script-src) + `https://www.facebook.com` (img-src & connect-src). Found only by loading live pages in headless Chrome and grepping stderr for "violates" — always do that after CSP edits.
+- **CSP img-src needs `data:`** (grain texture is a JS-built data: SVG via ScrollTrigger) **and `https://www.linkedin.com`** (Insight tag li_sync cookie-sync pixel). Meta Pixel needs `https://connect.facebook.net` (script-src) + `https://www.facebook.com` (img-src & connect-src). GoodFirms widget (home page) needs `https://assets.goodfirms.co` in script-src + img-src + connect-src (added 2026-06-18). Found only by loading live pages in headless Chrome and grepping stderr for "violates" — always do that after CSP edits.
 - The Edit tool often hits "file modified since read" on this repo — Python read-modify-write via Bash is the reliable path for sitewide changes.
 
 ## Infrastructure & deploy
