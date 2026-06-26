@@ -80,7 +80,7 @@ db/             &rarr; schema, migrations, seed</code></pre>
     <h2>Observability</h2>
     <p>From day one: structured logs with request and tenant IDs, error tracking with source maps, and basic product analytics. When something breaks you want "which tenant, which request, what input" in seconds.</p>
     <blockquote>A SaaS isn't hard because any one piece is hard. It's hard because the pieces have to compose cleanly under real users. Get the seams right and the features get easy.</blockquote>
-    <p>If you're starting a SaaS and want a foundation that won't need rebuilding at Series A, let's talk.</p>
+    <p>If you're starting a SaaS and want a foundation that won't need rebuilding at Series A, let's talk — this is the same disciplined approach behind our <a href="/ai-app-development/">AI app development</a> and <a href="/devops-cloud-engineering/">DevOps &amp; cloud engineering</a> work.</p>
     <h2>Rendering strategy: where each route lives</h2>
     <p>The App Router gives you a rendering choice per route, and using it deliberately is half the performance battle. Marketing pages render static (SSG/ISR) so they're fast and fully indexable — your SEO surface. The authenticated product renders on the server with React Server Components, fetching per-tenant data close to the database and shipping minimal JavaScript. Reserve client components for genuinely interactive islands. The rule: <strong>static where you can, server where you must, client only where it earns it.</strong></p>
     <h2>Database &amp; data access</h2>

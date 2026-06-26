@@ -70,7 +70,7 @@
     <h2>The hybrid path (almost always the answer)</h2>
     <p>Buy the foundation model and infrastructure. Build the orchestration, the data layer, the evaluation and the product experience. Wrap every bought component behind an interface you control so you can swap vendors without a rewrite.</p>
     <blockquote>Build your moat. Buy your plumbing. Never confuse the two.</blockquote>
-    <p>If you're staring at a build-vs-buy decision and want a second opinion from people who've shipped both, that's a good first call to have.</p>
+    <p>If you're staring at a build-vs-buy decision and want a second opinion from people who've shipped both — across <a href="/ai-app-development/">AI products</a> and <a href="/devops-cloud-engineering/">the infrastructure underneath them</a> — that's a good first call to have.</p>
     <h2>A worked example: a customer-support AI</h2>
     <p>Say you want an AI assistant that answers customer questions. Run it through the four axes. The <strong>foundation model</strong>? Buy — you will never out-train a frontier lab on general language. The <strong>vector database and retrieval infrastructure</strong>? Buy or use open source; it's a solved commodity. But the <strong>retrieval layer over your own docs, tickets and product data</strong>, the <strong>evaluation harness</strong> that proves answers are correct, and the <strong>escalation logic</strong> that knows when to hand off to a human — that's your build, because it runs on your data and defines the experience. Same feature, four different answers, and the value lives almost entirely in the build half.</p>
     <h2>The total cost of ownership nobody budgets for</h2>

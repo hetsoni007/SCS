@@ -108,7 +108,7 @@ html[data-theme="dark"] .kt-good{color:var(--gold-light)}
     <p>If your feature should work offline or must never send data off the device, that's a different architecture entirely — running the model on the phone with react-native-executorch or react-native-ai. We cover that in <a href="/blog/on-device-ai-react-native">on-device AI in React Native</a>.</p>
 
     <h2>Keeping the bill under control</h2>
-    <p>Per-token spend is the cost that surprises teams, because it scales with context size and call volume rather than user count. The proxy you built for security is also where you control cost: right-size the model per request, cache repeat prompts and responses, trim the context you send, and set per-user rate limits. Because the app only ever talks to your endpoint, every one of those is a server change — no app-store release required.</p>
+    <p>Per-token spend is the cost that surprises teams, because it scales with context size and call volume rather than user count. The proxy you built for security is also where you control cost: right-size the model per request, cache repeat prompts and responses, trim the context you send, and set per-user rate limits. Because the app only ever talks to your endpoint, every one of those is a server change — no app-store release required. This is the same backend discipline behind our <a href="/devops-cloud-engineering/">DevOps &amp; cloud engineering</a> work.</p>
 
     <h2>A minimal, correct flow</h2>
     <pre><code>// React Native (client) — talks ONLY to your backend
