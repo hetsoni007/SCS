@@ -185,8 +185,8 @@ html[data-theme="dark"] .foot a:hover{color:var(--gold-light)}
 
 /* ---------- HOVER & MICRO-INTERACTIONS ---------- */
 /* (1) card hover lift + gold glow — interactive cards */
-.proc,.region,.blog-card{transition:transform .42s var(--ease),box-shadow .42s var(--ease),border-color .42s var(--ease),background .45s var(--ease)}
-.proc:hover,.region:hover,.blog-card:hover{transform:translateY(-6px);border-color:rgba(201,162,75,.42);box-shadow:0 28px 62px -30px rgba(201,162,75,.55),0 20px 50px var(--shadow-card)}
+.proc,.region,.blog-card,.tcard{transition:transform .42s var(--ease),box-shadow .42s var(--ease),border-color .42s var(--ease),background .45s var(--ease)}
+.proc:hover,.region:hover,.blog-card:hover,.tcard:hover{transform:translateY(-6px);border-color:rgba(201,162,75,.42);box-shadow:0 28px 62px -30px rgba(201,162,75,.55),0 20px 50px var(--shadow-card)}
 .metric-pill{transition:transform .42s var(--ease),box-shadow .42s var(--ease),border-color .42s var(--ease)}
 .metric-pill:hover{transform:translateY(-4px);border-color:rgba(201,162,75,.4);box-shadow:0 20px 44px -26px rgba(201,162,75,.5)}
 
@@ -340,3 +340,18 @@ html[data-theme="dark"] .blog-card .more{color:var(--gold-light)}
 .share-btn svg{width:17px;height:17px}
 .share-btn:hover{transform:translateY(-2px);color:var(--gold-light);border-color:rgba(201,162,75,.5);background:var(--glass3)}
 .share-copy.ok{color:#6ee7a8;border-color:#6ee7a8}
+
+/* ---------- TESTIMONIALS ---------- */
+.tcard{padding:32px 30px;display:flex;flex-direction:column;gap:18px;margin:0;height:100%}
+.tstars{display:flex;align-items:center;gap:8px;color:var(--gold);font-size:17px;letter-spacing:3px;line-height:1}
+.tstars b{color:var(--t1);font-size:14px;letter-spacing:0;font-weight:700;margin-left:2px}
+.tquote{font-size:15px;line-height:1.72;color:var(--t1);margin:0;flex:1}
+.tproj{font-size:14.5px;line-height:1.7;color:var(--t2);margin:0;flex:1}
+.tproj b{color:var(--t1);font-weight:600}
+.twho{display:flex;align-items:center;gap:13px;margin-top:auto;padding-top:6px}
+.tav{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;letter-spacing:.5px;color:#1a1206;background:var(--gold-grad);flex-shrink:0}
+.tmeta{display:flex;flex-direction:column;gap:2px;min-width:0}
+.tname{font-weight:600;color:var(--t1);font-size:15px}
+.trole{font-size:12.5px;color:var(--t3);line-height:1.4}
+.tsrc{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--gold-dim)}
+html[data-theme="dark"] .tsrc{color:var(--gold-light)}
