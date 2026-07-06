@@ -1,0 +1,51 @@
+═══════════════════════════════════════════════════════════════
+INSTAGRAM KIT — Native vs Cross-Platform (interactive decision tool)
+Blog: https://soniconsultancyservices.com/blog/native-vs-cross-platform-2026
+═══════════════════════════════════════════════════════════════
+
+── CAPTION (copy-paste) ──────────────────────────────────────
+
+Native or cross-platform? Pick wrong and your app can cost 2× more. 💸
+
+Every founder hits this fork. Here's the honest version 👇
+
+📱 React Native — one codebase → iOS + Android. Fastest, most cost-effective for most apps.
+🎨 Flutter — pixel-perfect, fully custom UI from a single codebase.
+⚙️ Native (Swift/Kotlin) — max performance & hardware access, at roughly double the build + maintenance.
+
+The rule we give founders: start cross-platform. Go native only when a real requirement forces it — AR, heavy graphics, deep hardware.
+
+🧠 Still unsure? We built a free 30-second decision tool. Answer 5 questions, get a recommendation for YOUR app.
+
+🔗 Link in bio — or scan the QR on the last slide
+soniconsultancyservices.com/blog/native-vs-cross-platform-2026
+
+💾 Save this for your next build — and send it to a founder who's deciding right now.
+
+── HASHTAGS (12 · niche, paste as block or first comment) ────
+
+#reactnativedevelopment #flutterdev #crossplatformapps #mobileappdevelopmentcompany #appdevelopmentcost #techfounders #startupcto #mvpdevelopment #appstrategy #founderadvice #buildinpublic #soniconsultancyservices
+
+── HOW TO POST ───────────────────────────────────────────────
+
+FEED CAROUSEL (recommended order):
+  1. motion-cover.mp4  (IG lets you mix video + images in a carousel —
+     the motion cover autoplays and stops the scroll)
+  2. slide-02.png … slide-06.png  (the content)
+  3. slide-07.png  (QR + "link in bio" CTA — always last)
+  Alternative all-static: slide-01.png … slide-07.png
+
+STORIES:
+  • Post story.png, then add a LINK STICKER over the "(link sticker
+    goes here)" area → paste the blog URL.
+  • Also reshare the feed post to your story on posting day.
+
+REEL (optional extra reach):
+  • motion-cover.mp4 also works as a short Reel — add trending audio
+    in the IG app (in-app audio boosts distribution).
+
+BEFORE POSTING:
+  • Set the link in bio to the blog URL (or your link-in-bio tool):
+    https://soniconsultancyservices.com/blog/native-vs-cross-platform-2026
+  • Best windows for IN founder/CTO audience: Tue–Thu, 11:00–13:00
+    or 19:00–21:00 IST. Reply to every comment in the first hour.

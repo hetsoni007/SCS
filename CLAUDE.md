@@ -59,7 +59,7 @@ bash .deploy/generate-sitemap.sh        # regenerates sitemap.xml from canonical
 aws s3 sync . s3://<BUCKET> --delete \
   --exclude ".git/*" --exclude "*.DS_Store" --exclude "README.md" \
   --exclude "DEPLOY.md" --exclude "CLAUDE.md" --exclude ".deploy/*" \
-  --exclude ".claude/*" --exclude "generate-sitemap.py"
+  --exclude ".claude/*" --exclude "generate-sitemap.py" --exclude "social-kit/*"
 aws cloudfront create-invalidation --distribution-id <DIST_ID> --paths "/*"
 ```
 - Always verify live afterwards with `curl` (cache-bust with `?cb=$RANDOM`).
