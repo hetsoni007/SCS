@@ -28,20 +28,43 @@ def fx(t, a, b, rise=26):
     return f"opacity:{p:.3f};transform:translateY({(1-p)*rise:.1f}px)"
 
 # ---------------- scenes ----------------
-def scene_native(t):
-    # global loop fade (in 0-0.4, out 9.4-10)
+CFGS = {
+  "native-vs-cross-platform-2026": dict(
+    eyebrow="Decision guide", cat="Mobile · 2026",
+    l1='Native <span class="gold">or</span>', l2='Cross-Platform?',
+    sub='Pick wrong and your app can cost <b>2&#215; more.</b>',
+    chips=["React Native","Flutter","Native"],
+    cta='Take the 30-sec decision tool &#8594;'),
+  "mvp-tech-stack-2026": dict(
+    eyebrow="Interactive picker", cat="MVP · 2026",
+    l1='Which <span class="gold">stack</span>', l2='for your MVP?',
+    sub='The wrong stack <b>taxes every sprint.</b>',
+    chips=["RN + MERN","Next.js","Firebase"],
+    cta='Take the 30-sec stack picker &#8594;'),
+  "mobile-app-security-checklist": dict(
+    eyebrow="Self-audit", cat="Mobile · Security",
+    l1='Is your app', l2='<span class="gold">actually secure?</span>',
+    sub='Most breaches are <b>basics not done.</b>',
+    chips=["Tokens","Secrets","APIs"],
+    cta='Score your app in 2 minutes &#8594;'),
+  "app-monetization-models": dict(
+    eyebrow="Revenue explorer", cat="Strategy · 2026",
+    l1='How will your app', l2='<span class="gold">make money?</span>',
+    sub='Drag the sliders. <b>See the math.</b>',
+    chips=["Subscription","Ads","Commission"],
+    cta='Try the revenue explorer &#8594;'),
+}
+
+def scene(t, cfg):
     g = min(ease_io(seg(t, 0.0, 0.35)), 1 - ease_io(seg(t, 9.45, 10.0)))
-    # drifting orb (period = DUR -> seamless loop)
     ox = 22 + 14 * math.sin(2 * math.pi * t / DUR)
     oy = 12 + 9 * math.cos(2 * math.pi * t / DUR)
     orb = (f'<div style="position:absolute;z-index:0;left:{ox}%;top:{oy}%;width:640px;height:640px;'
            'background:radial-gradient(circle,rgba(201,162,75,.20),transparent 62%);border-radius:50%"></div>')
     chips = ""
-    labels = ["React Native", "Flutter", "Native"]
-    for i, lb in enumerate(labels):
+    for i, lb in enumerate(cfg["chips"]):
         a = 2.9 + i * 0.35
         p = ease_out(seg(t, a, a + 0.55))
-        # highlight sweep 5.0-7.6s: each chip glows in turn
         hi = 0.0
         if 5.0 <= t <= 7.9:
             ph = (t - 5.0) / 0.95
@@ -53,23 +76,23 @@ def scene_native(t):
                   f'opacity:{p:.3f};transform:scale({0.86 + 0.14 * p:.3f})">{lb}</span>')
     pulse = 1 + (0.018 * math.sin(2 * math.pi * (t - 7.8) / 1.3) if t > 7.8 else 0)
     cta = (f'<div style="{fx(t, 7.7, 8.4, 30)};margin-top:64px">'
-           f'<span class="pill" style="transform:scale({pulse:.3f});display:inline-block">Take the 30-sec decision tool &#8594;</span>'
+           f'<span class="pill" style="transform:scale({pulse:.3f});display:inline-block">{cfg["cta"]}</span>'
            f'<span style="font-size:26px;color:#9a948b;margin-left:26px">link in bio</span></div>')
     inner = (orb +
       f'<div class="top" style="{fx(t, 0.05, 0.7, 18)}">' + gen.brand() +
-      '<span class="eyebrow"><span class="dot"></span>Decision guide</span></div>'
+      f'<span class="eyebrow"><span class="dot"></span>{cfg["eyebrow"]}</span></div>'
       '<div class="mid">'
-      f'<div class="eyebrow" style="margin-bottom:26px;{fx(t, 0.35, 1.0)}">Mobile · 2026</div>'
-      f'<div class="h" style="{fx(t, 0.55, 1.35, 40)}">Native <span class="gold">or</span></div>'
-      f'<div class="h" style="{fx(t, 0.8, 1.6, 40)}">Cross-Platform?</div>'
-      f'<div class="sub" style="{fx(t, 1.7, 2.5)}">Pick wrong and your app can cost <b>2&#215; more.</b></div>'
+      f'<div class="eyebrow" style="margin-bottom:26px;{fx(t, 0.35, 1.0)}">{cfg["cat"]}</div>'
+      f'<div class="h" style="{fx(t, 0.55, 1.35, 40)}">{cfg["l1"]}</div>'
+      f'<div class="h" style="{fx(t, 0.8, 1.6, 40)}">{cfg["l2"]}</div>'
+      f'<div class="sub" style="{fx(t, 1.7, 2.5)}">{cfg["sub"]}</div>'
       f'<div style="margin-top:54px">{chips}</div>'
       + cta + '</div>'
       + f'<div style="{fx(t, 0.6, 1.2, 0)}">' + gen.foot('<span class="h2n">soniconsultancyservices.com</span>') + '</div>')
-    # wrapper must keep the slide's column flex so .mid stretches and foot pins bottom
-    return (f'<div style="opacity:{g:.3f};display:flex;flex-direction:column;flex:1;min-height:0">{inner}</div>')
+    return (f'<div style="opacity:{g:.3f};display:flex;flex-direction:column;flex:1;min-height:0">{inner}</div>'
+            .replace("{inner}", inner))
 
-SCENES = {"native-vs-cross-platform-2026": scene_native}
+SCENES = {k: (lambda t, c=v: scene(t, c)) for k, v in CFGS.items()}
 
 # ---------------- pipeline ----------------
 def strip_html(ts):

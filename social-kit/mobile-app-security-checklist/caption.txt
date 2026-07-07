@@ -1,0 +1,34 @@
+═══════════════════════════════════════════════════════════════
+INSTAGRAM KIT — Mobile App Security Self-Audit (interactive)
+Blog: https://soniconsultancyservices.com/blog/mobile-app-security-checklist
+═══════════════════════════════════════════════════════════════
+
+── CAPTION (copy-paste) ──────────────────────────────────────
+
+Most app breaches aren't genius hackers. They're a token in plain storage. A key shipped in the bundle. An API that trusts whatever the client sends. 🔓
+
+Basics not done — which means basics can fix it 👇
+
+📱 On the device: tokens in Keychain/Keystore, zero secrets in the binary (anything shipped can be extracted).
+🌐 In transit: HTTPS everywhere, no "temporarily disabled" cert checks.
+🖥️ On the server: authorize EVERY endpoint — not "is this user logged in" but "may this user touch this resource."
+⚙️ In the pipeline: dependency + secret scanning in CI, so a leaked key fails the build instead of reaching the stores.
+
+🛡️ We turned this into a free 10-point self-audit — click through it, get a /100 score, see exactly where to harden first. Nothing leaves your browser.
+
+🔗 Link in bio — or scan the QR on the last slide
+soniconsultancyservices.com/blog/mobile-app-security-checklist
+
+💾 Save this and re-run it quarterly. Share it with whoever owns your backend.
+
+── HASHTAGS (12 · niche) ─────────────────────────────────────
+
+#mobileappsecurity #appsecurity #owasp #reactnativedevelopment #devsecops #cybersecurityforstartups #appdevelopmentcompany #techfounders #startupcto #fintechapps #buildinpublic #soniconsultancyservices
+
+── HOW TO POST ───────────────────────────────────────────────
+
+FEED CAROUSEL: motion-cover.mp4 first, then slide-02 … slide-07 (QR last).
+  All-static alternative: slide-01 … slide-07.
+STORIES: story.png + link sticker over the marked area → blog URL.
+REEL: motion-cover.mp4 + trending audio added in-app.
+BIO: set link to the blog URL before posting.

@@ -1,0 +1,36 @@
+═══════════════════════════════════════════════════════════════
+INSTAGRAM KIT — MVP Tech-Stack Picker (interactive)
+Blog: https://soniconsultancyservices.com/blog/mvp-tech-stack-2026
+═══════════════════════════════════════════════════════════════
+
+── CAPTION (copy-paste) ──────────────────────────────────────
+
+Your MVP's tech stack decides your speed, your hiring pool and your first year of engineering costs. Most founders pick it by vibes. 🎲
+
+Here's the honest 2026 playbook 👇
+
+⚡ Mobile-first → React Native + MERN. One language everywhere, one codebase for both stores.
+🖥️ Web-first SaaS → Next.js + Postgres. App + marketing site in one framework.
+🚀 Fastest validation → React Native + Firebase. No server, ship in weeks.
+🤖 AI-core product → RN/Next.js + a Node AI layer for keys, streaming and cost control.
+
+The rule: pick BORING tech for everything that isn't your differentiator. Users can't feel your database — spend innovation where they can.
+
+🧠 We built a free 30-second stack picker — answer 5 questions, get all four layers (frontend, backend, database, hosting) for YOUR product.
+
+🔗 Link in bio — or scan the QR on the last slide
+soniconsultancyservices.com/blog/mvp-tech-stack-2026
+
+💾 Save this before your next architecture debate.
+
+── HASHTAGS (12 · niche) ─────────────────────────────────────
+
+#techstack #mvpdevelopment #reactnativedevelopment #mernstack #nextjsdevelopment #startuptech #appdevelopmentcompany #techfounders #startupcto #buildinpublic #founderadvice #soniconsultancyservices
+
+── HOW TO POST ───────────────────────────────────────────────
+
+FEED CAROUSEL: motion-cover.mp4 first, then slide-02 … slide-07 (QR last).
+  All-static alternative: slide-01 … slide-07.
+STORIES: story.png + link sticker over the marked area → blog URL.
+REEL: motion-cover.mp4 + trending audio added in-app.
+BIO: set link to the blog URL before posting.

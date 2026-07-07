@@ -173,10 +173,124 @@ def story_native(url):
       '<div class="sub" style="margin-top:24px;font-size:28px;text-align:center">(link sticker goes here)</div></div></div>'
       +foot('<span class="h2n">Interactive decision tool</span>'))
 
+def _cover(eyebrow_r, cat, h_html, sub_html):
+    return ('<div class="top">'+brand()+f'<span class="eyebrow"><span class="dot"></span>{eyebrow_r}</span></div>'
+      f'<div class="mid"><div class="eyebrow" style="margin-bottom:26px">{cat}</div>'
+      f'<div class="h m">{h_html}</div>'
+      f'<div class="sub">{sub_html}</div></div>'
+      +foot('<span class="swipe">Swipe &#8594;</span>'))
+
+def _body(num, inner):
+    return ('<div class="top">'+brand()+f'<span class="bignum">{num}</span></div>'
+      f'<div class="mid">{inner}</div>'+foot('<span class="swipe">Swipe &#8594;</span>'))
+
+def _qr_cta(h_html, pill, subline, url):
+    return ('<div class="top">'+brand()+'<span class="eyebrow"><span class="dot"></span>Your move</span></div>'
+      f'<div class="mid"><div class="h s">{h_html}</div>'
+      '<div class="qrow"><div class="card">'+qr_svg(url)+'</div>'
+      f'<div><div class="pill">{pill}</div>'
+      f'<div class="sub" style="margin-top:22px;font-size:30px">{subline}</div></div></div></div>'
+      +foot('<span class="h2n">soniconsultancyservices.com</span>'))
+
+def slides_stack(url):
+    return [
+      _cover("Interactive picker","MVP · 2026",
+        'Which <span class="gold">stack</span><br>should your MVP use?',
+        'Frontend, backend, database, hosting — answer 5 questions and <b>get all four layers.</b>'),
+      _body("01",'<div class="h m">The wrong stack<br><span class="gold">taxes every sprint.</span></div>'
+        '<div class="sub">Exotic tooling, unhireable skills, infra for scale you don’t have. The right stack is mostly about your product’s <b>shape</b> — not fashion.</div>'),
+      _body("02",'<span class="tag">Mobile-first default</span><div class="h m gold">React Native + MERN</div>'
+        '<div class="sub">One language everywhere, one codebase for both stores, a backend <b>you control.</b></div>'
+        '<div class="best"><b>Best for:</b> mobile products with real business logic. Our default.</div>'),
+      _body("03",'<span class="tag">Web-first SaaS</span><div class="h m gold">Next.js + Postgres</div>'
+        '<div class="sub">App + marketing site in one framework, relational data done <b>properly from day one.</b></div>'
+        '<div class="best"><b>Best for:</b> dashboards, B2B workflows, browser tools.</div>'),
+      _body("04",'<span class="tag">Two more plays</span><div class="h s"><span class="gold">RN + Firebase</span> — validate in weeks, no server.<br><br><span class="gold">AI-first</span> — a Node AI layer between app and models.</div>'
+        '<div class="best"><b>Best for:</b> speed-to-signal · AI-core products.</div>'),
+      _body("05",'<div class="eyebrow" style="margin-bottom:26px">The rule</div>'
+        '<div class="h s">Pick <span class="gold">boring tech</span> for everything that isn’t your differentiator.</div>'
+        '<div class="sub">Users don’t care what database you run. Spend innovation where they <b>can feel it.</b></div>'),
+      _qr_cta('Get your stack in <span class="gold">30 seconds.</span>',"Link in bio &#8594;","Scan, or tap the link<br>in our bio — free.",url),
+    ]
+
+def story_stack(url):
+    return ('<div class="top">'+brand()+'<span class="eyebrow"><span class="dot"></span>New post</span></div>'
+      '<div class="mid"><div class="eyebrow" style="margin-bottom:26px">MVP · 2026</div>'
+      '<div class="h m">Which <span class="gold">stack</span><br>should your MVP use?</div>'
+      '<div class="sub">Answer 5 questions — get frontend, backend, database and hosting for <b>your</b> product.</div>'
+      '<div style="margin-top:60px;text-align:center"><div class="pill">Tap the link &#8593;</div>'
+      '<div class="sub" style="margin-top:24px;font-size:28px;text-align:center">(link sticker goes here)</div></div></div>'
+      +foot('<span class="h2n">Interactive stack picker</span>'))
+
+def slides_security(url):
+    return [
+      _cover("Self-audit · 2 min","Mobile · Security",
+        'Is your app<br><span class="gold">actually secure?</span>',
+        'Score your app across <b>10 controls</b> — and see exactly where to harden first.'),
+      _body("01",'<div class="h m">Most breaches<br>aren’t <span class="gold">clever.</span></div>'
+        '<div class="sub">A token in plain storage. A key in the bundle. An API that trusts the client. <b>Basics not done</b> — which means basics can fix it.</div>'),
+      _body("02",'<span class="tag">On the device</span><div class="h s">Tokens in <span class="gold">Keychain / Keystore.</span><br>No secrets in the bundle.</div>'
+        '<div class="sub">Anything shipped in the binary <b>can be extracted.</b> Assume the phone is hostile.</div>'),
+      _body("03",'<span class="tag">On the server</span><div class="h s">Authorize <span class="gold">every endpoint.</span><br>Validate every input.</div>'
+        '<div class="sub">Not just “is this user logged in” — <b>may this user touch this resource?</b> The server is the only layer you fully control.</div>'),
+      _body("04",'<span class="tag">In the pipeline</span><div class="h s">Scan dependencies <span class="gold">in CI.</span></div>'
+        '<div class="sub">Known CVEs in stale libraries are the most <b>preventable</b> compromise vector. A leaked key should fail the build, not reach the stores.</div>'),
+      _body("05",'<div class="eyebrow" style="margin-bottom:26px">Your score</div>'
+        '<div class="h s"><span class="gold">80+</span> solid foundation.<br><span class="gold">50–79</span> close the gaps.<br><span class="gold">&lt;50</span> fix it this sprint.</div>'
+        '<div class="sub">Most fixes take <b>days, not months.</b></div>'),
+      _qr_cta('Score your app in <span class="gold">2 minutes.</span>',"Link in bio &#8594;","Scan, or tap the link<br>in our bio — free, private.",url),
+    ]
+
+def story_security(url):
+    return ('<div class="top">'+brand()+'<span class="eyebrow"><span class="dot"></span>New post</span></div>'
+      '<div class="mid"><div class="eyebrow" style="margin-bottom:26px">Mobile · Security</div>'
+      '<div class="h m">Is your app<br><span class="gold">actually secure?</span></div>'
+      '<div class="sub">10 controls, a live score, and the fixes that matter first. <b>2 minutes, free.</b></div>'
+      '<div style="margin-top:60px;text-align:center"><div class="pill">Tap the link &#8593;</div>'
+      '<div class="sub" style="margin-top:24px;font-size:28px;text-align:center">(link sticker goes here)</div></div></div>'
+      +foot('<span class="h2n">Security self-audit</span>'))
+
+def slides_monetization(url):
+    return [
+      _cover("Revenue explorer","Strategy · 2026",
+        'How will your app<br><span class="gold">make money?</span>',
+        '“We’ll figure it out later” isn’t a model. Drag the sliders, <b>see the math.</b>'),
+      _body("01",'<div class="h m">Four models cover<br><span class="gold">almost every app.</span></div>'
+        '<div class="sub"><b>Subscription</b> · recurring value.<br><b>Freemium + IAP</b> · free core, paid depth.<br><b>Ads</b> · attention at scale.<br><b>Commission</b> · a cut of transactions.</div>'),
+      _body("02",'<span class="tag">Subscription &amp; IAP</span><div class="h s">Depth and retention<br><span class="gold">beat raw reach.</span></div>'
+        '<div class="sub">A modest, engaged audience on a subscription usually out-earns a big casual one. The battle is <b>churn</b>, not trials.</div>'),
+      _body("03",'<span class="tag">Advertising</span><div class="h s">Ads ≈ impressions <span class="gold">× eCPM.</span></div>'
+        '<div class="sub">The math is honest: without big, frequent usage, ads earn <b>pocket change.</b> Niche and B2B apps should usually skip them.</div>'),
+      _body("04",'<span class="tag">Commission</span><div class="h s">Take a cut of the <span class="gold">value you enable.</span></div>'
+        '<div class="sub">Rides, bookings, orders — revenue scales with <b>transaction volume</b>, not user count. Prerequisite: liquidity.</div>'),
+      _body("05",'<div class="eyebrow" style="margin-bottom:26px">The rules</div>'
+        '<div class="h s">Follow the <span class="gold">usage shape.</span><br>Prove <span class="gold">one model</span> first.<br>Price from <span class="gold">value.</span></div>'
+        '<div class="sub">And model the store cut <b>before</b> you set prices.</div>'),
+      _qr_cta('Run <span class="gold">your numbers</span> in the explorer.',"Link in bio &#8594;","Scan, or tap the link<br>in our bio — free.",url),
+    ]
+
+def story_monetization(url):
+    return ('<div class="top">'+brand()+'<span class="eyebrow"><span class="dot"></span>New post</span></div>'
+      '<div class="mid"><div class="eyebrow" style="margin-bottom:26px">Strategy · Revenue</div>'
+      '<div class="h m">How will your app<br><span class="gold">make money?</span></div>'
+      '<div class="sub">Pick a model, drag the sliders to your assumptions, and <b>see the monthly math.</b></div>'
+      '<div style="margin-top:60px;text-align:center"><div class="pill">Tap the link &#8593;</div>'
+      '<div class="sub" style="margin-top:24px;font-size:28px;text-align:center">(link sticker goes here)</div></div></div>'
+      +foot('<span class="h2n">Interactive revenue explorer</span>'))
+
 POSTS = {
   "native-vs-cross-platform-2026": {
      "url": "https://soniconsultancyservices.com/blog/native-vs-cross-platform-2026",
      "slides": slides_native, "story": story_native },
+  "mvp-tech-stack-2026": {
+     "url": "https://soniconsultancyservices.com/blog/mvp-tech-stack-2026",
+     "slides": slides_stack, "story": story_stack },
+  "mobile-app-security-checklist": {
+     "url": "https://soniconsultancyservices.com/blog/mobile-app-security-checklist",
+     "slides": slides_security, "story": story_security },
+  "app-monetization-models": {
+     "url": "https://soniconsultancyservices.com/blog/app-monetization-models",
+     "slides": slides_monetization, "story": story_monetization },
 }
 
 def build(slug):
