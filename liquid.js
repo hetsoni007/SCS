@@ -95,10 +95,17 @@
   gsap.to('.orb-b', { yPercent: -22, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: 0.6 } });
 
   /* ---------- Elements with data-parallax ---------- */
+  var pxScale = window.innerWidth < 820 ? 0.4 : 1;
   gsap.utils.toArray('[data-parallax]').forEach(function (el) {
-    var amt = parseFloat(el.getAttribute('data-parallax')) || 60;
+    var amt = (parseFloat(el.getAttribute('data-parallax')) || 60) * pxScale;
     gsap.fromTo(el, { y: amt }, { y: -amt, ease: 'none',
       scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: true } });
+  });
+
+  /* ---------- Recede on scroll ([data-fade-scroll]) ---------- */
+  gsap.utils.toArray('[data-fade-scroll]').forEach(function (el) {
+    gsap.to(el, { opacity: 0.15, scale: 0.92, ease: 'none',
+      scrollTrigger: { trigger: el, start: 'top top', end: 'bottom top', scrub: true } });
   });
 
   /* ---------- Animated counters ---------- */

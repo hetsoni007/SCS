@@ -68,8 +68,10 @@
 <main>
 
 <!-- HERO -->
-<section style="min-height:100vh;display:flex;align-items:center;padding:150px 0 90px">
-  <div class="wrap" style="text-align:center;width:100%">
+<section style="min-height:100vh;display:flex;align-items:center;padding:150px 0 90px;position:relative;overflow:hidden">
+  <div class="p-glow" data-parallax="50" style="width:440px;height:440px;background:radial-gradient(circle,rgba(201,162,75,.18),transparent 65%);top:-40px;left:6%" aria-hidden="true"></div>
+  <div class="p-glow" data-parallax="-38" style="width:400px;height:400px;background:radial-gradient(circle,rgba(120,140,200,.16),transparent 65%);bottom:-60px;right:4%" aria-hidden="true"></div>
+  <div class="wrap" data-fade-scroll style="text-align:center;width:100%">
     <div data-reveal style="display:flex;justify-content:center;margin-bottom:30px">
       <span class="eyebrow"><span class="dot"></span>React Native · MERN · AI Integration</span>
     </div>
@@ -103,10 +105,10 @@
       <h2 class="h2" style="margin-top:20px">Real apps. Real results.<br/>Live on the stores today.</h2>
     </div>
     <div class="g4" data-reveal-group style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px">
-      <div class="glass" style="padding:36px 28px;text-align:center"><div class="metric"><div class="num"><span data-count="4">4</span>+</div><div class="lbl">Apps live on App Store &amp; Play Store</div></div></div>
-      <div class="glass" style="padding:36px 28px;text-align:center"><div class="metric"><div class="num"><span data-count="35">35</span>%</div><div class="lbl">More downloads (Claris launch)</div></div></div>
-      <div class="glass" style="padding:36px 28px;text-align:center"><div class="metric"><div class="num"><span data-count="40">40</span>%</div><div class="lbl">Less payroll admin (Attled)</div></div></div>
-      <div class="glass" style="padding:36px 28px;text-align:center"><div class="metric"><div class="num"><span data-count="30">30</span>+</div><div class="lbl">Countries served</div></div></div>
+      <div class="glass" style="padding:36px 28px;text-align:center"><div class="metric" data-parallax="14"><div class="num"><span data-count="4">4</span>+</div><div class="lbl">Apps live on App Store &amp; Play Store</div></div></div>
+      <div class="glass" style="padding:36px 28px;text-align:center"><div class="metric" data-parallax="-14"><div class="num"><span data-count="35">35</span>%</div><div class="lbl">More downloads (Claris launch)</div></div></div>
+      <div class="glass" style="padding:36px 28px;text-align:center"><div class="metric" data-parallax="18"><div class="num"><span data-count="40">40</span>%</div><div class="lbl">Less payroll admin (Attled)</div></div></div>
+      <div class="glass" style="padding:36px 28px;text-align:center"><div class="metric" data-parallax="-18"><div class="num"><span data-count="30">30</span>+</div><div class="lbl">Countries served</div></div></div>
     </div>
     <div data-reveal style="display:flex;justify-content:center;margin-top:28px">
       <div class="goodfirm-widget" data-widget-type="goodfirms-widget-t9" data-widget-pattern="score-focused" data-height="98" data-company-id="214095"></div>
@@ -154,22 +156,22 @@
     </div>
     <div class="g4" data-reveal-group style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:end">
       <a href="/work/#attled" class="glass" style="padding:26px 20px;display:flex;flex-direction:column;align-items:center;text-align:center">
-        <div class="device" style="max-width:200px"><img src="/assets/portfolio/attled-1.webp" alt="Attled attendance app" loading="lazy"/ width="590" height="1278"></div>
+        <div class="device" data-parallax="14" style="max-width:200px"><img src="/assets/portfolio/attled-1.webp" alt="Attled attendance app" loading="lazy"/ width="590" height="1278"></div>
         <h3 style="font-size:18px;font-weight:600;margin-top:22px">Attled</h3>
         <p class="dim" style="font-size:13px;margin-top:4px">Attendance &amp; payroll · MERN + RN</p>
       </a>
       <a href="/work/#claris" class="glass" style="padding:26px 20px;display:flex;flex-direction:column;align-items:center;text-align:center">
-        <div class="device" style="max-width:200px"><img src="/assets/portfolio/claris-1.webp" alt="Claris influencer app" loading="lazy"/ width="648" height="1440"></div>
+        <div class="device" data-parallax="-12" style="max-width:200px"><img src="/assets/portfolio/claris-1.webp" alt="Claris influencer app" loading="lazy"/ width="648" height="1440"></div>
         <h3 style="font-size:18px;font-weight:600;margin-top:22px">Claris</h3>
         <p class="dim" style="font-size:13px;margin-top:4px">Influencer × venues · +35% installs</p>
       </a>
       <a href="/work/#popprobe" class="glass" style="padding:26px 20px;display:flex;flex-direction:column;align-items:center;text-align:center">
-        <div class="device" style="max-width:200px"><img src="/assets/portfolio/popprobe-1.webp" alt="POPProbe retail app" loading="lazy"/ width="648" height="1440"></div>
+        <div class="device" data-parallax="16" style="max-width:200px"><img src="/assets/portfolio/popprobe-1.webp" alt="POPProbe retail app" loading="lazy"/ width="648" height="1440"></div>
         <h3 style="font-size:18px;font-weight:600;margin-top:22px">POPProbe</h3>
         <p class="dim" style="font-size:13px;margin-top:4px">Retail chain ops · LMS + analytics</p>
       </a>
       <a href="/work/#station" class="glass" style="padding:26px 20px;display:flex;flex-direction:column;align-items:center;text-align:center">
-        <div class="device" style="max-width:200px"><img src="/assets/portfolio/station-1.webp" alt="Station cab booking app" loading="lazy"/ width="585" height="1266"></div>
+        <div class="device" data-parallax="-14" style="max-width:200px"><img src="/assets/portfolio/station-1.webp" alt="Station cab booking app" loading="lazy"/ width="585" height="1266"></div>
         <h3 style="font-size:18px;font-weight:600;margin-top:22px">Station</h3>
         <p class="dim" style="font-size:13px;margin-top:4px">Ride-hailing · AI fare prediction</p>
       </a>
@@ -199,7 +201,7 @@
 <section>
   <div class="wrap">
     <div class="glass" data-reveal style="padding:48px 44px;display:flex;gap:34px;align-items:center;flex-wrap:wrap">
-      <div class="tav" style="width:88px;height:88px;font-size:30px;flex-shrink:0" aria-hidden="true">HS</div>
+      <div class="tav" data-parallax="16" style="width:88px;height:88px;font-size:30px;flex-shrink:0" aria-hidden="true">HS</div>
       <div style="flex:1;min-width:280px">
         <span class="eyebrow"><span class="dot"></span>Who you'll work with</span>
         <h2 class="h3" style="font-size:clamp(22px,2.6vw,28px);margin:16px 0 0">Het Soni &mdash; Founder &amp; Lead Engineer</h2>
