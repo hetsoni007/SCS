@@ -64,6 +64,12 @@
 - Integrate ChatGPT & LLMs into a React Native App: https://soniconsultancyservices.com/blog/react-native-chatgpt-integration
 - Build vs Buy AI: A CTO's Decision Framework: https://soniconsultancyservices.com/blog/build-vs-buy-ai-cto-framework
 
+## Blog — WordPress & websites (India)
+- WordPress Website Cost in India 2026 (interactive calculator): https://soniconsultancyservices.com/blog/wordpress-website-cost-india
+- WordPress vs Custom Website in 2026 (interactive decision tool): https://soniconsultancyservices.com/blog/wordpress-vs-custom-website
+- Razorpay vs PayU vs Cashfree for WooCommerce (live fee comparison): https://soniconsultancyservices.com/blog/woocommerce-payment-gateway-india
+- WordPress Speed & SEO Checklist 2026 (interactive self-audit): https://soniconsultancyservices.com/blog/wordpress-seo-speed-checklist
+
 ## Blog — cloud, DevOps & security
 - AWS Cloud Migration: A Practical Guide for 2026: https://soniconsultancyservices.com/blog/aws-cloud-migration-guide
 - Mobile App Security Checklist 2026 (interactive scorer): https://soniconsultancyservices.com/blog/mobile-app-security-checklist
