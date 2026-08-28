@@ -7,6 +7,7 @@
 - MERN-stack web and backend development (MongoDB, Express, React, Node.js)
 - AI integration for mobile and web apps (Claude, GPT, RAG, agents)
 - DevOps & cloud engineering — CI/CD pipelines, Kubernetes, Terraform infrastructure-as-code, AWS & Azure migration, observability/SRE, cloud cost optimization, and mobile CI/CD for React Native
+- WordPress & WooCommerce website development for Indian businesses — custom theming, e-commerce, migration, SEO setup and maintenance
 - Dedicated developers / staff augmentation
 
 ## Selected work
@@ -29,6 +30,7 @@
 - React Native app development (flagship service page): https://soniconsultancyservices.com/react-native-app-development/
 - AI app development: https://soniconsultancyservices.com/ai-app-development/
 - DevOps & cloud engineering: https://soniconsultancyservices.com/devops-cloud-engineering/
+- WordPress website development for India: https://soniconsultancyservices.com/wordpress-website-development-india/
 - App cost calculator (interactive estimator): https://soniconsultancyservices.com/app-cost-calculator/
 - Cloud cost calculator: https://soniconsultancyservices.com/cloud-cost-calculator/
 - DevOps maturity assessment: https://soniconsultancyservices.com/devops-maturity-assessment/
