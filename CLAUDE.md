@@ -92,22 +92,26 @@ aws cloudfront create-invalidation --distribution-id <DIST_ID> --paths "/*"
 10. Lead-gen Sprint 2 (content half): /react-native-app-development/ + 4 industry pages (built ONLY from real case studies), footer Industries column, blog pillar expansion of ai-app-development-cost-2026 (~1,400 words, FAQ block).
 11. Mobile/tablet responsive pass (utility grid classes; 0 overflow at 375/768), WhatsApp floating button, LinkedIn tag, footer-icon fix.
 12. Blog pillar expansion of react-native-vs-flutter-2026 (~2.9k words, 12 sections, FAQPage schema, dateModified). CSP + Permissions-Policy headers live via custom response-headers policy `scs-security-headers` (replaced AWS managed policy; verified 0 violations in headless Chrome on home/calculator/blog).
+13. (2026-06-14 to 06-27, see memory) All 4 remaining thin blog posts deepened to pillar length + FAQPage schema; 8 new blog posts written (blog 6→22, incl. an interactive/tool-style cluster — stack picker, security scorer, revenue explorer, decision tools); 3 geo landing pages (react-native-app-development-{uk,dubai,usa}); `/hire/`, `/devops-cloud-engineering/`, `/cloud-cost-calculator/`, `/devops-maturity-assessment/` pages added; real testimonials (3, non-fabricated) shipped as `.tcard` social-proof section on home + work (deliberately no Review/AggregateRating schema — see memory); trust-microcopy + founder card on home. Sitemap now 44 URLs.
+14. (2026-08-19) AI-SEO / on-site pass: expanded `llms.txt` from ~11 links to the full 44-URL sitemap (organized by section); added FAQPage schema + visible `.faq` accordions to the 5 top-level pages that lacked it (`/services/`, `/work/`, `/about/`, `/ai-app-development/`, `/hire/`) — all FAQs grounded in existing on-page copy, nothing invented; added standalone `Person` schema for Het Soni on `/about/` (no `image` field — no real headshot exists yet).
 
 ## PENDING WORK (resume here)
 Blocked on user input:
 1. ~~Meta Pixel ID~~ **DONE 2026-06-13** — pixel `4314120685517416` live on all pages, CSP updated. Remaining (user task): build retargeting/custom audiences in Meta Events Manager.
-2. **4–8 real client testimonials** (name/role/company/quote/logo) → build social-proof section on home + work, AggregateRating/Review schema. DO NOT fabricate.
+2. ~~4–8 real client testimonials~~ **DONE 2026-06-26** — 3 real testimonials (GoodFirms + 2 LinkedIn) live on home + work. More can be added to the same `.tcard` grids if supplied.
 3. **Real pricing/engagement ranges** → build /pricing page (multi-currency) and recalibrate calculator RATE_LO/RATE_HI (currently rough placeholders).
 4. Microsoft Clarity → user creates project, then add snippet.
 
 Not blocked (can do anytime):
-5. Deepen remaining blog posts to pillar length (react-native-vs-flutter-2026 DONE; remaining: ai-agent-development-services, build-vs-buy-ai-cto-framework, mvp-to-product-market-fit, nextjs-saas-architecture).
+5. ~~Deepen remaining blog posts to pillar length~~ **DONE 2026-06-14** — all 4 (ai-agent-development-services, build-vs-buy-ai-cto-framework, mvp-to-product-market-fit, nextjs-saas-architecture) are 1000-1250 words with FAQPage schema. Blog is now 22 posts total.
 6. Email nurture sequence once an ESP is chosen (Brevo suggested; Zoho CRM was REMOVED from scope by user — do not re-add).
+7. SEO/AI-SEO: still open — the off-site authority track (see User-side tasks below) is the main lever left; on-site technical SEO is in good shape (schema, llms.txt, FAQ coverage, sitemap all current as of 2026-08-19).
 
 User-side tasks (remind, can't do for them):
-- Create Clutch / DesignRush / GoodFirms / Google Business Profile listings + request client reviews (single biggest lead lever).
+- Create Clutch / DesignRush / GoodFirms / Google Business Profile listings + request client reviews (single biggest lever for both Google rankings and AI-answer-engine citation — paste-ready kit in `.deploy/MARKETING-KIT.md`).
+- Resubmit sitemap in GSC + request indexing on newer pages (geo pages, hire/devops/calculator pages).
+- Bing Webmaster Tools verification (also feeds Bing/Copilot AI answers).
 - Request SES production access (enables visitor auto-replies from calculator/contact).
-- Bing Webmaster Tools verification.
 - **Rotate the AWS access key that was pasted into chat** (exposed; still active).
 
 ## Hard rules

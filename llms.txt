@@ -1,6 +1,6 @@
 # Soni Consultancy Services
 
-> Soni Consultancy Services (SCS) is an app development studio founded by Het Soni, building cross-platform mobile and web products in React Native and the MERN stack, with AI integration (Claude, GPT). Apps shipped are live on the App Store and Google Play. SCS works with founders and companies worldwide and offers fixed-price proposals.
+> Soni Consultancy Services (SCS) is a senior-only app development studio founded by Het Soni, building cross-platform mobile and web products in React Native and the MERN stack, with AI integration (Claude, GPT) and DevOps/cloud engineering. Apps shipped are live on the App Store and Google Play. SCS works with founders and companies in the UK, US, UAE and India, and offers fixed-price proposals agreed before work starts.
 
 ## What we do
 - React Native cross-platform app development (iOS + Android from one codebase)
@@ -10,26 +10,75 @@
 - Dedicated developers / staff augmentation
 
 ## Selected work
-- Attled — attendance & payroll system (HR), live on both stores
-- Claris — influencer-to-venue collaboration platform, live on the App Store
+- Attled — attendance & payroll system (HR), live on both stores, ~40% less payroll admin
+- Claris — influencer-to-venue collaboration platform, live on the App Store, +35% installs at launch
 - POPProbe — retail chain operations platform (checklists, LMS), live
 - Station — ride-hailing platform with AI fare prediction
-- NAPA and Mita — product & UI/UX design concepts (Web3 / music investing)
+- NAPA and Mita — product & UI/UX design concepts (Web3 / music investing), labeled as concepts, not shipped products
 
-## Key pages
+## Core pages
 - Home: https://soniconsultancyservices.com/
-- Services: https://soniconsultancyservices.com/services/
+- Services overview: https://soniconsultancyservices.com/services/
 - Work / case studies: https://soniconsultancyservices.com/work/
+- Hire React Native developers (staff augmentation): https://soniconsultancyservices.com/hire/
+- About / founder: https://soniconsultancyservices.com/about/
+- Contact: https://soniconsultancyservices.com/contact/
+- Book a free call: https://calendly.com/het-soni-soniconsultancyservices/introductory
+
+## Solutions & tools
+- React Native app development (flagship service page): https://soniconsultancyservices.com/react-native-app-development/
 - AI app development: https://soniconsultancyservices.com/ai-app-development/
-- DevOps & Cloud engineering: https://soniconsultancyservices.com/devops-cloud-engineering/
-- App cost calculator: https://soniconsultancyservices.com/app-cost-calculator/
+- DevOps & cloud engineering: https://soniconsultancyservices.com/devops-cloud-engineering/
+- App cost calculator (interactive estimator): https://soniconsultancyservices.com/app-cost-calculator/
 - Cloud cost calculator: https://soniconsultancyservices.com/cloud-cost-calculator/
 - DevOps maturity assessment: https://soniconsultancyservices.com/devops-maturity-assessment/
-- Blog: https://soniconsultancyservices.com/blog/
-- About: https://soniconsultancyservices.com/about/
-- Contact: https://soniconsultancyservices.com/contact/
+
+## Industries
+- FinTech app development: https://soniconsultancyservices.com/fintech-app-development/
+- Retail app development: https://soniconsultancyservices.com/retail-app-development/
+- Ride-hailing app development: https://soniconsultancyservices.com/ride-hailing-app-development/
+- HR & Payroll app development: https://soniconsultancyservices.com/hr-payroll-app-development/
+
+## Where we work
+- React Native app development in the UK: https://soniconsultancyservices.com/react-native-app-development-uk/
+- React Native app development in Dubai / UAE: https://soniconsultancyservices.com/react-native-app-development-dubai/
+- React Native app development in the USA: https://soniconsultancyservices.com/react-native-app-development-usa/
+
+## Blog — React Native & cross-platform mobile
+- React Native vs Flutter in 2026: https://soniconsultancyservices.com/blog/react-native-vs-flutter-2026
+- Native vs Cross-Platform in 2026 (interactive decision tool): https://soniconsultancyservices.com/blog/native-vs-cross-platform-2026
+- React Native App Development Cost in 2026: https://soniconsultancyservices.com/blog/react-native-app-development-cost
+- How to Hire React Native Developers in 2026: https://soniconsultancyservices.com/blog/hire-react-native-developers
+- CI/CD for React Native Apps: A 2026 Setup Guide: https://soniconsultancyservices.com/blog/ci-cd-react-native
+- App Store & Google Play Launch: A 2026 Submission Checklist: https://soniconsultancyservices.com/blog/app-store-launch-checklist
+- How Long Does It Take to Build a Mobile App in 2026?: https://soniconsultancyservices.com/blog/how-long-to-build-an-app
+
+## Blog — AI integration & AI apps
+- AI Agent Development Services in 2026: https://soniconsultancyservices.com/blog/ai-agent-development-services
+- How Much Does It Cost to Build an AI App in 2026?: https://soniconsultancyservices.com/blog/ai-app-development-cost-2026
+- AI Chatbot App with React Native: Cost & Timeline: https://soniconsultancyservices.com/blog/ai-chatbot-app-react-native
+- How to Build an AI-Powered React Native App (2026): https://soniconsultancyservices.com/blog/ai-react-native-app-development
+- On-Device AI in React Native (Offline & Private): https://soniconsultancyservices.com/blog/on-device-ai-react-native
+- Integrate ChatGPT & LLMs into a React Native App: https://soniconsultancyservices.com/blog/react-native-chatgpt-integration
+- Build vs Buy AI: A CTO's Decision Framework: https://soniconsultancyservices.com/blog/build-vs-buy-ai-cto-framework
+
+## Blog — cloud, DevOps & security
+- AWS Cloud Migration: A Practical Guide for 2026: https://soniconsultancyservices.com/blog/aws-cloud-migration-guide
+- Mobile App Security Checklist 2026 (interactive scorer): https://soniconsultancyservices.com/blog/mobile-app-security-checklist
+
+## Blog — product strategy & planning
+- How to Validate Your App Idea Before You Build It (2026): https://soniconsultancyservices.com/blog/validate-app-idea-before-building
+- How to Choose Your MVP Tech Stack in 2026 (interactive picker): https://soniconsultancyservices.com/blog/mvp-tech-stack-2026
+- From MVP to Product-Market Fit: What Changes After Launch: https://soniconsultancyservices.com/blog/mvp-to-product-market-fit
+- Next.js SaaS Architecture Patterns: https://soniconsultancyservices.com/blog/nextjs-saas-architecture
+- App Monetization Models 2026 (interactive revenue explorer): https://soniconsultancyservices.com/blog/app-monetization-models
+- What App Maintenance Really Costs After Launch (2026): https://soniconsultancyservices.com/blog/app-maintenance-cost
+- BSA/AML Software: Build vs Buy in 2026: https://soniconsultancyservices.com/blog/bsa-aml-software-build-vs-buy
 
 ## Contact
 - Email: het.soni@soniconsultancyservices.com
 - Book a call: https://calendly.com/het-soni-soniconsultancyservices/introductory
 - LinkedIn: https://www.linkedin.com/in/hetsoni/
+- Instagram: https://www.instagram.com/soni.consultancyservices/
+- Facebook: https://www.facebook.com/soniconsultancyservices
+- Medium: https://medium.com/@hetsoni9398
