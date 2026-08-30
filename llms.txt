@@ -11,11 +11,14 @@
 - Dedicated developers / staff augmentation
 
 ## Selected work
-- Attled — attendance & payroll system (HR), live on both stores, ~40% less payroll admin
-- Claris — influencer-to-venue collaboration platform, live on the App Store, +35% installs at launch
-- POPProbe — retail chain operations platform (checklists, LMS), live
-- Station — ride-hailing platform with AI fare prediction
-- NAPA and Mita — product & UI/UX design concepts (Web3 / music investing), labeled as concepts, not shipped products
+Client product names are withheld under NDA; problems, solutions, metrics, tech stacks and screens shown are real.
+- HR & Payroll platform — attendance & payroll system, live on both stores, ~40% less payroll admin
+- Creator–Venue Marketplace — influencer-to-venue collaboration platform, live on the App Store, +35% installs at launch
+- Retail Operations platform — retail chain operations platform (checklists, LMS), live
+- Ride-Hailing platform — cab-booking platform with AI fare prediction
+- B2B Wholesale platform — wholesale ordering & loyalty rewards for retailers, live on both stores
+- Healthcare Staffing platform — shift-based hiring connecting hospitals with nurses, mobile app + web dashboard
+- Web3 Creator and Fan Investment platforms — product & UI/UX design concepts (Web3 / music investing), labeled as concepts, not shipped products
 
 ## Core pages
 - Home: https://soniconsultancyservices.com/
