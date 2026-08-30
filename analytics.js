@@ -72,6 +72,7 @@
     if (f.id === 'cloudCalcForm') track('generate_lead', { form: 'cloud_cost_calculator' });
     if (f.id === 'devopsAssessForm') track('generate_lead', { form: 'devops_maturity_assessment' });
     if (f.id === 'wpForm') track('generate_lead', { form: 'wordpress_india' });
+    if (f.id === 'scopingGuideForm') track('generate_lead', { form: 'app_scoping_guide' });
   }, true);
 
   /* ---------- scroll depth ---------- */
