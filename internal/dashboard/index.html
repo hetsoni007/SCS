@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<script>(function(){try{var t=localStorage.getItem('scs-theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<title>Inbound Dashboard — Internal</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="stylesheet" href="/liquid.css"/>
+<style>
+.ihead{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:16px 32px;border-bottom:1px solid var(--line);background:var(--glass2);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.ihead .itag{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--t3)}
+.ihead h1{font-size:16px;font-weight:700;letter-spacing:-.01em;margin:2px 0 0}
+.isect{padding:36px 0}
+.isect h2{font-size:19px;font-weight:700;letter-spacing:-.01em;margin:0 0 4px}
+.isect .sub{font-size:13px;color:var(--t3);margin:0 0 20px}
+.banner{padding:14px 18px;border-radius:14px;border:1px solid rgba(224,86,75,.4);background:rgba(224,86,75,.08);color:var(--t1);font-size:13.5px;margin-bottom:28px}
+.banner code{background:var(--glass2);padding:1px 6px;border-radius:6px;font-size:12px}
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.kpi{padding:18px 16px;border-radius:16px}
+.kpi b{display:block;font-size:24px;font-weight:700;letter-spacing:-.02em}
+.kpi span{font-size:11.5px;color:var(--t3)}
+.funnel{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
+.fstage{flex:1;min-width:130px;padding:16px;text-align:center;border-right:1px solid var(--line)}
+.fstage:last-child{border-right:none}
+.fstage b{display:block;font-size:22px;font-weight:700}
+.fstage span{font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em}
+.fstage .rate{font-size:12px;color:var(--gold);margin-top:4px;font-weight:600}
+.fstage.warn .rate{color:#e0564b}
+.wform{display:grid;gap:16px}
+.wrow{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.wrow.tpl{grid-template-columns:repeat(4,1fr)}
+.wf label{display:block;font-size:10.5px;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.wf input,.wf select,.wf textarea{width:100%;background:var(--glass2);border:1px solid var(--line);color:var(--t1);padding:9px 11px;border-radius:10px;font-size:13.5px;font-family:inherit;outline:none}
+.wf input:focus,.wf select:focus,.wf textarea:focus{border-color:rgba(201,162,75,.55)}
+.tplgrp{padding:14px;border-radius:14px;border:1px solid var(--line);background:var(--glass2)}
+.tplgrp h4{font-size:12px;color:var(--gold);margin:0 0 10px;letter-spacing:.04em}
+.perftbl{width:100%;border-collapse:collapse;font-size:13px}
+.perftbl th{text-align:left;font-size:10.5px;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;padding:8px 10px;border-bottom:1px solid var(--line)}
+.perftbl td{padding:10px;border-bottom:1px solid var(--line)}
+.perftbl tr.win td:first-child{color:var(--gold);font-weight:700}
+.leadrow{padding:16px 18px;border-radius:16px;margin-bottom:10px}
+.leadtop{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.leadtop .who b{font-size:14.5px}
+.leadtop .who span{display:block;font-size:12px;color:var(--t3);margin-top:2px}
+.leadtop .msg{font-size:12.5px;color:var(--t2);margin-top:6px;max-width:520px}
+.scorebadge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:100px;font-size:12.5px;font-weight:700;white-space:nowrap}
+.scorebadge.high{background:rgba(60,180,110,.15);color:#3cb46e}
+.scorebadge.med{background:rgba(201,162,75,.15);color:var(--gold)}
+.scorebadge.low{background:rgba(224,86,75,.12);color:#e0564b}
+.scorebadge.none{background:var(--glass2);color:var(--t3)}
+.leadgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:12px}
+.leadgrid select{width:100%;background:var(--glass);border:1px solid var(--line);color:var(--t1);padding:7px 8px;border-radius:9px;font-size:12px;font-family:inherit}
+.predtxt{font-size:11.5px;color:var(--t3);margin-top:8px}
+.savebtn{margin-top:10px;padding:8px 16px;font-size:12.5px;border-radius:100px;border:1px solid var(--line2);background:var(--glass2);color:var(--t1);cursor:pointer}
+.savebtn:hover{border-color:var(--gold)}
+.savebtn.saved{color:#3cb46e;border-color:rgba(60,180,110,.4)}
+.chip2{font-size:10.5px;padding:2px 9px;border-radius:100px;background:var(--glass2);color:var(--t3);text-transform:uppercase;letter-spacing:.04em}
+.recolist{display:grid;gap:10px}
+.recoitem{padding:14px 16px;border-radius:14px;font-size:13.5px;line-height:1.55}
+.recoitem b{color:var(--gold)}
+@media(max-width:980px){.kpis{grid-template-columns:repeat(3,1fr)}.wrow{grid-template-columns:repeat(3,1fr)}.wrow.tpl{grid-template-columns:repeat(2,1fr)}.leadgrid{grid-template-columns:repeat(3,1fr)}.funnel{flex-direction:column}.fstage{border-right:none;border-bottom:1px solid var(--line)}}
+@media(max-width:620px){.kpis{grid-template-columns:repeat(2,1fr)}.wrow,.wrow.tpl,.leadgrid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<header class="ihead">
+  <div><div class="itag">Soni Consultancy Services · Private</div><h1>Inbound Inquiry Dashboard</h1></div>
+  <div style="display:flex;align-items:center;gap:14px">
+    <a href="/" style="font-size:12.5px;color:var(--t3)">← Back to site</a>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle dark or light mode"><svg id="themeIcon" viewBox="0 0 24 24"></svg></button>
+  </div>
+</header>
+
+<main class="wrap" style="padding-top:8px">
+
+<div id="configBanner" class="banner" style="display:none">
+  <b>Not configured yet.</b> This page needs two one-time steps — see <code>.deploy/DASHBOARD-SETUP.md</code>:
+  run the SQL migration in Supabase, then paste the project's <b>anon</b> key into the
+  <code>SUPABASE_ANON_KEY</code> constant near the bottom of this file and redeploy.
+</div>
+
+<section class="isect">
+  <h2>This week</h2>
+  <p class="sub">Leads pulled live from Supabase · LinkedIn numbers from your most recent weekly entry below.</p>
+  <div class="kpis">
+    <div class="glass kpi"><b id="kpiLeadsWk">–</b><span>New leads (all sources)</span></div>
+    <div class="glass kpi"><b id="kpiBlogWk">–</b><span>Of which, from blog</span></div>
+    <div class="glass kpi"><b id="kpiClosedWk">–</b><span>Deals closed</span></div>
+    <div class="glass kpi"><b id="kpiOutreach">–</b><span>LinkedIn outreach sent</span></div>
+    <div class="glass kpi"><b id="kpiCallsBooked">–</b><span>Calls booked</span></div>
+    <div class="glass kpi"><b id="kpiCloseRate">–</b><span>Call → close rate (trailing 8wk)</span></div>
+  </div>
+</section>
+
+<section class="isect">
+  <h2>Funnel status</h2>
+  <p class="sub">Trailing 8 weeks of LinkedIn entries, summed. The known bottleneck (call → close) is flagged in red.</p>
+  <div class="glass funnel" id="funnelBar">
+    <div class="fstage"><b>–</b><span>Outreach</span></div>
+    <div class="fstage"><b>–</b><span>Replies</span><div class="rate">–</div></div>
+    <div class="fstage"><b>–</b><span>Qualified</span><div class="rate">–</div></div>
+    <div class="fstage"><b>–</b><span>Booked</span><div class="rate">–</div></div>
+    <div class="fstage"><b>–</b><span>Happened</span><div class="rate">–</div></div>
+    <div class="fstage warn"><b>–</b><span>Closed</span><div class="rate">–</div></div>
+  </div>
+</section>
+
+<section class="isect">
+  <h2>Enter this week's LinkedIn numbers</h2>
+  <p class="sub">Takes ~5 minutes. One row per week — re-saving the same week overwrites it.</p>
+  <div class="glass" style="padding:24px">
+    <form class="wform" id="weeklyForm">
+      <div class="wrow">
+        <div class="wf"><label>Week starting (Mon)</label><input type="date" id="wWeekStart"/></div>
+        <div class="wf"><label>Outreach sent</label><input type="number" id="wOutreach" min="0" value="0"/></div>
+        <div class="wf"><label>Replies</label><input type="number" id="wReplies" min="0" value="0"/></div>
+        <div class="wf"><label>Qualified leads</label><input type="number" id="wQualified" min="0" value="0"/></div>
+        <div class="wf"><label>Calls booked</label><input type="number" id="wBooked" min="0" value="0"/></div>
+        <div class="wf"><label>Calls happened</label><input type="number" id="wHappened" min="0" value="0"/></div>
+      </div>
+      <div class="wrow" style="grid-template-columns:1fr 3fr">
+        <div class="wf"><label>Deals closed</label><input type="number" id="wClosed" min="0" value="0"/></div>
+        <div class="wf"><label>Notes (objections you heard, anything worth remembering)</label><input id="wNotes" placeholder="e.g. 3 calls raised 'prefer freelancers'"/></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+        <div class="tplgrp"><h4>Template A — sent / replies / bookings / closes</h4>
+          <div class="wrow tpl"><input type="number" id="tA_sent" min="0" value="0" placeholder="sent"/><input type="number" id="tA_replies" min="0" value="0" placeholder="replies"/><input type="number" id="tA_bookings" min="0" value="0" placeholder="bookings"/><input type="number" id="tA_closes" min="0" value="0" placeholder="closes"/></div>
+        </div>
+        <div class="tplgrp"><h4>Template B — sent / replies / bookings / closes</h4>
+          <div class="wrow tpl"><input type="number" id="tB_sent" min="0" value="0" placeholder="sent"/><input type="number" id="tB_replies" min="0" value="0" placeholder="replies"/><input type="number" id="tB_bookings" min="0" value="0" placeholder="bookings"/><input type="number" id="tB_closes" min="0" value="0" placeholder="closes"/></div>
+        </div>
+        <div class="tplgrp"><h4>Template C — sent / replies / bookings / closes</h4>
+          <div class="wrow tpl"><input type="number" id="tC_sent" min="0" value="0" placeholder="sent"/><input type="number" id="tC_replies" min="0" value="0" placeholder="replies"/><input type="number" id="tC_bookings" min="0" value="0" placeholder="bookings"/><input type="number" id="tC_closes" min="0" value="0" placeholder="closes"/></div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+        <div class="tplgrp"><h4>Early-stage — sent / replies / closes</h4>
+          <div class="wrow" style="grid-template-columns:repeat(3,1fr)"><input type="number" id="sEarly_sent" min="0" value="0" placeholder="sent"/><input type="number" id="sEarly_replies" min="0" value="0" placeholder="replies"/><input type="number" id="sEarly_closes" min="0" value="0" placeholder="closes"/></div>
+        </div>
+        <div class="tplgrp"><h4>Mid-stage — sent / replies / closes</h4>
+          <div class="wrow" style="grid-template-columns:repeat(3,1fr)"><input type="number" id="sMid_sent" min="0" value="0" placeholder="sent"/><input type="number" id="sMid_replies" min="0" value="0" placeholder="replies"/><input type="number" id="sMid_closes" min="0" value="0" placeholder="closes"/></div>
+        </div>
+        <div class="tplgrp"><h4>Enterprise — sent / replies / closes</h4>
+          <div class="wrow" style="grid-template-columns:repeat(3,1fr)"><input type="number" id="sEnt_sent" min="0" value="0" placeholder="sent"/><input type="number" id="sEnt_replies" min="0" value="0" placeholder="replies"/><input type="number" id="sEnt_closes" min="0" value="0" placeholder="closes"/></div>
+        </div>
+      </div>
+
+      <div class="tplgrp"><h4>Objections heard this week (count of calls)</h4>
+        <div class="wrow tpl">
+          <div class="wf"><label>Prefer freelancers</label><input type="number" id="oFree" min="0" value="0"/></div>
+          <div class="wf"><label>Budget too high</label><input type="number" id="oBudget" min="0" value="0"/></div>
+          <div class="wf"><label>Timing not right</label><input type="number" id="oTiming" min="0" value="0"/></div>
+          <div class="wf"><label>Other</label><input type="number" id="oOther" min="0" value="0"/></div>
+        </div>
+      </div>
+
+      <div><button type="submit" class="btn btn-primary" id="wSaveBtn" style="width:auto">Save this week →</button> <span id="wSaveMsg" style="font-size:12.5px;color:var(--t3);margin-left:10px"></span></div>
+    </form>
+  </div>
+</section>
+
+<section class="isect">
+  <h2>Message template &amp; segment performance</h2>
+  <p class="sub">Aggregated across every weekly entry you've saved. Needs a few weeks of data before the "winner" is meaningful.</p>
+  <div class="glass" style="padding:20px;overflow-x:auto">
+    <table class="perftbl" id="tplTable">
+      <thead><tr><th>Template</th><th>Sent</th><th>Reply %</th><th>Booking %</th><th>Close %</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <div class="glass" style="padding:20px;overflow-x:auto;margin-top:14px">
+    <table class="perftbl" id="segTable">
+      <thead><tr><th>Segment</th><th>Sent</th><th>Reply %</th><th>Close %</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="isect">
+  <h2>Leads &amp; lead scoring</h2>
+  <p class="sub">Every contact-form / calculator submission, most recent first. Score each one before the call — the formula and prediction come from your own stated criteria (Master Prompt, System 3), not measured data beyond the four rates cited below the table.</p>
+  <div id="leadsList"></div>
+  <p style="font-size:11.5px;color:var(--t3);margin-top:6px">Predicted close-rate shown only for early-stage/mid-stage at score 8+ or 5–7 — the four numbers you gave (70% / 40% / 40% / 20%). Every other combination shows "no data yet" rather than a guess.</p>
+</section>
+
+<section class="isect">
+  <h2>Recommendations</h2>
+  <p class="sub">Rule-based, computed from your own entered data — nothing here is invented. Shows "not enough data" instead of guessing when a sample is too small.</p>
+  <div class="recolist" id="recoList"></div>
+</section>
+
+</main>
+
+<footer style="padding:40px 0 60px;text-align:center;font-size:11.5px;color:var(--t3)">Internal tool — not part of the public site. <a href="/" style="color:var(--t3)">soniconsultancyservices.com</a></footer>
+
+<script>
+// theme toggle (self-contained — this page doesn't load liquid.js)
+(function(){
+  var btn=document.getElementById('themeBtn');
+  var ICONS={dark:'<circle cx="12" cy="12" r="4.6" fill="none" stroke="currentColor" stroke-width="1.7"/><g stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><line x1="12" y1="1.6" x2="12" y2="4.2"/><line x1="12" y1="19.8" x2="12" y2="22.4"/><line x1="4.2" y1="4.2" x2="6" y2="6"/><line x1="18" y1="18" x2="19.8" y2="19.8"/><line x1="1.6" y1="12" x2="4.2" y2="12"/><line x1="19.8" y1="12" x2="22.4" y2="12"/><line x1="4.2" y1="19.8" x2="6" y2="18"/><line x1="18" y1="6" x2="19.8" y2="4.2"/></g>',
+    light:'<path fill="currentColor" d="M12 3a9 9 0 109 9 7.2 7.2 0 01-9-9z"/>'};
+  function sync(){ var t=document.documentElement.getAttribute('data-theme')||'dark'; document.getElementById('themeIcon').innerHTML=ICONS[t]; }
+  sync();
+  btn.addEventListener('click',function(){
+    var cur=document.documentElement.getAttribute('data-theme')==='light'?'dark':'light';
+    document.documentElement.setAttribute('data-theme',cur);
+    try{localStorage.setItem('scs-theme',cur);}catch(e){}
+    sync();
+  });
+})();
+
+(function(){
+  'use strict';
+
+  /* ---------- Supabase config — see .deploy/DASHBOARD-SETUP.md ---------- */
+  var SUPABASE_URL = 'https://cfivbhuoxlitfoubmxwv.supabase.co';
+  var SUPABASE_ANON_KEY = ''; // <-- paste the project's anon/public key here (NOT service_role), then redeploy
+  var CONFIGURED = !!SUPABASE_ANON_KEY;
+  if (!CONFIGURED) document.getElementById('configBanner').style.display = 'block';
+
+  function sb(path, opts){
+    opts = opts || {};
+    var headers = Object.assign({
+      'apikey': SUPABASE_ANON_KEY,
+      'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+      'Content-Type': 'application/json'
+    }, opts.headers || {});
+    return fetch(SUPABASE_URL + path, Object.assign({}, opts, { headers: headers }))
+      .then(function(r){
+        if (!r.ok) return r.text().then(function(t){ throw new Error('supabase ' + r.status + ': ' + t); });
+        return r.status === 204 ? null : r.json();
+      });
+  }
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function pct(n, d){ return d > 0 ? Math.round((n / d) * 1000) / 10 : null; }
+  function fmtPct(p){ return p == null ? '–' : p + '%'; }
+  function mondayOf(d){ var x = new Date(d); var day = x.getDay(); var diff = (day === 0 ? -6 : 1) - day; x.setDate(x.getDate() + diff); return x.toISOString().slice(0, 10); }
+
+  /* ---------- lead scoring (System 3 formula, normalized onto 1–10 — see note below) ---------- */
+  // The master prompt's own point values (+10/+8/+7/+5/+5/+3 across six factors) sum to a
+  // ceiling of 38, not 10, but the prompt presents the result as a direct 1–10 score. We
+  // normalize raw/38 → 1–10 so "HIGH/MED/LOW" bands stay meaningful; this normalization is
+  // Claude's adaptation, not something the prompt specified.
+  var STAGE_PTS = { 'early-stage': 10, 'mid-stage': 5, 'enterprise': 2 };
+  var SIZE_PTS = { '1-20': 5, '20-100': 3, '100+': 1 };
+  var BUDGET_PTS = { '5k+': 8, '3-5k': 5, 'under-3k': -3, 'not-mentioned': 2 };
+  var TIMELINE_PTS = { 'asap': 7, 'next-month': 4, 'flexible': 2 };
+  var TECH_PTS = { 'open-rn': 5, 'specific-stack': 3, 'undecided': 1 };
+  var OBJ_PTS = { 'none': 3, 'freelancer-pref': -5, 'budget-concern': -3, 'timing': -2, 'other': 0 };
+  var MAX_RAW = 10 + 5 + 8 + 7 + 5 + 3;
+  // Only these four cells are numbers you actually gave (System 3 "Prediction Algorithm").
+  // Everything else shows "no data yet" rather than an invented rate.
+  var PREDICTIONS = { 'early-stage': { 8: 70, 5: 40 }, 'mid-stage': { 8: 40, 5: 20 } };
+
+  function scoreLead(l){
+    var any = !!(l.segment || l.company_size || l.budget_expressed || l.timeline || l.tech_openness || l.objection);
+    var breakdown = {
+      stage: STAGE_PTS[l.segment] || 0,
+      size: SIZE_PTS[l.company_size] || 0,
+      budget: BUDGET_PTS[l.budget_expressed] || 0,
+      timeline: TIMELINE_PTS[l.timeline] || 0,
+      tech: TECH_PTS[l.tech_openness] || 0,
+      objection: OBJ_PTS[l.objection] || 0
+    };
+    if (!any) return { score: null, band: null, breakdown: breakdown };
+    var raw = breakdown.stage + breakdown.size + breakdown.budget + breakdown.timeline + breakdown.tech + breakdown.objection;
+    var norm = Math.max(1, Math.min(10, Math.round((raw / MAX_RAW) * 10)));
+    var band = norm >= 8 ? 'HIGH' : (norm >= 5 ? 'MEDIUM' : 'LOW');
+    return { score: norm, band: band, breakdown: breakdown };
+  }
+  function predictClose(segment, score){
+    if (!segment || !score || !PREDICTIONS[segment]) return null;
+    if (score >= 8) return PREDICTIONS[segment][8];
+    if (score >= 5) return PREDICTIONS[segment][5];
+    return null;
+  }
+
+  var SEG_OPTS = ['', 'early-stage', 'mid-stage', 'enterprise'];
+  var SEG_LABELS = { '': '– segment –', 'early-stage': 'Early-stage', 'mid-stage': 'Mid-stage', 'enterprise': 'Enterprise' };
+  var SIZE_LABELS = { '': '– size –', '1-20': '1–20 people', '20-100': '20–100', '100+': '100+' };
+  var BUDGET_LABELS = { '': '– budget –', '5k+': '$5K+', '3-5k': '$3–5K', 'under-3k': '<$3K', 'not-mentioned': 'Not mentioned' };
+  var TIMELINE_LABELS = { '': '– timeline –', 'asap': 'ASAP', 'next-month': 'Next month', 'flexible': 'Flexible' };
+  var TECH_LABELS = { '': '– tech –', 'open-rn': 'Open to RN', 'specific-stack': 'Specific stack', 'undecided': 'Undecided' };
+  var OBJ_LABELS = { '': '– objection –', 'none': 'None yet', 'freelancer-pref': 'Prefers freelancers', 'budget-concern': 'Budget concern', 'timing': 'Timing', 'other': 'Other' };
+  var STATUS_LABELS = { 'new': 'New', 'contacted': 'Contacted', 'qualified': 'Qualified', 'closed': 'Closed', 'lost': 'Lost' };
+
+  function selectHtml(id, labels, current){
+    return '<select id="' + id + '">' + Object.keys(labels).map(function(k){
+      return '<option value="' + esc(k) + '"' + (k === (current || '') ? ' selected' : '') + '>' + esc(labels[k]) + '</option>';
+    }).join('') + '</select>';
+  }
+
+  var leadsCache = [];
+
+  function renderLeadRow(l){
+    var s = scoreLead(l);
+    var badgeClass = s.score == null ? 'none' : (s.band === 'HIGH' ? 'high' : (s.band === 'MEDIUM' ? 'med' : 'low'));
+    var badgeText = s.score == null ? 'Not scored' : (s.score + '/10 · ' + s.band);
+    var pred = s.score != null ? predictClose(l.segment, s.score) : null;
+    var div = document.createElement('div');
+    div.className = 'glass leadrow';
+    div.innerHTML =
+      '<div class="leadtop">' +
+        '<div class="who"><b>' + esc(l.name || '(no name)') + '</b><span>' + esc(l.company || '—') + ' · ' + esc(l.email) + '</span>' +
+          (l.message ? '<div class="msg">' + esc((l.message || '').slice(0, 160)) + ((l.message || '').length > 160 ? '…' : '') + '</div>' : '') +
+        '</div>' +
+        '<div style="text-align:right"><span class="chip2">' + esc(l.source || 'website') + '</span> <span class="scorebadge ' + badgeClass + '">' + badgeText + '</span>' +
+          '<div class="predtxt" id="pred-' + l.id + '">' + (pred != null ? 'Predicted close: ~' + pred + '%' : 'Predicted close: no data yet for this segment/score') + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="leadgrid">' +
+        '<div>' + selectHtml('seg-' + l.id, SEG_LABELS, l.segment) + '</div>' +
+        '<div>' + selectHtml('size-' + l.id, SIZE_LABELS, l.company_size) + '</div>' +
+        '<div>' + selectHtml('budget-' + l.id, BUDGET_LABELS, l.budget_expressed) + '</div>' +
+        '<div>' + selectHtml('timeline-' + l.id, TIMELINE_LABELS, l.timeline) + '</div>' +
+        '<div>' + selectHtml('tech-' + l.id, TECH_LABELS, l.tech_openness) + '</div>' +
+        '<div>' + selectHtml('obj-' + l.id, OBJ_LABELS, l.objection) + '</div>' +
+        '<div>' + selectHtml('status-' + l.id, STATUS_LABELS, l.status || 'new') + '</div>' +
+      '</div>' +
+      '<button type="button" class="savebtn" id="save-' + l.id + '">Save score →</button>';
+    return div;
+  }
+
+  function wireLeadRow(l){
+    ['seg', 'size', 'budget', 'timeline', 'tech', 'obj', 'status'].forEach(function(k){
+      var el = document.getElementById(k + '-' + l.id);
+      if (el) el.addEventListener('change', function(){
+        var map = { seg: 'segment', size: 'company_size', budget: 'budget_expressed', timeline: 'timeline', tech: 'tech_openness', obj: 'objection', status: 'status' };
+        l[map[k]] = el.value || null;
+        var s = scoreLead(l);
+        var badgeEl = el.closest('.leadrow').querySelector('.scorebadge');
+        var predEl = document.getElementById('pred-' + l.id);
+        var pred = s.score != null ? predictClose(l.segment, s.score) : null;
+        badgeEl.className = 'scorebadge ' + (s.score == null ? 'none' : (s.band === 'HIGH' ? 'high' : (s.band === 'MEDIUM' ? 'med' : 'low')));
+        badgeEl.textContent = s.score == null ? 'Not scored' : (s.score + '/10 · ' + s.band);
+        predEl.textContent = pred != null ? 'Predicted close: ~' + pred + '%' : 'Predicted close: no data yet for this segment/score';
+      });
+    });
+    var saveBtn = document.getElementById('save-' + l.id);
+    saveBtn.addEventListener('click', function(){
+      var s = scoreLead(l);
+      saveBtn.textContent = 'Saving…';
+      sb('/rest/v1/leads?id=eq.' + l.id, {
+        method: 'PATCH',
+        headers: { 'Prefer': 'return=minimal' },
+        body: JSON.stringify({
+          segment: l.segment || null, company_size: l.company_size || null, budget_expressed: l.budget_expressed || null,
+          timeline: l.timeline || null, tech_openness: l.tech_openness || null, objection: l.objection || null,
+          status: l.status || 'new', lead_score: s.score, score_breakdown: s.breakdown, updated_at: new Date().toISOString()
+        })
+      }).then(function(){
+        saveBtn.textContent = 'Saved ✓'; saveBtn.classList.add('saved');
+        setTimeout(function(){ saveBtn.textContent = 'Save score →'; saveBtn.classList.remove('saved'); }, 2000);
+      }).catch(function(e){ saveBtn.textContent = 'Error — retry'; console.error(e); });
+    });
+  }
+
+  function loadLeads(){
+    if (!CONFIGURED) return Promise.resolve([]);
+    return sb('/rest/v1/leads?select=*&order=created_at.desc&limit=150').then(function(rows){
+      leadsCache = rows || [];
+      var list = document.getElementById('leadsList');
+      list.innerHTML = '';
+      if (!leadsCache.length) { list.innerHTML = '<p style="color:var(--t3);font-size:13px">No leads yet.</p>'; return leadsCache; }
+      leadsCache.forEach(function(l){ var row = renderLeadRow(l); list.appendChild(row); wireLeadRow(l); });
+      return leadsCache;
+    });
+  }
+
+  function renderWeekSnapshot(leads){
+    var monday = new Date(mondayOf(new Date()));
+    var wkLeads = leads.filter(function(l){ return new Date(l.created_at) >= monday; });
+    var blogLeads = wkLeads.filter(function(l){ return l.source === 'blog' || l.utm_source === 'blog'; });
+    var closedWk = leads.filter(function(l){ return l.closed_deal && l.closed_at && new Date(l.closed_at) >= monday; });
+    document.getElementById('kpiLeadsWk').textContent = wkLeads.length;
+    document.getElementById('kpiBlogWk').textContent = blogLeads.length;
+    document.getElementById('kpiClosedWk').textContent = closedWk.length;
+  }
+
+  /* ---------- weekly LinkedIn data ---------- */
+  var weeklyCache = [];
+  function loadWeekly(){
+    if (!CONFIGURED) return Promise.resolve([]);
+    return sb('/rest/v1/linkedin_weekly?select=*&order=week_start.desc&limit=8').then(function(rows){
+      weeklyCache = rows || [];
+      return weeklyCache;
+    });
+  }
+
+  function sumField(rows, f){ return rows.reduce(function(a, r){ return a + (Number(r[f]) || 0); }, 0); }
+
+  function renderFunnel(){
+    var outreach = sumField(weeklyCache, 'outreach_sent');
+    var replies = sumField(weeklyCache, 'replies');
+    var qualified = sumField(weeklyCache, 'qualified_leads');
+    var booked = sumField(weeklyCache, 'calls_booked');
+    var happened = sumField(weeklyCache, 'calls_happened');
+    var closed = sumField(weeklyCache, 'deals_closed');
+    var bar = document.getElementById('funnelBar');
+    var stages = [
+      { label: 'Outreach', v: outreach, rate: null },
+      { label: 'Replies', v: replies, rate: fmtPct(pct(replies, outreach)) },
+      { label: 'Qualified', v: qualified, rate: fmtPct(pct(qualified, replies)) },
+      { label: 'Booked', v: booked, rate: fmtPct(pct(booked, qualified)) },
+      { label: 'Happened', v: happened, rate: fmtPct(pct(happened, booked)) },
+      { label: 'Closed', v: closed, rate: fmtPct(pct(closed, happened)), warn: true }
+    ];
+    bar.innerHTML = stages.map(function(s){
+      return '<div class="fstage' + (s.warn ? ' warn' : '') + '"><b>' + s.v + '</b><span>' + s.label + '</span>' + (s.rate ? '<div class="rate">' + s.rate + '</div>' : '') + '</div>';
+    }).join('');
+    document.getElementById('kpiOutreach').textContent = outreach;
+    document.getElementById('kpiCallsBooked').textContent = booked;
+    document.getElementById('kpiCloseRate').textContent = fmtPct(pct(closed, happened));
+  }
+
+  function renderTemplateTable(){
+    var totals = { A: { sent: 0, replies: 0, bookings: 0, closes: 0 }, B: { sent: 0, replies: 0, bookings: 0, closes: 0 }, C: { sent: 0, replies: 0, bookings: 0, closes: 0 } };
+    weeklyCache.forEach(function(r){
+      var t = r.template_stats || {};
+      ['A', 'B', 'C'].forEach(function(k){
+        var d = t[k] || {};
+        totals[k].sent += Number(d.sent) || 0; totals[k].replies += Number(d.replies) || 0;
+        totals[k].bookings += Number(d.bookings) || 0; totals[k].closes += Number(d.closes) || 0;
+      });
+    });
+    var rows = ['A', 'B', 'C'].map(function(k){ return { name: 'Template ' + k, t: totals[k] }; });
+    var best = rows.filter(function(r){ return r.t.sent >= 5; }).sort(function(a, b){ return pct(b.t.closes, b.t.bookings || 1) - pct(a.t.closes, a.t.bookings || 1); })[0];
+    var tbody = document.querySelector('#tplTable tbody');
+    if (!weeklyCache.length) { tbody.innerHTML = '<tr><td colspan="5" style="color:var(--t3)">No weekly entries yet.</td></tr>'; return; }
+    tbody.innerHTML = rows.map(function(r){
+      var win = best && r === best;
+      return '<tr' + (win ? ' class="win"' : '') + '><td>' + r.name + (win ? ' — winner' : '') + '</td><td>' + r.t.sent + '</td><td>' + fmtPct(pct(r.t.replies, r.t.sent)) + '</td><td>' + fmtPct(pct(r.t.bookings, r.t.replies)) + '</td><td>' + fmtPct(pct(r.t.closes, r.t.bookings)) + '</td></tr>';
+    }).join('');
+  }
+
+  function renderSegmentTable(){
+    var totals = { 'early-stage': { sent: 0, replies: 0, closes: 0 }, 'mid-stage': { sent: 0, replies: 0, closes: 0 }, 'enterprise': { sent: 0, replies: 0, closes: 0 } };
+    weeklyCache.forEach(function(r){
+      var s = r.segment_stats || {};
+      Object.keys(totals).forEach(function(k){
+        var d = s[k] || {};
+        totals[k].sent += Number(d.sent) || 0; totals[k].replies += Number(d.replies) || 0; totals[k].closes += Number(d.closes) || 0;
+      });
+    });
+    var tbody = document.querySelector('#segTable tbody');
+    if (!weeklyCache.length) { tbody.innerHTML = '<tr><td colspan="4" style="color:var(--t3)">No weekly entries yet.</td></tr>'; return; }
+    var order = ['early-stage', 'mid-stage', 'enterprise'];
+    var best = order.filter(function(k){ return totals[k].sent >= 5; }).sort(function(a, b){ return pct(totals[b].closes, totals[b].sent) - pct(totals[a].closes, totals[a].sent); })[0];
+    tbody.innerHTML = order.map(function(k){
+      var win = k === best;
+      return '<tr' + (win ? ' class="win"' : '') + '><td>' + SEG_LABELS[k] + (win ? ' — best' : '') + '</td><td>' + totals[k].sent + '</td><td>' + fmtPct(pct(totals[k].replies, totals[k].sent)) + '</td><td>' + fmtPct(pct(totals[k].closes, totals[k].sent)) + '</td></tr>';
+    }).join('');
+  }
+
+  function renderRecommendations(leads){
+    var out = [];
+    // segment close rate, from real lead outcomes (min sample 3)
+    var bySeg = {};
+    leads.forEach(function(l){ if (!l.segment) return; bySeg[l.segment] = bySeg[l.segment] || { total: 0, closed: 0 }; bySeg[l.segment].total++; if (l.closed_deal) bySeg[l.segment].closed++; });
+    var segRows = Object.keys(bySeg).filter(function(k){ return bySeg[k].total >= 3; }).map(function(k){ return { k: k, rate: pct(bySeg[k].closed, bySeg[k].total), n: bySeg[k].total }; });
+    if (segRows.length) {
+      segRows.sort(function(a, b){ return b.rate - a.rate; });
+      var top = segRows[0];
+      out.push('<b>' + SEG_LABELS[top.k] + '</b> is your best-converting segment so far (' + top.rate + '% close over ' + top.n + ' scored leads). Consider shifting more outreach here.');
+    } else {
+      out.push('Not enough scored leads per segment yet (need ≥3 in a segment) to say which converts best — keep scoring leads in the table above.');
+    }
+    // objection close rate (min sample 3), excluding "none"
+    var byObj = {};
+    leads.forEach(function(l){ if (!l.objection || l.objection === 'none') return; byObj[l.objection] = byObj[l.objection] || { total: 0, closed: 0 }; byObj[l.objection].total++; if (l.closed_deal) byObj[l.objection].closed++; });
+    var objRows = Object.keys(byObj).filter(function(k){ return byObj[k].total >= 3; }).map(function(k){ return { k: k, rate: pct(byObj[k].closed, byObj[k].total), n: byObj[k].total }; });
+    if (objRows.length) {
+      objRows.sort(function(a, b){ return a.rate - b.rate; });
+      var worst = objRows[0];
+      out.push('The objection <b>"' + OBJ_LABELS[worst.k] + '"</b> closes worst (' + worst.rate + '% over ' + worst.n + ' leads) — worth rehearsing a better response to this one specifically.');
+    } else {
+      out.push('Not enough leads with a recorded objection yet (need ≥3 per objection) to say which one hurts close rate most.');
+    }
+    // template winner, from weekly aggregates (min sample 5 sent)
+    var tplTotals = { A: 0, B: 0, C: 0 }, tplSent = { A: 0, B: 0, C: 0 };
+    weeklyCache.forEach(function(r){ var t = r.template_stats || {}; ['A', 'B', 'C'].forEach(function(k){ var d = t[k] || {}; tplSent[k] += Number(d.sent) || 0; tplTotals[k] += Number(d.closes) || 0; }); });
+    var tplEligible = ['A', 'B', 'C'].filter(function(k){ return tplSent[k] >= 5; });
+    if (tplEligible.length) {
+      tplEligible.sort(function(a, b){ return pct(tplTotals[b], tplSent[b]) - pct(tplTotals[a], tplSent[a]); });
+      out.push('<b>Template ' + tplEligible[0] + '</b> is currently your best-closing message — the prompt\'s own rule of thumb is to run it ~70% of the time and keep testing a new variant on the rest.');
+    } else {
+      out.push('No template has 5+ sends logged yet — enter a few weeks of LinkedIn data before trusting a template winner.');
+    }
+    document.getElementById('recoList').innerHTML = out.map(function(t){ return '<div class="glass recoitem">' + t + '</div>'; }).join('');
+  }
+
+  /* ---------- weekly form ---------- */
+  document.getElementById('wWeekStart').value = mondayOf(new Date());
+  document.getElementById('weeklyForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    if (!CONFIGURED) { document.getElementById('wSaveMsg').textContent = 'Not configured — see banner above.'; return; }
+    var v = function(id){ return document.getElementById(id).value; };
+    var n = function(id){ return Number(v(id)) || 0; };
+    var row = {
+      week_start: v('wWeekStart'),
+      outreach_sent: n('wOutreach'), replies: n('wReplies'), qualified_leads: n('wQualified'),
+      calls_booked: n('wBooked'), calls_happened: n('wHappened'), deals_closed: n('wClosed'),
+      notes: v('wNotes') || null,
+      template_stats: {
+        A: { sent: n('tA_sent'), replies: n('tA_replies'), bookings: n('tA_bookings'), closes: n('tA_closes') },
+        B: { sent: n('tB_sent'), replies: n('tB_replies'), bookings: n('tB_bookings'), closes: n('tB_closes') },
+        C: { sent: n('tC_sent'), replies: n('tC_replies'), bookings: n('tC_bookings'), closes: n('tC_closes') }
+      },
+      segment_stats: {
+        'early-stage': { sent: n('sEarly_sent'), replies: n('sEarly_replies'), closes: n('sEarly_closes') },
+        'mid-stage': { sent: n('sMid_sent'), replies: n('sMid_replies'), closes: n('sMid_closes') },
+        'enterprise': { sent: n('sEnt_sent'), replies: n('sEnt_replies'), closes: n('sEnt_closes') }
+      },
+      objections: { 'freelancer-pref': n('oFree'), 'budget-concern': n('oBudget'), 'timing': n('oTiming'), 'other': n('oOther') }
+    };
+    var btn = document.getElementById('wSaveBtn'); btn.disabled = true; btn.textContent = 'Saving…';
+    sb('/rest/v1/linkedin_weekly?on_conflict=week_start', {
+      method: 'POST',
+      headers: { 'Prefer': 'resolution=merge-duplicates,return=minimal' },
+      body: JSON.stringify([row])
+    }).then(function(){
+      btn.disabled = false; btn.textContent = 'Save this week →';
+      document.getElementById('wSaveMsg').textContent = 'Saved ✓';
+      return refreshAll();
+    }).catch(function(e){ btn.disabled = false; btn.textContent = 'Save this week →'; document.getElementById('wSaveMsg').textContent = 'Error — see console'; console.error(e); });
+  });
+
+  function refreshAll(){
+    return Promise.all([loadLeads(), loadWeekly()]).then(function(res){
+      var leads = res[0];
+      renderWeekSnapshot(leads);
+      renderFunnel();
+      renderTemplateTable();
+      renderSegmentTable();
+      renderRecommendations(leads);
+    });
+  }
+
+  refreshAll();
+})();
+</script>
+</body>
+</html>
