@@ -355,3 +355,13 @@ html[data-theme="dark"] .blog-card .more{color:var(--gold-light)}
 .trole{font-size:12.5px;color:var(--t3);line-height:1.4}
 .tsrc{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--gold-dim)}
 html[data-theme="dark"] .tsrc{color:var(--gold-light)}
+
+/* ---------- Custom cursor (desktop pointer:fine only, respects prefers-reduced-motion via JS gate) ---------- */
+html.has-custom-cursor,html.has-custom-cursor body{cursor:none}
+html.has-custom-cursor a,html.has-custom-cursor button,html.has-custom-cursor [data-tilt],html.has-custom-cursor [data-magnetic],html.has-custom-cursor input,html.has-custom-cursor select,html.has-custom-cursor textarea,html.has-custom-cursor .faq-q,html.has-custom-cursor .sim-frame,html.has-custom-cursor .flow-tab,html.has-custom-cursor .sim-dot{cursor:none}
+.cursor-dot{position:fixed;top:0;left:0;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:var(--gold);pointer-events:none;z-index:9999;opacity:0;transition:opacity .25s var(--ease),width .25s var(--ease),height .25s var(--ease),margin .25s var(--ease)}
+.cursor-ring{position:fixed;top:0;left:0;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:1.4px solid rgba(201,162,75,.55);background:rgba(201,162,75,.06);pointer-events:none;z-index:9999;opacity:0;transition:left .16s linear,top .16s linear,opacity .3s var(--ease),width .3s var(--ease),height .3s var(--ease),margin .3s var(--ease),background .3s,border-color .3s}
+.cursor-dot.active,.cursor-ring.active{opacity:1}
+.cursor-ring.hover{width:56px;height:56px;margin:-28px 0 0 -28px;background:rgba(201,162,75,.12);border-color:var(--gold)}
+.cursor-dot.hover{opacity:0}
+@media(max-width:980px),(hover:none),(pointer:coarse){.cursor-dot,.cursor-ring{display:none!important}}

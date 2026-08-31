@@ -62,6 +62,8 @@
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  initCursor();
+
   if (!hasGSAP || reduce) {
     // No-JS-anim fallback: reveal everything
     document.querySelectorAll('[data-reveal]').forEach(function (el) { el.style.opacity = 1; });
@@ -177,5 +179,39 @@
 
   function initNonGsap() {
     initTyping && initTyping();
+  }
+
+  /* ---------- Custom cursor (desktop pointer:fine only, skipped for reduced-motion) ---------- */
+  function initCursor() {
+    if (reduce) return;
+    if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+
+    var dot = document.createElement('div'); dot.className = 'cursor-dot';
+    var ring = document.createElement('div'); ring.className = 'cursor-ring';
+    document.body.appendChild(dot);
+    document.body.appendChild(ring);
+    document.documentElement.classList.add('has-custom-cursor');
+
+    var started = false;
+
+    addEventListener('mousemove', function (e) {
+      var mx = e.clientX, my = e.clientY;
+      dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+      ring.style.left = mx + 'px'; ring.style.top = my + 'px';
+      if (!started) { started = true; dot.classList.add('active'); ring.classList.add('active'); }
+    }, { passive: true });
+
+    document.addEventListener('mouseleave', function () { dot.classList.remove('active'); ring.classList.remove('active'); });
+    document.addEventListener('mouseenter', function () { if (started) { dot.classList.add('active'); ring.classList.add('active'); } });
+
+    var HOVER_SEL = 'a,button,[data-tilt],[data-magnetic],input,select,textarea,.faq-q,.sim-frame,.flow-tab,.sim-dot,.sim-edge,.theme-btn,.burger';
+    document.addEventListener('mouseover', function (e) {
+      var t = e.target.closest && e.target.closest(HOVER_SEL);
+      if (t) ring.classList.add('hover');
+    }, true);
+    document.addEventListener('mouseout', function (e) {
+      var t = e.target.closest && e.target.closest(HOVER_SEL);
+      if (t) ring.classList.remove('hover');
+    }, true);
   }
 })();
