@@ -113,7 +113,7 @@ Blocked on user input:
 2. ~~4–8 real client testimonials~~ **DONE 2026-06-26** — 3 real testimonials (GoodFirms + 2 LinkedIn) live on home + work. More can be added to the same `.tcard` grids if supplied.
 3. **Real pricing/engagement ranges** → build /pricing page (multi-currency) and recalibrate calculator RATE_LO/RATE_HI (currently rough placeholders).
 4. Microsoft Clarity → user creates project, then add snippet.
-5. **Supabase leads DB — awaiting credentials.** Code is deployed and safe (no-op) until you: create a free Supabase project, run the SQL in `.deploy/SUPABASE-SETUP.md`, and give back the Project URL + `service_role` key so they can be set as Lambda env vars (`aws lambda update-function-configuration`). Full steps in that file.
+5. ~~Supabase leads DB~~ **DONE 2026-08-31** — project created (`cfivbhuoxlitfoubmxwv`, Sydney region), `leads` table created, `SUPABASE_URL`/`SUPABASE_SERVICE_ROLE_KEY` (using Supabase's newer "secret key" format, `sb_secret_...`) set as `scs-lead-mailer` env vars, verified end-to-end (`{"db":true}`, row confirmed via a direct read against the leads table). Every lead now lands in Supabase in addition to the owner email.
 6. **Calendly booking-completed tracking — needs a decision, not just credentials.** Two real options, both with a real cost, see item 19 above: (a) embed Calendly's popup widget instead of opening a new tab (adds a CDN script + CSP change), or (b) Calendly webhooks → a new Lambda endpoint (needs a paid Calendly plan). Until one is chosen, `book_call_click` (a real click on a Calendly link, already live) is the closest available signal and is what's being marked as the GA4 conversion for calls.
 
 Not blocked (can do anytime):
