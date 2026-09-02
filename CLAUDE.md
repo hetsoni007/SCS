@@ -57,11 +57,14 @@ google3c3389cc0cde5740.html   GSC verification file (do not delete)
 export PATH="$HOME/Library/Python/3.9/bin:$PATH"; export AWS_PROFILE=prod
 bash .deploy/generate-sitemap.sh        # regenerates sitemap.xml from canonicals (only if pages added/removed/edited)
 aws s3 sync . s3://<BUCKET> --delete \
-  --exclude ".git/*" --exclude "*.DS_Store" --exclude "README.md" \
+  --exclude ".git" --exclude ".git/*" --exclude ".gitignore" \
+  --exclude "*.DS_Store" --exclude "README.md" \
   --exclude "DEPLOY.md" --exclude "CLAUDE.md" --exclude ".deploy/*" \
-  --exclude ".claude/*" --exclude "generate-sitemap.py" --exclude "social-kit/*"
+  --exclude ".claude/*" --exclude "generate-sitemap.py" \
+  --exclude "build-scoping-guide-pdf.py" --exclude "social-kit/*"
 aws cloudfront create-invalidation --distribution-id <DIST_ID> --paths "/*"
 ```
+- **`--exclude ".git"` (no slash) is load-bearing — do not drop it.** In a git *worktree* `.git` is a one-line FILE, not a directory, so `--exclude ".git/*"` does not match it and the sync happily uploads it. It leaks the local gitdir path publicly. This actually shipped on 2026-09-03 (caught and removed the same session; only the pointer file was exposed, no repo history was ever browsable). `.gitignore` had also been sitting live since 2026-08-31 for the same reason.
 - Always verify live afterwards with `curl` (cache-bust with `?cb=$RANDOM`).
 - Lead/email backend: API Gateway HTTP API `https://9cjt6qwy71.execute-api.ap-south-1.amazonaws.com` → Lambda `scs-lead-mailer` (Node 20) → SES → het.soni@soniconsultancyservices.com. Used by the contact form and the cost calculator. **SES is in sandbox**: owner receives leads, visitor auto-reply is blocked until production access is requested (user task). Account gotcha: public Lambda Function URLs return 403 — use API Gateway; let API GW own CORS (Lambda must return no CORS headers).
 - Git: commit to `main`, push to origin. **Secret-scan before every commit** (`grep -rE 'AKIA[0-9A-Z]{16}'` over tracked files). `.deploy/` and `.DS_Store` are gitignored.
