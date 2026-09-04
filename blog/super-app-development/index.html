@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<script>(function(){try{var t=localStorage.getItem('scs-theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<title>Super Apps and Mini Apps in 2026: Should Your Product Become a Platform?</title>
+<meta name="description" content="Super apps dominate in Asia and keep tempting Western product teams. Answer 5 questions to see whether a mini-app platform fits your product — or would quietly break it."/>
+<meta name="keywords" content="super app development, mini apps 2026, super app architecture, mini app platform, build a super app"/>
+<meta name="robots" content="index,follow,max-image-preview:large"/>
+<meta property="og:title" content="Super Apps and Mini Apps in 2026: Should Your Product Become a Platform?"/>
+<meta property="og:description" content="Should your app become a super app? A decision framework for founders weighing a mini-app platform."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://soniconsultancyservices.com/blog/super-app-development"/>
+<meta name="theme-color" content="#060607"/>
+<meta property="og:site_name" content="Soni Consultancy Services"/>
+<meta property="og:image" content="https://soniconsultancyservices.com/assets/og.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://soniconsultancyservices.com/assets/og.png"/>
+<link rel="canonical" href="https://soniconsultancyservices.com/blog/super-app-development"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin/>
+<link rel="stylesheet" href="/liquid.css"/>
+<style>
+.dtool{border:1px solid var(--line2);border-radius:22px;background:radial-gradient(120% 140% at 0% 0%,rgba(201,162,75,.14),transparent 55%),var(--glass2);padding:30px;margin:8px 0 6px}
+.dtool .kick{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--gold-light)}
+.dtool .prog{height:5px;border-radius:99px;background:var(--line);overflow:hidden;margin:14px 0 22px;position:static}
+.dtool .prog>i{display:block;height:100%;width:0;background:var(--gold-grad);transition:width .35s ease}
+.dtool .q{font-size:22px;font-weight:700;letter-spacing:-.01em;line-height:1.25;margin:0 0 18px}
+.dtool .opts{display:grid;gap:10px}
+.dtool button.opt{text-align:left;font:inherit;color:var(--t1);background:var(--glass);border:1px solid var(--line2);border-radius:13px;padding:15px 17px;cursor:pointer;transition:border-color .2s,transform .2s,background .2s}
+.dtool button.opt:hover{border-color:var(--gold);transform:translateY(-2px);background:var(--glass2)}
+.dtool button.opt.on{border-color:var(--gold);background:var(--glass2)}
+.dtool button.opt small{display:block;color:var(--t3);font-size:12.5px;margin-top:4px;line-height:1.5}
+.dtool .nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:18px;font-size:13.5px;color:var(--t2)}
+.dtool .back{background:none;border:none;color:var(--t2);cursor:pointer;font:inherit;padding:4px 2px}
+.dtool .back:hover{color:var(--t1)}
+.dtool .res{display:none}
+.dtool .res.on{display:block}
+.dtool .badge{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-light);border:1px solid var(--line2);border-radius:99px;padding:6px 13px;margin-bottom:14px}
+.dtool .res h3{font-size:clamp(24px,4vw,32px);letter-spacing:-.02em;margin:0 0 12px;line-height:1.1}
+.dtool .bars{display:grid;gap:9px;margin:20px 0}
+.dtool .bar{display:grid;grid-template-columns:150px 1fr 46px;align-items:center;gap:12px;font-size:13.5px}
+.dtool .bar .track{height:9px;border-radius:99px;background:var(--line);overflow:hidden}
+.dtool .bar .track>i{display:block;height:100%;background:var(--gold-grad);border-radius:99px;width:0;transition:width .6s cubic-bezier(.2,.7,.2,1)}
+.dtool .again{margin-top:6px;background:none;border:none;color:var(--gold-light);font:inherit;font-weight:600;cursor:pointer;padding:0}
+.dtool .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.dtool .cl{display:grid;gap:9px;margin:4px 0 6px}
+.dtool .ci{display:flex;gap:12px;align-items:flex-start;padding:13px 15px;border:1px solid var(--line2);border-radius:12px;background:var(--glass);cursor:pointer;transition:border-color .2s,background .2s}
+.dtool .ci:hover{border-color:var(--gold)}
+.dtool .ci.on{border-color:var(--gold);background:var(--glass2)}
+.dtool .ci .bx{flex:0 0 auto;width:20px;height:20px;border-radius:6px;border:1.5px solid var(--line2);display:flex;align-items:center;justify-content:center;margin-top:1px}
+.dtool .ci.on .bx{border-color:var(--gold);background:var(--gold-grad)}
+.dtool .ci .bx svg{width:12px;height:12px;stroke:#1a1206;opacity:0}
+.dtool .ci.on .bx svg{opacity:1}
+.dtool .ci .tx{font-size:14.5px;color:var(--t1);line-height:1.5}
+.dtool .ci .tx small{display:block;color:var(--t3);font-size:12.5px;margin-top:3px}
+.dtool .score{font-size:clamp(38px,7vw,58px);font-weight:700;letter-spacing:-.03em;line-height:1;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@media(max-width:620px){.dtool{padding:22px}.dtool .bar{grid-template-columns:110px 1fr 40px}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Super Apps and Mini Apps in 2026: Should Your Product Become a Platform?", "author": {"@type": "Person", "name": "Het Soni"}, "publisher": {"@type": "Organization", "name": "Soni Consultancy Services"}, "datePublished": "2026-09-03", "dateModified": "2026-09-03", "articleSection": "Mobile", "description": "Super apps dominate in Asia and keep tempting Western product teams. Answer 5 questions to see whether a mini-app platform fits your product — or would quietly break it."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://soniconsultancyservices.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://soniconsultancyservices.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "Super Apps and Mini Apps in 2026: Should Your Product Become a Platform?", "item": "https://soniconsultancyservices.com/blog/super-app-development"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the difference between a super app and a regular app?", "acceptedAnswer": {"@type": "Answer", "text": "A regular app does one thing. A super app hosts many services — often built by third parties as mini apps — behind one identity, one payment method and one download. The host provides distribution and infrastructure; the mini apps provide the services."}}, {"@type": "Question", "name": "Do I need millions of users before a super app makes sense?", "acceptedAnswer": {"@type": "Answer", "text": "Scale matters less than habit. The precondition is that people already open your app without being prompted, because that habit is what makes a second service cheaper to distribute inside your app than as its own download. A smaller, genuinely habitual audience beats a larger, occasional one."}}, {"@type": "Question", "name": "Will Apple and Google allow a super app on their stores?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — plenty exist on both. But both platforms have specific positions on apps hosting other apps and on how payments flow through them, so the model needs to be designed with those rules in mind rather than discovered during review."}}, {"@type": "Question", "name": "What is the most common way super app strategies fail?", "acceptedAnswer": {"@type": "Answer", "text": "Launching one when the host app is not habitually used. Adding services does not create engagement that was not already there, so teams end up with a larger, slower app, more code to maintain, and the same traffic they started with."}}, {"@type": "Question", "name": "Is there a cheaper way to test the idea first?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, and most teams should. Add two or three adjacent services that you build and own natively inside your existing app. You get most of the distribution benefit without the SDK, sandboxing and governance burden, and you find out whether users actually want more from you before committing to a platform."}}]}</script>
+</head>
+<body>
+<div class="bg"></div><div class="orb orb-a"></div><div class="orb orb-b"></div><div class="grid-lines"></div><div class="grain"></div><div class="prog" id="prog"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="em" viewBox="0 0 100 100"><linearGradient id="goldg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2DA8C"/><stop offset=".5" stop-color="#C9A24B"/><stop offset="1" stop-color="#9A7B2E"/></linearGradient><g fill="none" stroke="url(#goldg) #C9A24B" stroke-width="2.3" stroke-linejoin="round"><path d="M24 13H13V24M87 13H76M87 13V24M24 87H13V76M76 87H87V76"/><circle cx="50" cy="48" r="27"/></g><circle cx="59" cy="37" r="5.4" fill="url(#goldg) #C9A24B"/><g stroke="url(#goldg) #C9A24B" stroke-width="2.5" stroke-linecap="round"><line x1="38" y1="63" x2="38" y2="49"/><line x1="43" y1="63" x2="43" y2="43"/><line x1="48" y1="63" x2="48" y2="36"/><line x1="53" y1="63" x2="53" y2="46"/><line x1="58" y1="63" x2="58" y2="53"/></g><g stroke="url(#goldg) #C9A24B" stroke-width="2" stroke-linecap="round"><line x1="40" y1="68" x2="64" y2="68"/><line x1="44" y1="72" x2="61" y2="72"/></g></symbol></svg>
+<nav class="nav">
+  <input type="checkbox" id="navCb" class="nav-cb"/>
+  <div class="nav-in">
+    <a href="/" class="brand"><svg class="brand-mark"><use href="#em"/></svg><span class="brand-name">SONI<span>CONSULTANCY SERVICES</span></span></a>
+    <ul class="nav-links"><li><a href="/services/">Services</a></li><li><a href="/work/">Work</a></li><li><a href="/blog/" class="active">Blog</a></li><li><a href="/ai-app-development/">AI Apps</a></li><li><a href="/devops-cloud-engineering/">DevOps &amp; Cloud</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul>
+    <div class="nav-r"><button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle dark or light mode"><svg id="themeIcon" viewBox="0 0 24 24"></svg></button><a href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener" class="nav-cta">Book a Call</a><label for="navCb" class="burger" aria-label="Menu"><span></span><span></span><span></span></label></div>
+  </div>
+  <div class="mobile"><a href="/services/" onclick="navCb.checked=false">Services</a><a href="/work/" onclick="navCb.checked=false">Work</a><a href="/blog/" onclick="navCb.checked=false">Blog</a><a href="/ai-app-development/" onclick="navCb.checked=false">AI Apps</a><a href="/devops-cloud-engineering/" onclick="navCb.checked=false">DevOps &amp; Cloud</a><a href="/about/" onclick="navCb.checked=false">About</a><a href="/contact/" onclick="navCb.checked=false">Contact</a><a href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener" style="color:var(--t1);font-weight:600" onclick="navCb.checked=false">Book a Free Call &#8594;</a></div>
+</nav>
+
+<main>
+<section class="page-hero" style="padding-bottom:36px">
+  <div class="article-wrap" data-reveal>
+    <div class="breadcrumb"><a href="/">Home</a> &#8250; <a href="/blog/">Blog</a> &#8250; Mobile</div>
+    <span class="article-cat">Mobile · Strategy · Interactive</span>
+    <h1 class="article-title">Super Apps and Mini Apps in 2026: Should Your Product Become a Platform?</h1>
+    <p class="article-lead">Super apps are a defining product pattern of 2026, and one of the easiest strategies to get badly wrong. Answer five questions below to see whether the model genuinely fits your product, then read the conditions that decide whether it works.</p>
+    <div class="article-meta"><span>Het Soni</span><span class="dot"></span><span>7 min read · September 2026</span></div>
+  </div>
+</section>
+<section style="padding-top:0">
+  <div class="article-wrap article-body" data-reveal>
+
+<p>A super app is one application that hosts many services, often built by other teams, running as mini apps inside it. The user stays in one place; the host owns identity, payment and distribution.</p>
+<p>The pattern is mature in Asia and increasingly attractive elsewhere, for an obvious reason: if you already have users who open your app daily, adding services looks like free revenue. Sometimes it is. More often it is a strategy that quietly makes a good product worse.</p>
+
+<div class="dtool" id="dt">
+  <div class="kick">Interactive &middot; 5 questions</div>
+  <div class="prog"><i></i></div>
+  <div class="qwrap"></div>
+  <div class="res"></div>
+</div>
+
+<h2>The precondition nobody wants to hear</h2>
+<p>Super apps work when the host app is already something people open without being prompted. Not weekly. Not when they need it. Habitually.</p>
+<p>That habit is the entire asset. It is what makes a second service inside your app cheaper to distribute than that service would be as its own download. If you do not have it, adding services does not create it &mdash; you get a bigger app with the same traffic and more surface area to maintain.</p>
+<p>The uncomfortable version: if your retention is weak, a super app strategy will not fix it. It will give you more places for users to not come back to.</p>
+
+<h2>What the model genuinely gives you</h2>
+<ul>
+<li><b>Distribution leverage.</b> A new service launches to an existing audience with an existing account and existing payment details. No install, no signup, no card entry — the three places funnels die.</li>
+<li><b>Shared identity and payment.</b> Build once, reuse across every service. This is a real and compounding engineering saving.</li>
+<li><b>Third-party capacity.</b> Mini apps let other teams build on your platform, so your catalogue grows without your headcount growing.</li>
+<li><b>Data across services.</b> Understanding a user across several contexts supports genuinely better recommendations — with the obvious caveat that this concentration of data raises the compliance stakes considerably.</li>
+</ul>
+
+<h2>What it costs, honestly</h2>
+
+<h3>You are no longer building an app</h3>
+<p>You are building a platform, and platforms carry obligations apps do not: a stable SDK, versioning, developer documentation, review processes, sandboxing, support for people building on you. That work never ends, and it is largely invisible to your users.</p>
+
+<h3>One bad mini app damages your brand</h3>
+<p>Users do not distinguish between your app and something running inside it. If a third-party mini app takes payment and fails to deliver, they blame you. That means review and enforcement &mdash; which is a policy and staffing problem, not an engineering one.</p>
+
+<h3>Performance becomes a shared resource</h3>
+<p>Every mini app competes for memory, startup time and battery in your process. The host app that was fast at launch gets slower with each addition unless someone owns performance budgets and enforces them against teams who do not report to you.</p>
+
+<h3>Store rules constrain the model</h3>
+<p>Apple and Google both have positions on apps that host other apps and on how payment flows through them. This is navigable &mdash; plenty of super apps exist on both stores &mdash; but it needs deliberate design rather than discovery during review.</p>
+
+<h3>Concentrated data, concentrated risk</h3>
+<p>Aggregating behaviour across many services makes you a more attractive target and a more complicated one to govern. Under a regime like <a href="/blog/dpdp-act-app-compliance-india">India's DPDP Act</a>, consent gets harder when one login spans many purposes, and a deletion request has to reach every service that touched the user.</p>
+
+<h2>The middle path most teams should take first</h2>
+<p>The step between "single-purpose app" and "platform" is usually the right one, and it is much cheaper: add adjacent services <em>you</em> build and own, natively, inside your existing app.</p>
+<p>You get most of the distribution benefit, none of the SDK and governance burden, and you learn whether users actually want more from you before committing to a platform. If two or three added services do well, the platform argument becomes evidence-based rather than aspirational. If they do not, you have saved yourself an enormous amount of work.</p>
+
+<div class="article-callout"><strong>A reasonable test:</strong> if you cannot name three services your existing users have specifically asked you for, you are not ready to be a platform. Build the one they ask for most, natively, and see what happens.</div>
+
+<h2>If you are going ahead anyway</h2>
+<p>Some products genuinely should do this — marketplaces with strong habitual use, financial apps with daily engagement, logistics platforms where several roles share one account. If that is you, the things worth getting right before writing the SDK:</p>
+<ul>
+<li><b>Decide the sandbox boundary first.</b> What can a mini app read, call and store? Retrofitting a security boundary is close to impossible.</li>
+<li><b>Set performance budgets on day one</b> — startup time, memory ceiling — and make them a condition of publishing.</li>
+<li><b>Write the review policy before the first partner.</b> Enforcing rules that did not exist when someone built against you is how platforms lose developers.</li>
+<li><b>Design consent for a multi-service world early</b>, because a single bundled consent across many purposes is exactly what modern privacy regimes reject.</li>
+<li><b>Instrument per mini app</b>, so you can see which are earning their place and which are costing you performance for no return.</li>
+</ul>
+
+<h2>Frequently asked questions</h2><div class="faq"><button class="faq-q">What is the difference between a super app and a regular app?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a"><div class="faq-a-inner">A regular app does one thing. A super app hosts many services — often built by third parties as mini apps — behind one identity, one payment method and one download. The host provides distribution and infrastructure; the mini apps provide the services.</div></div></div><div class="faq"><button class="faq-q">Do I need millions of users before a super app makes sense?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a"><div class="faq-a-inner">Scale matters less than habit. The precondition is that people already open your app without being prompted, because that habit is what makes a second service cheaper to distribute inside your app than as its own download. A smaller, genuinely habitual audience beats a larger, occasional one.</div></div></div><div class="faq"><button class="faq-q">Will Apple and Google allow a super app on their stores?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a"><div class="faq-a-inner">Yes — plenty exist on both. But both platforms have specific positions on apps hosting other apps and on how payments flow through them, so the model needs to be designed with those rules in mind rather than discovered during review.</div></div></div><div class="faq"><button class="faq-q">What is the most common way super app strategies fail?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a"><div class="faq-a-inner">Launching one when the host app is not habitually used. Adding services does not create engagement that was not already there, so teams end up with a larger, slower app, more code to maintain, and the same traffic they started with.</div></div></div><div class="faq"><button class="faq-q">Is there a cheaper way to test the idea first?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a"><div class="faq-a-inner">Yes, and most teams should. Add two or three adjacent services that you build and own natively inside your existing app. You get most of the distribution benefit without the SDK, sandboxing and governance burden, and you find out whether users actually want more from you before committing to a platform.</div></div></div>
+  </div>
+</section>
+<section style="padding:0 0 6px"><div class="article-wrap" data-reveal><div class="share-row"><span class="share-label">Share</span><a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fsoniconsultancyservices.com%2Fblog%2Fsuper-app-development&amp;text=Super%20Apps%20and%20Mini%20Apps%20in%202026%3A%20Should%20Your%20Product%20Become%20a%20Platform%3F" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.8l-5.3-7L4.8 22H1.7l8.1-9.3L1 2h7l4.8 6.4L18.9 2zm-1.2 18h1.9L7.4 4H5.4l12.3 16z"/></svg></a><a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsoniconsultancyservices.com%2Fblog%2Fsuper-app-development" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.84v2.05h.05c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.67 4.8 6.14V23h-4v-6.6c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.49V23h-4V8z"/></svg></a><a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsoniconsultancyservices.com%2Fblog%2Fsuper-app-development" target="_blank" rel="noopener" aria-label="Share on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a><a class="share-btn" href="https://wa.me/?text=Super%20Apps%20and%20Mini%20Apps%20in%202026%3A%20Should%20Your%20Product%20Become%20a%20Platform%3F%20https%3A%2F%2Fsoniconsultancyservices.com%2Fblog%2Fsuper-app-development" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-1.5-.75-2.48-1.34-3.47-3.03-.26-.45.26-.42.75-1.4.08-.17.04-.32-.02-.47-.06-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.28.18-1.41-.07-.13-.27-.2-.56-.35z"/><path d="M12 2A10 10 0 003.5 17.3L2 22l4.8-1.5A10 10 0 1012 2zm0 18.2c-1.52 0-3-.41-4.3-1.18l-.3-.18-2.86.9.9-2.78-.2-.3A8.2 8.2 0 1112 20.2z"/></svg></a><button class="share-btn share-copy" type="button" aria-label="Copy link" onclick="navigator.clipboard&amp;&amp;navigator.clipboard.writeText('https://soniconsultancyservices.com/blog/super-app-development').then(function(){var b=event.currentTarget;b.classList.add('ok');setTimeout(function(){b.classList.remove('ok')},1500)})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 13.5a4 4 0 005.7 0l2.5-2.5a4 4 0 00-5.7-5.7l-1.2 1.2"/><path d="M14.5 10.5a4 4 0 00-5.7 0l-2.5 2.5a4 4 0 005.7 5.7l1.2-1.2"/></svg></button></div></div></section>
+<section style="padding:30px 0 60px"><div class="wrap"><div class="glass" data-reveal style="padding:56px 44px;text-align:center"><h2 class="h2" style="max-width:560px;margin:0 auto">Weighing a platform play for your app?</h2><p class="lead" style="max-width:520px;margin:16px auto 0">A 30-minute scoping call, then a fixed-price proposal within 48 hours. If it is not a fit, we will say so on the call.</p><div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px"><a href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener" class="btn btn-primary btn-lg" data-magnetic="0.25">Book a free scoping call →</a><a href="/app-scoping-guide/" class="btn btn-glass btn-lg">Get the free scoping guide</a></div></div></div></section>
+</main>
+<footer class="foot"><div class="wrap"><div class="foot-top">
+  <div><div class="brand" style="margin-bottom:6px"><svg class="brand-mark"><use href="#em"/></svg><span class="brand-name">SONI<span>CONSULTANCY SERVICES</span></span></div><p class="foot-desc">React Native &amp; MERN-stack mobile app development with AI built in. Live on the App Store &amp; Google Play.</p><div class="foot-social"><a href="https://www.linkedin.com/in/hetsoni/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.84v2.05h.05c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.67 4.8 6.14V23h-4v-6.6c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.49V23h-4V8z"/></svg></a><a href="https://www.instagram.com/soni.consultancyservices/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.52.01-4.76.07-1.15.05-1.77.24-2.19.41-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.16.42-.36 1.04-.41 2.19-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.05 1.15.25 1.77.41 2.19.21.55.47.94.88 1.35.41.41.8.67 1.35.88.42.16 1.04.36 2.19.41 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c1.15-.05 1.77-.25 2.19-.41.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.16-.42.36-1.04.41-2.19.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.05-1.15-.25-1.77-.41-2.19a3.6 3.6 0 00-.88-1.35 3.6 3.6 0 00-1.35-.88c-.42-.16-1.04-.36-2.19-.41-1.24-.06-1.61-.07-4.76-.07zm0 2.76a5.46 5.46 0 110 10.92 5.46 5.46 0 010-10.92zm0 1.62a3.84 3.84 0 100 7.68 3.84 3.84 0 000-7.68zm5.65-2.9a1.28 1.28 0 110 2.55 1.28 1.28 0 010-2.55z"/></svg></a><a href="https://www.facebook.com/soniconsultancyservices" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a><a href="https://medium.com/@hetsoni9398" target="_blank" rel="noopener" aria-label="Medium"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.54 12a6.8 6.8 0 11-13.6 0 6.8 6.8 0 0113.6 0zm7.42 0c0 3.54-1.52 6.42-3.4 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.4-6.42 3.39 2.88 3.39 6.42zM24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a></div></div>
+  <div><h4>Explore</h4><a href="/services/">Services</a><a href="/react-native-app-development/">React Native</a><a href="/work/">Work</a><a href="/blog/">Blog</a><a href="/ai-app-development/">AI Apps</a><a href="/devops-cloud-engineering/">DevOps &amp; Cloud</a><a href="/about/">About</a><a href="/wordpress-website-development-india/">WordPress Websites</a></div>
+  <div><h4>Industries</h4><a href="/fintech-app-development/">FinTech</a><a href="/retail-app-development/">Retail</a><a href="/ride-hailing-app-development/">Ride-Hailing</a><a href="/hr-payroll-app-development/">HR &amp; Payroll</a></div>
+  <div><h4>Company</h4><a href="/about/">About</a><a href="/hire/">Hire a Dev</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a></div>
+  <div><h4>Start</h4><a href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener">Book a Call</a><a href="/app-cost-calculator/">App cost estimate</a><a href="mailto:het.soni@soniconsultancyservices.com">Email us</a></div>
+</div><div class="foot-bottom"><span>&#169; 2026 Soni Consultancy Services. All rights reserved.</span><span>React Native &#183; MERN &#183; AI</span></div></div></footer>
+
+<button class="wa-fab" onclick="window.open('https://wa.me/918160682185','_blank')" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32c-1.63-1.62-3.8-2.52-6.11-2.52-4.76 0-8.64 3.88-8.64 8.64 0 1.52.39 3 1.15 4.32L2.05 22l4.95-1.3c1.27.68 2.71 1.05 4.16 1.05h.01c4.76 0 8.64-3.88 8.64-8.64 0-2.31-.91-4.48-2.55-6.11z"/></svg></button>
+<script src="/assets/js/gsap.min.js"></script>
+<script src="/assets/js/ScrollTrigger.min.js"></script>
+<script src="/assets/js/lenis.min.js"></script>
+<script src="/liquid.js"></script>
+<script src="/assets/js/utm.js"></script>
+<script src="/analytics.js"></script>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(function(b){b.onclick=function(){var f=b.parentElement,open=f.classList.contains('open');document.querySelectorAll('.faq').forEach(function(x){x.classList.remove('open')});if(!open)f.classList.add('open')}});
+window.__KEYS=['no','native','super'];
+window.__R={no:{label:'Stay focused',name:'Stay a single-purpose app for now',why:'Your answers point to a product that has not yet earned the habitual use a platform strategy depends on. Adding services will not create that engagement — it will spread a fixed amount of attention across more surface area, and give you more to maintain.',note:'The most valuable next move is almost certainly retention on your core use case, not expansion. Revisit the platform question once people open your app without being prompted.'},native:{label:'Add services natively',name:'Add adjacent services yourself first',why:'You have real engagement, and there is a plausible case for offering more. But the jump straight to a third-party platform carries SDK, sandboxing and governance costs you do not need yet. Build the next one or two services natively inside your app and keep the distribution benefit without the platform burden.',note:'If those additions do well, the platform argument becomes evidence-based rather than aspirational — and you will know which services users actually want before you invite anyone to build on you.'},super:{label:'Platform play',name:'A mini-app platform is a defensible move',why:'Habitual use, a shared account model and genuine demand for services beyond your own — this is the profile where hosting third parties creates real leverage rather than just complexity.',note:'Before writing an SDK: fix the sandbox boundary, set performance budgets as a publishing condition, write the review policy ahead of your first partner, and design consent for a multi-service world from the start.'}};
+window.__Q=[{q:'How often do your users open the app?',a:[{t:'Daily, without being prompted',w:{super:3}},{t:'A few times a week',w:{native:3}},{t:'When they need the specific thing it does',w:{no:2,native:1}},{t:'Rarely — retention is a known problem',w:{no:3}}]},{q:'Have users asked for services beyond your core?',a:[{t:'Yes — we can name three specific requests',w:{super:3}},{t:'One or two keep coming up',w:{native:3}},{t:'Not really, it is our idea',w:{no:2}},{t:'We have not asked them',w:{no:2}}]},{q:'Who would build the additional services?',a:[{t:'Third parties, on our platform',w:{super:3}},{t:'Us, at least at first',w:{native:3}},{t:'A mix, eventually',w:{native:1,super:2}},{t:'Unclear',w:{no:2}}]},{q:'Do you already own identity and payment?',a:[{t:'Yes — accounts and payment details on file',w:{super:3}},{t:'Accounts yes, payment no',w:{native:2}},{t:'Neither, really',w:{no:2}},{t:'We use a third party for both',w:{native:1,no:1}}]},{q:'Could you staff platform work ongoing?',s:'SDK, docs, review, developer support',a:[{t:'Yes — we can dedicate people to it',w:{super:3}},{t:'Maybe, if it proved itself first',w:{native:2}},{t:'Not without stopping other work',w:{no:2,native:1}},{t:'No',w:{no:3}}]}];
+
+(function(){
+  var t=document.getElementById('dt'); if(!t) return;
+  var Q=window.__Q, R=window.__R, KEYS=window.__KEYS;
+  var i=0, score={}; KEYS.forEach(function(k){score[k]=0;});
+  var qWrap=t.querySelector('.qwrap'), res=t.querySelector('.res'), bar=t.querySelector('.prog>i');
+  function paint(){
+    var q=Q[i];
+    bar.style.width=((i)/Q.length*100)+'%';
+    qWrap.innerHTML='<p class="q">'+q.q+'</p><div class="opts">'+q.a.map(function(o,n){
+      return '<button class="opt" data-n="'+n+'">'+o.t+(o.s?'<small>'+o.s+'</small>':'')+'</button>';
+    }).join('')+'</div><div class="nav-row"><span>Question '+(i+1)+' of '+Q.length+'</span>'+
+    (i>0?'<button class="back" type="button">&#8592; Back</button>':'<span></span>')+'</div>';
+    qWrap.querySelectorAll('.opt').forEach(function(b){
+      b.onclick=function(){
+        var pick=Q[i].a[+b.dataset.n];
+        Q[i].picked=pick;
+        Object.keys(pick.w||{}).forEach(function(k){score[k]+=pick.w[k];});
+        i++; if(i<Q.length){paint();} else {show();}
+      };
+    });
+    var bk=qWrap.querySelector('.back');
+    if(bk) bk.onclick=function(){
+      i--; var prev=Q[i].picked;
+      if(prev) Object.keys(prev.w||{}).forEach(function(k){score[k]-=prev.w[k];});
+      paint();
+    };
+  }
+  function show(){
+    bar.style.width='100%';
+    qWrap.style.display='none';
+    var max=KEYS.slice().sort(function(a,b){return score[b]-score[a];})[0];
+    var total=KEYS.reduce(function(s,k){return s+Math.max(0,score[k]);},0)||1;
+    var r=R[max];
+    res.innerHTML='<span class="badge">Your result</span><h3>'+r.name+'</h3><p>'+r.why+'</p>'+
+      '<div class="bars">'+KEYS.map(function(k){
+        var pct=Math.round(Math.max(0,score[k])/total*100);
+        return '<div class="bar"><span>'+R[k].label+'</span><span class="track"><i data-w="'+pct+'"></i></span><span>'+pct+'%</span></div>';
+      }).join('')+'</div>'+
+      '<p style="font-size:13.5px;color:var(--t3);line-height:1.6">'+r.note+'</p>'+
+      '<div class="cta-row"><a class="btn btn-primary" href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener">Pressure-test this on a free call &#8594;</a>'+
+      '<button class="again" type="button">Start over</button></div>';
+    res.classList.add('on');
+    requestAnimationFrame(function(){
+      res.querySelectorAll('.track>i').forEach(function(el){el.style.width=el.dataset.w+'%';});
+    });
+    res.querySelector('.again').onclick=function(){
+      i=0; KEYS.forEach(function(k){score[k]=0;}); Q.forEach(function(q){q.picked=null;});
+      res.classList.remove('on'); res.innerHTML=''; qWrap.style.display=''; paint();
+    };
+    if(window.scsTrack) window.scsTrack('tool_complete',{tool:document.title.slice(0,60),result:max});
+  }
+  paint();
+})();
+
+</script>
+<!-- Meta Pixel Code --><script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','4314120685517416');fbq('track','PageView');</script><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=4314120685517416&ev=PageView&noscript=1"/></noscript><!-- End Meta Pixel Code --><script type="text/javascript">_linkedin_partner_id="10397217";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);</script><script type="text/javascript">(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s);})(window.lintrk);</script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=10397217&fmt=gif"/></noscript>
+
+</body>
+</html>

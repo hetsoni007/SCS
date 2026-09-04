@@ -50,6 +50,8 @@ Client product names are withheld under NDA; problems, solutions, metrics, tech 
 - React Native app development in the USA: https://soniconsultancyservices.com/react-native-app-development-usa/
 
 ## Blog — React Native & cross-platform mobile
+- Kotlin Multiplatform vs React Native in 2026 (interactive decision tool): https://soniconsultancyservices.com/blog/kotlin-multiplatform-vs-react-native
+- Super Apps and Mini Apps in 2026 (interactive readiness tool): https://soniconsultancyservices.com/blog/super-app-development
 - React Native vs Flutter in 2026: https://soniconsultancyservices.com/blog/react-native-vs-flutter-2026
 - Native vs Cross-Platform in 2026 (interactive decision tool): https://soniconsultancyservices.com/blog/native-vs-cross-platform-2026
 - React Native App Development Cost in 2026: https://soniconsultancyservices.com/blog/react-native-app-development-cost
@@ -93,3 +95,7 @@ Client product names are withheld under NDA; problems, solutions, metrics, tech 
 - Instagram: https://www.instagram.com/soni.consultancyservices/
 - Facebook: https://www.facebook.com/soniconsultancyservices
 - Medium: https://medium.com/@hetsoni9398
+
+## Blog — AI, compliance & strategy (2026)
+- Can AI Build My App? An honest 2026 answer for founders (interactive scope tool): https://soniconsultancyservices.com/blog/can-ai-build-my-app
+- India's DPDP Act for apps: deadlines, consent and a 10-point readiness check: https://soniconsultancyservices.com/blog/dpdp-act-app-compliance-india
