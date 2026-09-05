@@ -79,8 +79,11 @@
 
 <div id="configBanner" class="banner" style="display:none">
   <b>Not configured yet.</b> This page needs two one-time steps — see <code>.deploy/DASHBOARD-SETUP.md</code>:
-  run the SQL migration in Supabase, then paste the project's <b>anon</b> key into the
+  run the SQL migration in Supabase, then paste the project's <b>publishable</b> key
+  (Project Settings &rarr; API Keys &rarr; starts <code>sb_publishable_</code> — this project uses
+  Supabase's newer key format, so there is no key literally labelled &ldquo;anon&rdquo;) into the
   <code>SUPABASE_ANON_KEY</code> constant near the bottom of this file and redeploy.
+  Never paste the <code>sb_secret_</code> key — it bypasses row-level security.
 </div>
 
 <section class="isect">
@@ -220,7 +223,10 @@
 
   /* ---------- Supabase config — see .deploy/DASHBOARD-SETUP.md ---------- */
   var SUPABASE_URL = 'https://cfivbhuoxlitfoubmxwv.supabase.co';
-  var SUPABASE_ANON_KEY = ''; // <-- paste the project's anon/public key here (NOT service_role), then redeploy
+  // Publishable key (this project uses Supabase's newer format: sb_publishable_...).
+  // It is the anon-role equivalent and is safe in client code, constrained by RLS.
+  // NEVER put the sb_secret_ key here — it bypasses RLS entirely.
+  var SUPABASE_ANON_KEY = ''; // <-- paste sb_publishable_... here, then redeploy
   var CONFIGURED = !!SUPABASE_ANON_KEY;
   if (!CONFIGURED) document.getElementById('configBanner').style.display = 'block';
 
