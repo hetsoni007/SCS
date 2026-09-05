@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /internal/
 Sitemap: https://soniconsultancyservices.com/sitemap.xml
