@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <script>(function(){try{var t=localStorage.getItem('scs-theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
-<title>Free App Scoping Guide | React Native & MERN | Soni Consultancy</title>
+<title>Free App Scoping Guide for Founders | Soni Consultancy</title>
 <meta name="description" content="Free guide: How to scope React Native and MERN apps — timeline, cost estimates, and the 5 questions that unlock your project brief. Download now."/>
 <meta name="robots" content="index,follow,max-image-preview:large"/>
 <meta property="og:title" content="Free App Scoping Guide — How to Plan Your App Build"/>
@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="/liquid.css"/>
 <style>
 .scoping-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:start}
-.scoping-left h2{font-size:clamp(28px,5vw,48px);font-weight:700;letter-spacing:-.025em;line-height:1.2;margin-bottom:24px}
+.scoping-left h1,.scoping-left h2{font-size:clamp(28px,5vw,48px);font-weight:700;letter-spacing:-.025em;line-height:1.2;margin-bottom:24px}
 .scoping-left p{font-size:16px;color:var(--t2);line-height:1.7;margin-bottom:20px}
 .scoping-left .bullet{display:flex;gap:14px;margin-bottom:16px;font-size:15px}
 .scoping-left .bullet svg{width:20px;height:20px;stroke:var(--gold);flex-shrink:0;margin-top:2px}
@@ -101,7 +101,7 @@
     <div class="scoping-grid">
       <div data-reveal>
         <span class="eyebrow" style="display:inline-flex;align-items:center;gap:8px;margin-bottom:18px"><span class="dot"></span>FREE GUIDE</span>
-        <h2 data-reveal data-reveal-delay="0.05">Scope Your App Like a Founder, Not a Salesperson</h2>
+        <h1 data-reveal data-reveal-delay="0.05">Scope Your App Like a Founder, Not a Salesperson</h1>
         <p data-reveal data-reveal-delay="0.1" style="font-size:17px;margin-bottom:24px;color:var(--t2)">The five questions every founder should ask before building. Plus timelines, cost ranges, and the exact methodology we use to give fixed prices in 48 hours.</p>
 
         <div data-reveal data-reveal-delay="0.15">
@@ -215,6 +215,13 @@
   </div>
 </section>
 
+
+<section style="padding:20px 0 60px">
+  <div class="wrap" style="max-width:820px">
+    <div class="sec-head" data-reveal><span class="eyebrow">FAQ</span><h2 class="h2" style="margin-top:18px">Common questions.</h2></div>
+    <div data-reveal><div class="faq"><button class="faq-q">What's included in the App Scoping Guide?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a"><div class="faq-a-inner">The guide covers how to define your MVP, the five discovery questions every founder should ask, realistic timeline estimates for React Native and MERN projects, cost ranges for different project sizes, and the exact process we use to scope projects within 48 hours.</div></div></div><div class="faq"><button class="faq-q">How do I get the guide after filling in the form?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a"><div class="faq-a-inner">The download link appears immediately on the page once you submit &mdash; there's no waiting on an email. The PDF is 8 pages and free to keep or share.</div></div></div><div class="faq"><button class="faq-q">Will you use my email to spam me?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a"><div class="faq-a-inner">No. We may follow up once about your project or occasionally share new work &mdash; nothing more, and you can opt out any time.</div></div></div><div class="faq"><button class="faq-q">Is this guide specific to Soni Consultancy?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a"><div class="faq-a-inner">No &mdash; the scoping methodology is universal. Whether you work with us or another team, this guide will help you scope your app accurately and ask smarter vendor questions.</div></div></div></div>
+  </div>
+</section>
 <!-- CTA SECTION -->
 <section style="padding:60px 0">
   <div class="wrap">
@@ -244,6 +251,8 @@
 <script src="/assets/js/utm.js"></script>
 <script src="/analytics.js"></script>
 <script>
+document.querySelectorAll('.faq-q').forEach(function(b){b.onclick=function(){var f=b.parentElement,open=f.classList.contains('open');document.querySelectorAll('.faq').forEach(function(x){x.classList.remove('open')});if(!open)f.classList.add('open')}});
+
 (function(){
   var form = document.getElementById('scopingGuideForm');
   var success = document.getElementById('scopeSuccess');
