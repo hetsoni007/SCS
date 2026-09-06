@@ -147,6 +147,12 @@ User-side tasks (remind, can't do for them):
 - NEVER invent metrics, store links, tech stacks, testimonials, social URLs, or pricing. If information is missing: stop and ask.
 - Concepts (Web3 Creator, Fan Investment) must stay labeled "Product & UI/UX design concept" — no fake results.
 - **Portfolio case studies never show the real client/product name** (NDA pseudonymization pass, 2026-08-30 — see COMPLETED #18). Any new case study gets a generic industry-style label + id (e.g. "Healthcare Staffing Platform" / `#healthcare-staffing`), never the real name — even if the app is live and publicly searchable on the App Store. No App Store/Play Store links on ANY portfolio entry (a link de-anonymizes the label); if genuinely live, use the non-linking "✓ Live on the App Store & Google Play" badge (`.chip.on`) instead. Before using any client-provided screenshot, check it for a baked-in real wordmark/logo/token-ticker in the pixels — crop it out, pick a different screen, or fall back to a `.brand-tile` gradient panel (no screenshot) if the branding can't be cleanly removed. Asset filenames must use the generic slug too, not the real name.
+- **FAQPage schema must match the visible page text verbatim.** Google requires the Q&A in the markup to be
+  visible to users. Whenever you add or edit an FAQ, the schema `name` and the visible question must be the
+  same string. The failure mode here is drift, not absence: a visible question gets shortened to a fragment
+  ("When over cloud?", "Which library?") while the schema keeps the full phrasing. 16 pages had drifted this
+  way before the 2026-09-06 sweep. Verify by stripping the JSON-LD out of the HTML and checking each schema
+  question still appears in the remaining text.
 - Don't redesign visual styling while doing SEO/content tasks.
 - Match existing code style: compact inline-style HTML, CSS vars, no frameworks, no build step.
 - After every change: deploy (sync+invalidate), verify live with curl, secret-scan, commit to main, push.
