@@ -110,7 +110,7 @@
     <p>In the iOS Keychain or Android Keystore (or EncryptedSharedPreferences) — never plain AsyncStorage, localStorage or files. Secure storage encrypts at rest and gates access, so a lost device doesn't leak sessions.</p>
     <h3>Is it safe to put API keys inside a mobile app?</h3>
     <p>No — anything in the binary can be extracted. Third-party secrets belong on your server behind an API you control, with per-user auth and rate limits.</p>
-    <h3>How often should dependencies be updated?</h3>
+    <h3>How often should mobile app dependencies be updated?</h3>
     <p>Continuously — automated scanning (npm audit, Dependabot or similar) in CI on every build, with security patches applied promptly. Known CVEs in stale libraries are the most preventable compromise vector.</p>
     <h3>Can you run a security review of our app?</h3>
     <p>Yes — we review React Native apps and their backends against this checklist and OWASP mobile guidance. Take the self-audit above, then <a href="https://calendly.com/het-soni-soniconsultancyservices/introductory">book a free call</a> and bring your score.</p>
