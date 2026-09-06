@@ -246,3 +246,34 @@
   // a[href^="#"] -> lenis.scrollTo(..., {offset:-90}) listener above;
   // this block only has to keep the active pill in sync while reading.
 })();
+
+// ---------- Newsletter signup (shared handler, guarded on element existing) ----------
+(function () {
+  var form = document.getElementById('newsletterForm');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = document.getElementById('nlEmail');
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value.trim())) {
+      email.style.borderColor = '#e0564b';
+      email.focus();
+      return;
+    }
+    email.style.borderColor = '';
+    var btn = form.querySelector('button[type="submit"]');
+    btn.textContent = 'Subscribing…';
+    btn.disabled = true;
+    var payload = { kind: 'newsletter', email: email.value.trim() };
+    Object.assign(payload, (window.scsUTM && window.scsUTM.get()) || {});
+    fetch('https://9cjt6qwy71.execute-api.ap-south-1.amazonaws.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).catch(function () {}).then(function () {
+      form.style.display = 'none';
+      var success = document.getElementById('nlSuccess');
+      if (success) success.style.display = 'block';
+      if (window.scsTrack) window.scsTrack('newsletter_signup', {});
+    });
+  });
+})();
