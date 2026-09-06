@@ -204,7 +204,7 @@
     document.addEventListener('mouseleave', function () { dot.classList.remove('active'); ring.classList.remove('active'); });
     document.addEventListener('mouseenter', function () { if (started) { dot.classList.add('active'); ring.classList.add('active'); } });
 
-    var HOVER_SEL = 'a,button,[data-tilt],[data-magnetic],input,select,textarea,.faq-q,.sim-frame,.flow-tab,.sim-dot,.sim-edge,.theme-btn,.burger';
+    var HOVER_SEL = 'a,button,[data-tilt],[data-magnetic],input,select,textarea,.faq-q,.sim-frame,.flow-tab,.sim-dot,.sim-edge,.theme-btn,.burger,.toc-item';
     document.addEventListener('mouseover', function (e) {
       var t = e.target.closest && e.target.closest(HOVER_SEL);
       if (t) ring.classList.add('hover');
@@ -214,4 +214,35 @@
       if (t) ring.classList.remove('hover');
     }, true);
   }
+})();
+
+// ---------- IN-ARTICLE TABLE OF CONTENTS (scroll-spy + smooth jump) ----------
+(function () {
+  var toc = document.querySelector('.toc');
+  if (!toc) return;
+  var links = Array.prototype.slice.call(toc.querySelectorAll('.toc-item'));
+  var targets = links.map(function (a) {
+    return document.getElementById(a.getAttribute('href').slice(1));
+  }).filter(Boolean);
+  if (!targets.length) return;
+
+  function setActive(id) {
+    links.forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+    });
+  }
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      var visible = entries.filter(function (e) { return e.isIntersecting; });
+      if (visible.length) {
+        visible.sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; });
+        setActive(visible[0].target.id);
+      }
+    }, { rootMargin: '-100px 0px -65% 0px', threshold: 0 });
+    targets.forEach(function (t) { io.observe(t); });
+  }
+  // Actual scroll movement on click is already handled by the shared
+  // a[href^="#"] -> lenis.scrollTo(..., {offset:-90}) listener above;
+  // this block only has to keep the active pill in sync while reading.
 })();
