@@ -57,6 +57,8 @@ Client product names are withheld under NDA; problems, solutions, metrics, tech 
 - React Native App Development Cost in 2026: https://soniconsultancyservices.com/blog/react-native-app-development-cost
 - How to Hire React Native Developers in 2026: https://soniconsultancyservices.com/blog/hire-react-native-developers
 - CI/CD for React Native Apps: A 2026 Setup Guide: https://soniconsultancyservices.com/blog/ci-cd-react-native
+- React Native's New Architecture in 2026: what changed and how to migrate (interactive urgency check): https://soniconsultancyservices.com/blog/react-native-new-architecture-2026
+- React Native Push Notifications: Firebase, OneSignal or Notifee in 2026 (live cost comparator): https://soniconsultancyservices.com/blog/react-native-push-notifications
 - App Store & Google Play Launch: A 2026 Submission Checklist: https://soniconsultancyservices.com/blog/app-store-launch-checklist
 - How Long Does It Take to Build a Mobile App in 2026?: https://soniconsultancyservices.com/blog/how-long-to-build-an-app
 
@@ -99,4 +101,5 @@ Client product names are withheld under NDA; problems, solutions, metrics, tech 
 ## Blog — AI, compliance & strategy (2026)
 - Can AI Build My App? An honest 2026 answer for founders (interactive scope tool): https://soniconsultancyservices.com/blog/can-ai-build-my-app
 - India's DPDP Act for apps: deadlines, consent and a 10-point readiness check: https://soniconsultancyservices.com/blog/dpdp-act-app-compliance-india
+- RBI Compliance for Fintech Apps in India (2026) (interactive readiness check): https://soniconsultancyservices.com/blog/rbi-fintech-app-compliance-india
 - MVP development: https://soniconsultancyservices.com/mvp-development/

@@ -189,6 +189,31 @@ S["woocommerce-payment-gateway-india"] = wrap(
 
 S["wordpress-seo-speed-checklist"] = wrap(gauge(200, 106))
 
+S["react-native-new-architecture-2026"] = wrap(
+    phone(54, 24, 56, 92) +
+    '<path d="M110 46C150 18 188 18 224 44" fill="none" stroke="var(--line2)" stroke-width="1.6" stroke-dasharray="5 6" opacity=".5"/>'
+    '<path d="M158 24l12 12M170 24l-12 12" stroke="var(--line2)" stroke-width="2" stroke-linecap="round" opacity=".55"/>'
+    '<path d="M110 88H228" stroke="var(--gold)" stroke-width="2.2"/>'
+    + node(169, 88, 10, gold=True)
+    + '<rect x="228" y="54" width="66" height="66" rx="11" fill="var(--glass3)" stroke="var(--gold)" stroke-width="1.7"/>'
+    + spark(261, 87, 1.05)
+)
+
+S["rbi-fintech-app-compliance-india"] = wrap(
+    shield(110, 75, 1.55, gold=True)
+    + check(224, 40, .8, gold=False) + lines(244, 36, [76])
+    + check(224, 75, .8, gold=False) + lines(244, 71, [60])
+    + check(224, 110, .8, gold=False) + lines(244, 106, [68])
+)
+
+S["react-native-push-notifications"] = wrap(
+    node(70, 40, 15) + node(70, 108, 15)
+    + link(85, 44, 148, 60, dash=True) + link(85, 104, 148, 88, dash=True)
+    + phone(160, 26, 58, 96, gold=True)
+    + '<path d="M178 26q11-11 22 0" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" opacity=".65"/>'
+    '<path d="M170 26q19-19 38 0" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" opacity=".35"/>'
+)
+
 S["native-vs-cross-platform-2026"] = wrap(
     node(78, 75, 19, gold=True) +
     link(97, 75, 150, 48, gold=True) + link(97, 75, 150, 102, gold=True) +
@@ -396,6 +421,9 @@ S["super-app-development"] = wrap(
 # fraction of it and rendered tiny under preserveAspectRatio="meet". These bboxes
 # were measured in-browser with getBBox(); re-measure if you change a scene.
 BBOX = {
+    "react-native-new-architecture-2026": [54, 24, 240, 96],
+    "rbi-fintech-app-compliance-india": [83.7, 32, 236.3, 86],
+    "react-native-push-notifications": [55, 16.5, 163, 106.5],
     "wordpress-website-cost-india": [
         48,
         36,
