@@ -99,3 +99,4 @@ Client product names are withheld under NDA; problems, solutions, metrics, tech 
 ## Blog — AI, compliance & strategy (2026)
 - Can AI Build My App? An honest 2026 answer for founders (interactive scope tool): https://soniconsultancyservices.com/blog/can-ai-build-my-app
 - India's DPDP Act for apps: deadlines, consent and a 10-point readiness check: https://soniconsultancyservices.com/blog/dpdp-act-app-compliance-india
+- MVP development: https://soniconsultancyservices.com/mvp-development/
