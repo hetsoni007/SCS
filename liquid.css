@@ -372,3 +372,25 @@ html.has-custom-cursor a,html.has-custom-cursor button,html.has-custom-cursor [d
 .cursor-ring.hover{width:56px;height:56px;margin:-28px 0 0 -28px;background:rgba(201,162,75,.12);border-color:var(--gold)}
 .cursor-dot.hover{opacity:0}
 @media(max-width:980px),(hover:none),(pointer:coarse){.cursor-dot,.cursor-ring{display:none!important}}
+
+/* ---------- INLINE LEAD FORM (.leadbox) — short, 5 fields, on every commercial page ---------- */
+.leadbox{border:1px solid var(--line2);border-radius:22px;background:radial-gradient(120% 140% at 0% 0%,rgba(201,162,75,.10),transparent 55%),var(--glass2);padding:34px 36px}
+.leadbox .lb-kick{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light);margin-bottom:12px}
+.leadbox h2{font-size:clamp(22px,3vw,30px);font-weight:700;letter-spacing:-.025em;line-height:1.15;margin:0 0 10px;color:var(--t1)}
+.leadbox .lb-sub{font-size:14.5px;color:var(--t2);line-height:1.6;margin:0 0 24px;max-width:56ch}
+.lb-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.lb-grid .lb-full{grid-column:1/-1}
+.lb-f label{display:block;font-size:12.5px;color:var(--t2);margin-bottom:6px}
+.lb-f input,.lb-f select{width:100%;background:var(--glass2);border:1px solid var(--line);color:var(--t1);padding:13px 16px;border-radius:13px;font-size:14.5px;font-family:inherit;outline:none;transition:border-color .2s,background .2s}
+.lb-f input:focus,.lb-f select:focus{border-color:rgba(201,162,75,.55);background:var(--glass3)}
+.lb-f input::placeholder{color:var(--t3)}
+.lb-f select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--t3) 50%),linear-gradient(135deg,var(--t3) 50%,transparent 50%);background-position:calc(100% - 19px) 21px,calc(100% - 14px) 21px;background-size:5px 5px,5px 5px;background-repeat:no-repeat;cursor:pointer}
+.lb-consent{grid-column:1/-1;display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--t3);line-height:1.55;margin-top:2px}
+.lb-consent input{flex:0 0 auto;width:16px;height:16px;margin-top:2px;accent-color:#C9A24B;cursor:pointer}
+.lb-consent a{color:var(--t2);border-bottom:1px solid var(--line2)}
+.lb-actions{grid-column:1/-1;display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:6px}
+.lb-note{font-size:12px;color:var(--t3)}
+.lb-hp{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+.lb-ok{display:none;border:1px solid rgba(201,162,75,.45);background:var(--glass2);border-radius:14px;padding:20px 22px;font-size:14.5px;color:var(--t1);line-height:1.6}
+.lb-err{display:none;font-size:13px;color:#e0564b;grid-column:1/-1}
+@media(max-width:680px){.leadbox{padding:26px 22px}.lb-grid{grid-template-columns:1fr}}

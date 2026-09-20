@@ -277,3 +277,72 @@
     });
   });
 })();
+
+// ---------- Inline lead form (.leadbox) — shared handler, guarded ----------
+(function () {
+  var form = document.getElementById('leadForm');
+  if (!form) return;
+  var ENDPOINT = 'https://9cjt6qwy71.execute-api.ap-south-1.amazonaws.com';
+  var EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+  function field(id) { return form.querySelector('[data-lb="' + id + '"]'); }
+  function fail(el, msg) {
+    if (el) el.style.borderColor = '#e0564b';
+    var box = form.querySelector('.lb-err');
+    if (box) { box.textContent = msg; box.style.display = 'block'; }
+    if (el && el.focus) el.focus();
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = field('name'), email = field('email'), want = field('want');
+    var budget = field('budget'), timeline = field('timeline'), consent = field('consent');
+    [name, email, want].forEach(function (el) { if (el) el.style.borderColor = ''; });
+    var errBox = form.querySelector('.lb-err');
+    if (errBox) errBox.style.display = 'none';
+
+    if (!name.value.trim()) return fail(name, 'Please add your name.');
+    if (!EMAIL_RE.test(email.value.trim())) return fail(email, 'Please check your email address.');
+    if (!want.value.trim()) return fail(want, 'A one-line description is enough.');
+    if (consent && !consent.checked) return fail(null, 'Please tick the consent box so we can reply.');
+
+    var btn = form.querySelector('button[type="submit"]');
+    var orig = btn.textContent;
+    btn.textContent = 'Sending…'; btn.disabled = true;
+
+    var payload = {
+      kind: form.getAttribute('data-kind') || 'lead',
+      name: name.value.trim(),
+      email: email.value.trim(),
+      want: want.value.trim(),
+      budget_band: budget ? budget.value : '',
+      timeline: timeline ? timeline.value : '',
+      project_type: form.getAttribute('data-project-type') || '',
+      consent: consent ? consent.checked : false,
+      source_page: location.pathname,
+      referrer: document.referrer || '',
+      website: (field('hp') || {}).value || ''   // honeypot — must stay empty
+    };
+    Object.assign(payload, (window.scsUTM && window.scsUTM.get()) || {});
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (r) { return r.json().catch(function () { return { ok: r.ok }; }); })
+      .then(function (res) {
+        if (res && res.ok === false) {
+          btn.textContent = orig; btn.disabled = false;
+          return fail(null, (res.errors && res.errors[0]) || 'Something went wrong — please email us directly.');
+        }
+        form.style.display = 'none';
+        var ok = form.parentElement.querySelector('.lb-ok');
+        if (ok) ok.style.display = 'block';
+        if (window.scsTrack) window.scsTrack('generate_lead', { form: payload.kind, location: location.pathname });
+      })
+      .catch(function () {
+        btn.textContent = orig; btn.disabled = false;
+        fail(null, 'Network error — please email het.soni@soniconsultancyservices.com directly.');
+      });
+  });
+})();
