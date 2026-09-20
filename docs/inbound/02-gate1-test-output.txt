@@ -1,0 +1,178 @@
+
+SCORING
+  ✓ HOT: senior title + company email + budget + ASAP + MVP-ready
+  ✓ COLD: free email, no budget, just exploring
+  ✓ WordPress lead is capped at WARM even with strong signals
+  ✓ every point is explained in reasons
+  ✓ company vs free email domains
+  ✓ empty lead does not throw and scores COLD
+
+VALIDATION & ABUSE
+  ✓ honeypot triggers silent reject
+  ✓ disposable email rejected
+  ✓ malformed email rejected
+  ✓ header injection stripped from name
+  ✓ unknown keys are dropped, not rendered
+  ✓ oversized field is clamped
+  ✓ newsletter signup needs only an email
+  ✓ bare probe with no name/message is rejected
+
+DELIVERY RETRY
+  ✓ succeeds first try
+  ✓ retries then succeeds
+  ✓ gives up after 3 and reports the error
+
+SUBJECT LINE
+  ✓ matches the required format
+  ✓ degrades gracefully with no name/company
+
+19 passed, 0 failed
+
+
+══════════════════════════════════════════════════════════════════════
+ARTEFACT 1 — HOT lead, owner email exactly as Het would receive it
+══════════════════════════════════════════════════════════════════════
+To:       het.soni@soniconsultancyservices.com
+Reply-To: sarah@northlanehealth.co.uk   ← hitting reply reaches the lead
+Subject:  [HOT] New inquiry — Sarah Whitfield, Northlane Health — mobile app — $60k+
+──────────────────────────────────────────────────────────────────────
+HOT  ·  score 14  ·  track: core
+
+  CTO at a UK health company wants a patient-facing React Native app on an existing FHIR backend.
+  Designs done, backend team in place, budget $60k+, wants to start within weeks — unusually ready.
+  Reply today. Ask about FHIR scope and compliance posture before quoting.
+
+Fit: Strong core fit — React Native on an existing backend is exactly the studio's shape of work.
+
+WHY THIS SCORE
+  · Budget $60k+ (+3)
+  · Timeline ASAP (+3)
+  · Stage: MVP ready (+3)
+  · Decision-maker title: "CTO" (+2)
+  · Company email domain (northlanehealth.co.uk) (+1)
+  · Core offer fit: mobile app (+2)
+
+LEAD
+  Name           Sarah Whitfield
+  Title          CTO
+  Company        Northlane Health
+  Email          sarah@northlanehealth.co.uk
+  Project type   mobile app
+  Stage          MVP ready
+  Budget         $60k+
+  Timeline       ASAP
+  Wants          Patient-facing React Native app with our existing FHIR backend.
+  Consent        yes
+
+MESSAGE
+  We have designs done and a backend team. We need a mobile team that can start in the next few weeks.
+
+CONTEXT
+  Form           contact
+  Source page    /react-native-app-development/
+  Referrer       https://www.google.com/
+  UTM source     google
+  UTM medium     organic
+  Country        GB
+  Device         Mozilla/5.0 (iPhone; CPU iPhone OS 17_0)
+  IP             203.0.113.7
+
+──────────────────────────────────────────────────────────
+DRAFTED REPLY — not sent. Copy, edit, send.
+──────────────────────────────────────────────────────────
+Hi Sarah,
+
+Thanks for the detail — having designs done and a backend team already in place puts you further ahead than most briefs that reach me.
+
+Two things I'd want to understand before putting a number on it: how much of the FHIR surface the app actually touches, and what your compliance requirements look like for patient data on device.
+
+If you have 30 minutes this week I'll walk you through how we'd scope it, and you'll get a fixed price within 48 hours of that call.
+
+— Het
+
+Reply directly to this email to reach sarah@northlanehealth.co.uk.
+
+
+══════════════════════════════════════════════════════════════════════
+ARTEFACT 2 — COLD lead, and the model call FAILED (degraded path)
+══════════════════════════════════════════════════════════════════════
+Subject:  [COLD] New inquiry — Dev — not sure — <$10k
+──────────────────────────────────────────────────────────────────────
+COLD  ·  score 1  ·  track: core
+
+(AI summary unavailable: model timed out after 6000ms)
+
+WHY THIS SCORE
+  · Budget under $10k (+0)
+  · Just exploring (+0)
+  · Stage: idea (+1)
+  · Free email domain (gmail.com) (+0)
+  · Project type "not sure" unmapped (+0)
+
+LEAD
+  Name           Dev
+  Email          devguy2031@gmail.com
+  Project type   not sure
+  Stage          idea
+  Budget         <$10k
+  Timeline       exploring
+  Wants          thinking about an app idea
+  Consent        yes
+
+CONTEXT
+  Form           contact
+  Source page    /blog/how-long-to-build-an-app/
+  Country        IN
+  Device         Chrome/140 macOS
+  IP             198.51.100.4
+
+Reply directly to this email to reach devguy2031@gmail.com.
+
+
+══════════════════════════════════════════════════════════════════════
+ARTEFACT 3 — auto-acknowledgement (AUTO_ACK_ENABLED=false, NOT sent)
+══════════════════════════════════════════════════════════════════════
+Hi Sarah,
+
+Thanks for getting in touch. I read every brief that comes in personally, so this went straight to me rather than a queue.
+
+Here's what happens next: I'll come back to you within one business day with either a straight answer or the two or three questions I need to scope it properly.
+
+If it is easier to just talk, grab any slot that suits you: https://calendly.com/het-soni-soniconsultancyservices/introductory
+
+— Het
+Founder & Lead Engineer, Soni Consultancy Services
+
+
+══════════════════════════════════════════════════════════════════════
+ARTEFACT 4 — the durable row written BEFORE any email is attempted
+══════════════════════════════════════════════════════════════════════
+{
+  "name": "Sarah Whitfield",
+  "email": "sarah@northlanehealth.co.uk",
+  "company": "Northlane Health",
+  "title": "CTO",
+  "project_type": "mobile app",
+  "stage": "MVP ready",
+  "budget_band": "$60k+",
+  "timeline": "ASAP",
+  "score": 14,
+  "tier": "HOT",
+  "track": "core",
+  "score_reasons": [
+    "Budget $60k+ (+3)",
+    "Timeline ASAP (+3)",
+    "Stage: MVP ready (+3)",
+    "Decision-maker title: \"CTO\" (+2)",
+    "Company email domain (northlanehealth.co.uk) (+1)",
+    "Core offer fit: mobile app (+2)"
+  ],
+  "consent": true,
+  "source": "contact",
+  "source_page": "/react-native-app-development/",
+  "referrer": "https://www.google.com/",
+  "utm_source": "google",
+  "ip": "203.0.113.7",
+  "country": "GB",
+  "delivery_status": "pending"
+}
