@@ -1,0 +1,83 @@
+/* Fonts: self-hosted, no CDN. Fraunces is variable (opsz, wght, SOFT, WONK). */
+@font-face {
+  font-family: 'Fraunces';
+  src: url('/fonts/fraunces-full-normal.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fraunces';
+  src: url('/fonts/fraunces-full-italic.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face { font-family: 'IBM Plex Sans'; src: url('/fonts/plex-sans-400.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'IBM Plex Sans'; src: url('/fonts/plex-sans-400-italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'IBM Plex Sans'; src: url('/fonts/plex-sans-500.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'IBM Plex Sans'; src: url('/fonts/plex-sans-600.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'IBM Plex Mono'; src: url('/fonts/plex-mono-400.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'IBM Plex Mono'; src: url('/fonts/plex-mono-500.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+
+/* ── Colour ─────────────────────────────────────────────── see DESIGN.md §2 */
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0b0e11;
+  --bg-raise: #12171c;
+  --bg-sunk: #07090b;
+  --fg: #ece7dc;
+  --fg-2: #a8b0b5;
+  --fg-3: #7f8a91;
+  --signal: #ff5a1f;
+  --signal-hot: #ff7a45;
+  --on-signal: #150702;
+  --cyan: #86bcd9;
+  --line: rgba(222, 232, 240, 0.09);
+  --line-2: rgba(222, 232, 240, 0.18);
+  --line-3: rgba(222, 232, 240, 0.34);
+  --scrim: rgba(11, 14, 17, 0.78);
+  --err: #ff6b6b;
+  --grain-opacity: 0.055;
+  --grain-blend: overlay;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #eeeae1;
+  --bg-raise: #f7f4ee;
+  --bg-sunk: #e4dfd4;
+  --fg: #12161a;
+  --fg-2: #424a50;
+  --fg-3: #5c656b;
+  --signal: #b8360a;
+  --signal-hot: #d9430f;
+  --on-signal: #f7f4ee;
+  --cyan: #2a6a8f;
+  --line: rgba(18, 22, 26, 0.12);
+  --line-2: rgba(18, 22, 26, 0.22);
+  --line-3: rgba(18, 22, 26, 0.42);
+  --scrim: rgba(238, 234, 225, 0.84);
+  --err: #b3261e;
+  --grain-opacity: 0.07;
+  --grain-blend: multiply;
+}
+
+/* ── Space, type scale, motion ─────────────────────── DESIGN.md §3, §4, §6 */
+:root {
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
+  --margin: clamp(16px, 4.5vw, 72px);
+  --gutter: clamp(16px, 2.2vw, 32px);
+  --maxw: 1440px;
+  --nav-h: 64px;
+  --sec-y: clamp(88px, 13vh, 176px);
+
+  --fs-display-xl: clamp(3.1rem, 1.55rem + 6.4vw, 8.6rem);
+  --fs-display: clamp(2.6rem, 1.7rem + 4.1vw, 6rem);
+  --fs-h2: clamp(2.1rem, 1.45rem + 2.8vw, 4.2rem);
+  --fs-h3: clamp(1.35rem, 1.2rem + 0.55vw, 1.9rem);
+  --fs-lead: clamp(1.1rem, 1.02rem + 0.3vw, 1.35rem);
+  --fs-label: 0.72rem;
+}

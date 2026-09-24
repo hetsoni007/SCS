@@ -28,6 +28,7 @@ assets/og.png              OG image 1200×630
 sitemap.xml robots.txt llms.txt favicon.svg
 google3c3389cc0cde5740.html   GSC verification file (do not delete)
 .deploy/                   gitignored — infra IDs, Lambda source, sitemap script
+site-3d/                   separate Vite/React/three.js rebuild ("Compile"), NOT deployed, NOT synced — see site-3d/README.md
 ```
 
 ## Design system (liquid.css / liquid.js)
@@ -63,10 +64,12 @@ aws s3 sync . s3://<BUCKET> --delete \
   --exclude ".claude/*" --exclude "generate-sitemap.py" \
   --exclude "build-scoping-guide-pdf.py" --exclude "build-blog-thumbnails.py" \
   --exclude "social-kit/*" \
-  --exclude "backend/*" --exclude "docs/*" --exclude "prompts/*" --exclude "kb/*" --exclude "nurture/*"
+  --exclude "backend/*" --exclude "docs/*" --exclude "prompts/*" --exclude "kb/*" --exclude "nurture/*" \
+  --exclude "site-3d/*"
 aws cloudfront create-invalidation --distribution-id <DIST_ID> --paths "/*"
 ```
 - **`--exclude ".git"` (no slash) is load-bearing — do not drop it.** In a git *worktree* `.git` is a one-line FILE, not a directory, so `--exclude ".git/*"` does not match it and the sync happily uploads it. It leaks the local gitdir path publicly. This actually shipped on 2026-09-03 (caught and removed the same session; only the pointer file was exposed, no repo history was ever browsable). `.gitignore` had also been sitting live since 2026-08-31 for the same reason.
+- **`site-3d/` must stay excluded from the sync.** It is a separate app's source tree (and, locally, its `node_modules/` and `dist/`). Syncing it would publish source and hundreds of MB of dependencies under the live domain.
 - **`backend/`, `docs/`, `prompts/`, `kb/`, `nurture/` must stay excluded from the sync.** They are source and working documents, not site content — `backend/` in particular holds the Lambda source, which must never be served publicly. Anything added under those paths is excluded automatically; anything added at a *new* top-level path is NOT, so check before the next sync.
 - Always verify live afterwards with `curl` (cache-bust with `?cb=$RANDOM`).
 - Lead/email backend: API Gateway HTTP API `https://9cjt6qwy71.execute-api.ap-south-1.amazonaws.com` → Lambda `scs-lead-mailer` (Node 20) → SES → het.soni@soniconsultancyservices.com. Used by the contact form and the cost calculator. **SES is in sandbox**: owner receives leads, visitor auto-reply is blocked until production access is requested (user task). Account gotcha: public Lambda Function URLs return 403 — use API Gateway; let API GW own CORS (Lambda must return no CORS headers).
@@ -121,6 +124,8 @@ aws cloudfront create-invalidation --distribution-id <DIST_ID> --paths "/*"
     - Three non-obvious things that bit during this, worth not repeating: (a) the wash gradient **must not** live inside each SVG — 31 inline `<defs>` sharing `id="g"` is invalid HTML and lets `url(#g)` resolve to the wrong gradient; it is a CSS background on `.blog-thumb` instead. (b) `preserveAspectRatio` must be **`meet`, not `slice`** — `.blog-grid` collapses to one column ≤980px, where `slice` scales to cover and crops ~2/3 of the scene's height. (c) Scenes were composed on a loose 400×150 canvas and rendered tiny under `meet`, so each viewBox is retargeted to its **measured** content bbox (measured in-browser via `getBBox()`, inlined in the generator — re-measure if a scene changes).
     - `blog/index.html` has its **own inline `<style>`** that overrode `liquid.css`: `.blog-thumb svg{width:48px;height:48px}` clamped the new illustrations, and a `::after` gold blob fought with a full-bleed scene. Both fixed there (the 48px rule is now scoped `:not(.bthumb)`); the duplicated wash was reverted out of `liquid.css` so the gradient is defined in exactly one place.
     - Verified: all 4 tools driven end-to-end in-browser (weighting, the Back button correctly un-applying a discarded answer, checklist banding, restart), all 31 cards illustrated and filling their card, 0 console errors, 0 horizontal overflow at 375px, JSON-LD valid on all 4, `/internal/dashboard/` still correctly absent from the sitemap.
+
+22. (2026-09-24) **`site-3d/` — an interactive 3D rebuild of the site ("Compile" concept), not deployed.** A Vite 8 + React 19 + TypeScript app with react-three-fiber/three.js, GSAP ScrollTrigger + Lenis, Zustand and Tailwind (layout only). It has all 17 in-scope routes plus 8 immersive case-study routes (`/work/:id/`). Content is verbatim from the live pages. The live HTML was byte-identical to this repo on the day, and `site-3d/CONTENT.md` holds the extraction. The visual system is original (`site-3d/DESIGN.md`): graphite + vermilion + cyanotype, Fraunces + IBM Plex, and a signature "compile" scan shader. There is one persistent WebGL canvas, and each route's scene is a lazy chunk. Includes GPU tiers, a no-WebGL SVG fallback, reduced motion and phone tilt input. All NDA rules are kept: pseudonymised products, no store links, concepts labelled, research figures labelled as research. Forms are a dry run on localhost. Measured: 0 axe violations. Mobile (Slow 4G + 4× CPU): LCP ~2.65 s, CLS 0.001. It is a client-rendered SPA, so it would need prerendering before it could ever replace the static site. It must never be synced to S3 (excluded in the command above). Environment note: npm over IPv6 crawls on this machine, so install with `NODE_OPTIONS=--dns-result-order=ipv4first`.
 
 ## PENDING WORK (resume here)
 Blocked on user input:
