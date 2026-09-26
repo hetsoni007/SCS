@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://het.soniconsultancyservices.com/sitemap.xml

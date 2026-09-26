@@ -9,14 +9,22 @@
 <meta property="og:type" content="profile"/>
 <meta property="og:title" content="Het Soni — Outbound that knows when to stop"/>
 <meta property="og:description" content="Signal-based outbound systems for B2B startups, tech agencies and founder-led sales teams."/>
-<meta name="twitter:card" content="summary"/>
+<meta property="og:url" content="https://het.soniconsultancyservices.com/"/>
+<meta property="og:image" content="https://het.soniconsultancyservices.com/assets/og.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Het Soni: Outbound that knows when to stop."/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://het.soniconsultancyservices.com/assets/og.jpg"/>
+<link rel="canonical" href="https://het.soniconsultancyservices.com/"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 <meta name="theme-color" content="#E7ECE5" media="(prefers-color-scheme: light)"/>
 <meta name="theme-color" content="#0E1412" media="(prefers-color-scheme: dark)"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;family=Martian+Mono:wght@400;500&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&amp;display=swap"/>
 <script>(function(){try{var t=localStorage.getItem('hs-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Het Soni","jobTitle":"Business Development Specialist","description":"Builds signal-based outbound systems for B2B startups, tech agencies and founder-led sales teams.","address":{"@type":"PostalAddress","addressLocality":"Ahmedabad","addressRegion":"Gujarat","addressCountry":"IN"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Ganpat University"},"knowsAbout":["Outbound sales","B2B lead generation","Cold email","LinkedIn outreach","Sales qualified leads","Go-to-market process"],"sameAs":["https://www.linkedin.com/in/hetsoni/","https://medium.com/@hetsoni9398"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Het Soni","url":"https://het.soniconsultancyservices.com/","image":"https://het.soniconsultancyservices.com/assets/het-soni-portrait.webp","jobTitle":"Business Development Specialist","description":"Builds signal-based outbound systems for B2B startups, tech agencies and founder-led sales teams.","address":{"@type":"PostalAddress","addressLocality":"Ahmedabad","addressRegion":"Gujarat","addressCountry":"IN"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Ganpat University"},"knowsAbout":["Outbound sales","B2B lead generation","Cold email","LinkedIn outreach","Sales qualified leads","Go-to-market process"],"sameAs":["https://www.linkedin.com/in/hetsoni/","https://medium.com/@hetsoni9398"]}</script>
 <style>
 /* ── Tokens ─────────────────────────────────────────────
    Ledger sage paper, carbon-copy blue ink, red-ink stamp.
@@ -87,6 +95,8 @@ ol,ul{margin:0;padding:0;list-style:none}
 
 /* ── Hero ─────────────────────────────────────────────── */
 .hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:start;padding-block:clamp(28px,5vw,64px) clamp(56px,7vw,96px)}
+.idline{display:flex;align-items:center;gap:14px}
+.avatar{flex:none;width:48px;height:48px;border-radius:50%;object-fit:cover;border:1.5px solid var(--rule2);background:var(--sheet)}
 .eyebrow{display:flex;flex-wrap:wrap;gap:6px 18px}
 .eyebrow span+span::before{content:"/";margin-right:18px;color:var(--rule2)}
 .display{font-weight:800;font-stretch:72%;line-height:.9;letter-spacing:-.012em}
@@ -262,7 +272,11 @@ ol,ul{margin:0;padding:0;list-style:none}
 
 /* Contact */
 .contact{padding-block:clamp(64px,9vw,120px);border-top:3px double var(--rule2)}
-.contact h2{font-size:clamp(44px,7.4vw,96px);max-width:13ch}
+.contact-in{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:end}
+.portrait{margin:0}
+.portrait img{display:block;width:100%;height:auto;border-radius:3px;background:var(--sheet)}
+.contact h2{font-size:clamp(44px,6.6vw,88px);max-width:15ch}
+@media (max-width:760px){.contact-in{grid-template-columns:minmax(0,1fr);align-items:start}.portrait{max-width:240px}}
 .contact .prose{margin-top:24px}
 .mailrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:28px;font:400 clamp(14px,1.6vw,16px)/1.4 var(--mono)}
 .mailrow code{font:inherit;user-select:all;word-break:break-all}
@@ -297,7 +311,7 @@ ol,ul{margin:0;padding:0;list-style:none}
 
 <section class="hero wrap" id="top">
   <div>
-    <p class="eyebrow lbl"><span>Het Soni</span><span>Outbound systems</span><span>Ahmedabad, India</span></p>
+    <div class="idline"><img class="avatar" src="assets/het-soni-avatar.webp" width="96" height="96" alt="Het Soni"/><p class="eyebrow lbl"><span>Het Soni</span><span>Outbound systems</span><span>Ahmedabad, India</span></p></div>
     <h1 class="display">Outbound that knows when to <em>stop.</em></h1>
     <p class="lede">I build outbound systems for B2B startups, tech agencies and founder-led sales teams: buying signals first, research before every message, and a hard cap on follow-ups. The number I care about is sales-qualified leads.</p>
     <div class="ctas">
@@ -504,6 +518,9 @@ ol,ul{margin:0;padding:0;list-style:none}
 </section>
 
 <section class="contact wrap" id="contact">
+  <div class="contact-in">
+  <figure class="portrait"><img src="assets/het-soni-portrait.webp" width="560" height="700" alt="Het Soni" loading="lazy"/></figure>
+  <div>
   <h2 class="display">Let’s talk if you’re taking outbound seriously.</h2>
   <p class="prose">Early-stage startup, agency or product company: bring your current pipeline and we’ll start with where it leaks.</p>
   <div class="ctas">
@@ -512,6 +529,8 @@ ol,ul{margin:0;padding:0;list-style:none}
     <a class="btn btn-line" href="https://wa.me/918160682185" target="_blank" rel="noopener">WhatsApp</a>
   </div>
   <p class="mailrow"><code id="mail">het.soni@soniconsultancyservices.com</code><button class="copy" id="copyBtn" type="button">Copy email</button></p>
+  </div>
+  </div>
 </section>
 
 </main>
