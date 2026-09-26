@@ -4,8 +4,25 @@
     {
       "name": "site-3d",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["--prefix", "site-3d", "run", "dev"],
+      "runtimeArgs": [
+        "--prefix",
+        "site-3d",
+        "run",
+        "dev"
+      ],
       "port": 5178
+    },
+    {
+      "name": "personal-site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "5191",
+        "--directory",
+        "personal-site"
+      ],
+      "port": 5191
     }
   ]
 }
