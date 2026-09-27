@@ -34,10 +34,17 @@ only resolve correctly once served from the bucket/CloudFront root — not from 
 ```bash
 aws s3 mb s3://soniconsultancyservices.com --region eu-west-2
 
-# Sync everything except git/docs/system files
+# Sync everything except git/docs/system files and the folders that are not site content.
+# The authoritative, current command is the one in CLAUDE.md -> "Infrastructure & deploy".
 aws s3 sync . s3://soniconsultancyservices.com \
-  --exclude ".git/*" --exclude ".DS_Store" --exclude "*/.DS_Store" \
-  --exclude "README.md" --exclude "DEPLOY.md"
+  --exclude ".git" --exclude ".git/*" --exclude ".gitignore" \
+  --exclude ".DS_Store" --exclude "*/.DS_Store" \
+  --exclude "README.md" --exclude "DEPLOY.md" --exclude "CLAUDE.md" --exclude ".deploy/*" \
+  --exclude ".claude/*" --exclude "generate-sitemap.py" \
+  --exclude "build-scoping-guide-pdf.py" --exclude "build-blog-thumbnails.py" \
+  --exclude "social-kit/*" \
+  --exclude "backend/*" --exclude "docs/*" --exclude "prompts/*" --exclude "kb/*" --exclude "nurture/*" \
+  --exclude "site-3d/*" --exclude "personal-site/*" --exclude "outreach-site/*"
 ```
 
 `aws s3 sync` sets `Content-Type` automatically for `.html`, `.css`, `.js`, `.svg`,

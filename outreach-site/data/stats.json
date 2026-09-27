@@ -1,0 +1,100 @@
+{
+  "_readme": [
+    "Every number on the site lives in this file. Nothing else hardcodes them.",
+    "Content files reference entries as {{key}} (the display text), {{key.value}} or {{key.word}}.",
+    "Change a value here, run `python3 build.py`, and every page, the playbook PDF and the share images pick it up.",
+    "`value` drives the charts. `display` is what readers see: a trailing + means 'at least this many'.",
+    "The build refuses to run if a content file hardcodes one of the audit figures instead of using its token."
+  ],
+
+  "audit": {
+    "sent": {
+      "display": "200+",
+      "label": "cold emails sent (the headline figure)"
+    },
+    "threads": {
+      "value": 201,
+      "display": "201",
+      "label": "starred Gmail threads reviewed"
+    },
+    "positive": {
+      "value": 0,
+      "display": "0",
+      "word": "zero",
+      "label": "Positive replies",
+      "note": "from cold outreach"
+    },
+    "engaged": {
+      "value": 1,
+      "display": "1",
+      "word": "one",
+      "label": "Genuine engagement",
+      "note": "the company I call Quest"
+    },
+    "auto_replies": {
+      "value": 18,
+      "display": "18",
+      "label": "Auto-replies",
+      "note": "bots, counted as engagement for too long"
+    },
+    "rejections": {
+      "value": 35,
+      "display": "35+",
+      "label": "Explicit rejections",
+      "note": "a real person saying no"
+    },
+    "wrong_audience": {
+      "value": 50,
+      "display": "50+",
+      "label": "Wrong audience",
+      "note": "recruiters, filled roles, “no agencies” bios"
+    },
+    "silence": {
+      "value": 70,
+      "display": "70+",
+      "label": "Total silence",
+      "note": "no reply of any kind"
+    }
+  },
+
+  "method": {
+    "send_gap": {
+      "display": "10–15 seconds",
+      "label": "spacing between sends, before the rebuild"
+    },
+    "window_days": {
+      "value": 90,
+      "display": "90",
+      "label": "days a launch stays on a company's mind"
+    },
+    "psi_time": {
+      "display": "90 seconds",
+      "label": "time a PageSpeed Insights check takes"
+    }
+  },
+
+  "scorer": {
+    "_readme": "Weights for /tools/prospect-scorer and the score chip in the CRM. Score = signal + company size + timing, clamped to 1-10. These are judgement calls drawn from the articles, not a fitted model; the scorer page prints them in full.",
+    "signals": [
+      { "id": "pain",    "label": "Stated pain",                       "example": "our site is so slow",              "points": 5 },
+      { "id": "launch",  "label": "Just launched",                     "example": "website is live",                  "points": 5 },
+      { "id": "rebuild", "label": "Rebuild under way",                 "example": "redesigning our site",             "points": 4 },
+      { "id": "hiring",  "label": "Hiring post",                       "example": "hiring a React Native developer",  "points": 2 },
+      { "id": "title",   "label": "Job title only, no stated intent",  "example": "",                                 "points": 1, "no_trigger": true }
+    ],
+    "sizes": [
+      { "id": "1-10",     "label": "1–10 people",       "points": 1 },
+      { "id": "11-50",    "label": "11–50 people",      "points": 2 },
+      { "id": "51-200",   "label": "51–200 people",     "points": 1 },
+      { "id": "201-1000", "label": "201–1,000 people",  "points": 0 },
+      { "id": "1000+",    "label": "1,000+ people",           "points": -1 }
+    ],
+    "timing": [
+      { "max_days": 7,    "points": 3,  "label": "first week" },
+      { "max_days": 30,   "points": 2,  "label": "first month" },
+      { "max_days": 90,   "points": 1,  "label": "late in the window" },
+      { "max_days": 180,  "points": -2, "label": "past the window" },
+      { "max_days": null, "points": -3, "label": "long past the window" }
+    ]
+  }
+}

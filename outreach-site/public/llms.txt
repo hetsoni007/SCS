@@ -1,0 +1,20 @@
+# Outreach Teardowns
+
+> A teardown of Het Soni's own cold outreach: an audit of 201 threads, the five causes of failure in order of damage, and the system rebuilt from it.
+
+## Articles
+
+- [I sent 200+ cold emails and got zero replies. Here’s the system I rebuilt.](https://outreach.soniconsultancyservices.com/articles/the-audit/): The full teardown. 201 threads, what actually happened in each, the five causes in order of damage, and the system that replaced it.
+- [What failed, and how to check your own outreach](https://outreach.soniconsultancyservices.com/articles/what-failed/): A self-diagnostic. The five root causes in order of damage, each with a one-line check to run against your own sent folder.
+- [Search for what people say, not what they’re called](https://outreach.soniconsultancyservices.com/articles/signal-based-targeting/): The phrases worth searching, how to run the search on LinkedIn, and why a launch is only worth writing about for about 90 days.
+- [Audit first, then write](https://outreach.soniconsultancyservices.com/articles/audit-first-method/): Five steps you can follow today, the tools for each, and a template for writing a finding that doesn’t read like a canned insert.
+- [The Quest email: three questions, no pitch](https://outreach.soniconsultancyservices.com/articles/the-quest-email/): The one email that worked, next to one that got zero replies, annotated line by line.
+
+## Tools
+
+- [The two-touch CRM](https://outreach.soniconsultancyservices.com/tools/outreach-crm/): A free in-browser outreach CRM with a hard cap. Two touches per prospect, then the thread closes, and there is no third-touch button. No login needed.
+- [Prospect scorer](https://outreach.soniconsultancyservices.com/tools/prospect-scorer/): Enter the signal, company size and days since the trigger. Get a 1–10 score and a one-line reason. Free, no login, and every result has a link you can share.
+
+## Author
+
+- Het Soni, founder of Soni Consultancy Services (https://soniconsultancyservices.com/). LinkedIn: https://www.linkedin.com/in/hetsoni/

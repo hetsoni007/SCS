@@ -4,3 +4,6 @@
 # OS noise
 .DS_Store
 *.DS_Store
+
+# Python bytecode (outreach-site/build.py imports)
+__pycache__/

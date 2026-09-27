@@ -1,0 +1,41 @@
+{
+  "_readme": "Site-level settings. Statistics do NOT go here; they live in stats.json.",
+
+  "name": "Outreach Teardowns",
+  "tagline": "Cold outbound, counted honestly.",
+  "base_url": "https://outreach.soniconsultancyservices.com",
+  "lang": "en",
+  "published": "2026-09-27",
+
+  "author": {
+    "name": "Het Soni",
+    "role": "Founder, Soni Consultancy Services",
+    "linkedin": "https://www.linkedin.com/in/hetsoni/",
+    "medium": "https://medium.com/@hetsoni9398"
+  },
+
+  "studio": {
+    "name": "Soni Consultancy Services",
+    "url": "https://soniconsultancyservices.com/?utm_source=outreach-site&utm_medium=referral&utm_campaign=footer-byline",
+    "cta_url": "https://soniconsultancyservices.com/contact/?utm_source=outreach-site&utm_medium=referral&utm_campaign=crm-cta",
+    "privacy_url": "https://soniconsultancyservices.com/privacy/"
+  },
+
+  "leads": {
+    "_readme": "Same API Gateway -> scs-lead-mailer Lambda the main site's forms use. Every capture is emailed to the owner address configured on the Lambda and stored in DynamoDB. Forms never send from localhost, file:// or preview builds (dry run, logged to the console instead).",
+    "endpoint": "https://9cjt6qwy71.execute-api.ap-south-1.amazonaws.com",
+    "live_hosts": ["outreach.soniconsultancyservices.com"]
+  },
+
+  "crm_columns": [
+    "name", "company", "role", "contact", "signal_type", "company_size", "signal_quote", "signal_date",
+    "touch1_date", "touch1_note", "touch2_date", "touch2_new_information",
+    "outcome", "outcome_date", "auto_replies", "added"
+  ],
+
+  "downloads": {
+    "playbook_pdf": "/downloads/cold-outreach-playbook.pdf",
+    "crm_template_csv": "/downloads/two-touch-crm-template.csv",
+    "sequence_pdf": "/downloads/outreach-sequence-structure.pdf"
+  }
+}
