@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>Het Soni — Builder, Strategist, Closer</title>
+<meta name="description" content="Het Soni builds cross-platform apps with React Native & MERN, integrates AI, and runs signal-based outbound systems for B2B startups. Ahmedabad, India."/>
+<meta name="robots" content="index,follow"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Het Soni — Builder, Strategist, Closer"/>
+<meta property="og:description" content="I build apps that ship and outbound systems that close. React Native, MERN, AI — and the pipeline to sell it."/>
+<meta property="og:url" content="https://portfolio.soniconsultancyservices.com/"/>
+<meta property="og:image" content="https://portfolio.soniconsultancyservices.com/assets/og.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://portfolio.soniconsultancyservices.com/"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<meta name="theme-color" content="#0a0a0a"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Het Soni","url":"https://portfolio.soniconsultancyservices.com/","jobTitle":"Founder & Lead Engineer","worksFor":{"@type":"Organization","name":"Soni Consultancy Services","url":"https://soniconsultancyservices.com"},"description":"Builds cross-platform apps with React Native & MERN, integrates AI, and runs signal-based outbound systems for B2B startups.","address":{"@type":"PostalAddress","addressLocality":"Ahmedabad","addressRegion":"Gujarat","addressCountry":"IN"},"knowsAbout":["React Native","MERN Stack","AI Integration","B2B Lead Generation","Outbound Sales Systems"],"sameAs":["https://www.linkedin.com/in/hetsoni/","https://www.instagram.com/soni.consultancyservices/","https://medium.com/@hetsoni9398"]}</script>
+<style>
+:root{
+  --bg:#0a0a0a;--bg2:#111111;--bg3:#1a1a1a;
+  --fg:#ffffff;--fg2:#a0a0a0;--fg3:#666666;
+  --accent:#c9a24b;--accent2:#e8c976;--accent-dim:rgba(201,162,75,.15);
+  --border:#222;--border2:#333;
+  --font:"Inter",system-ui,-apple-system,sans-serif;
+  --display:"Space Grotesk","Inter",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --ease:cubic-bezier(.25,.46,.45,.94);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--fg);font:400 16px/1.6 var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+ul,ol{list-style:none}
+::selection{background:var(--accent);color:var(--bg)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.wrap{max-width:1400px;margin:0 auto;padding:0 clamp(20px,5vw,80px)}
+.section{padding:clamp(80px,12vw,160px) 0}
+.divider{width:100%;height:1px;background:var(--border)}
+
+/* ── Custom cursor ──────────────────────────────────── */
+@media(hover:hover) and (pointer:fine){
+  html.has-cursor{cursor:none}
+  html.has-cursor *{cursor:none}
+  .cursor-dot{position:fixed;top:0;left:0;width:8px;height:8px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s var(--ease),height .2s var(--ease),background .2s}
+  .cursor-ring{position:fixed;top:0;left:0;width:40px;height:40px;border:1.5px solid var(--accent);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .25s var(--ease),height .25s var(--ease),border-color .25s,opacity .25s}
+  .cursor-dot.hover{width:12px;height:12px;background:var(--accent2)}
+  .cursor-ring.hover{width:60px;height:60px;border-color:var(--accent2);opacity:.5}
+}
+
+/* ── Nav ────────────────────────────────────────────── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 clamp(20px,5vw,80px);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(10,10,10,.8);border-bottom:1px solid rgba(255,255,255,.05)}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-brand{font:700 20px/1 var(--display);letter-spacing:-.02em}
+.nav-brand span{color:var(--accent)}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{font:500 13px/1 var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--fg2);transition:color .25s}
+.nav-links a:hover{color:var(--fg)}
+.nav-links a.active{color:var(--accent)}
+.nav-sep{width:4px;height:4px;background:var(--fg3);border-radius:50%;flex:none}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;font:600 13px/1 var(--display);letter-spacing:.04em;text-transform:uppercase;padding:10px 20px;border:1px solid var(--accent);color:var(--accent);border-radius:50px;transition:background .3s,color .3s}
+.nav-cta:hover{background:var(--accent);color:var(--bg)}
+.nav-social{display:flex;gap:16px;align-items:center}
+.nav-social a{color:var(--fg3);transition:color .25s}
+.nav-social a:hover{color:var(--accent)}
+.nav-social svg{width:18px;height:18px}
+.burger{display:none;width:32px;height:32px;flex-direction:column;justify-content:center;gap:6px;align-items:center}
+.burger span{display:block;width:22px;height:1.5px;background:var(--fg);transition:transform .3s,opacity .3s}
+@media(max-width:900px){
+  .nav-links,.nav-social{display:none}
+  .burger{display:flex}
+  .mobile-menu{position:fixed;top:72px;left:0;right:0;bottom:0;background:rgba(10,10,10,.97);backdrop-filter:blur(30px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;transform:translateY(-100%);opacity:0;transition:transform .4s var(--ease-out),opacity .3s;z-index:99;pointer-events:none}
+  .mobile-menu.open{transform:translateY(0);opacity:1;pointer-events:auto}
+  .mobile-menu a{font:600 24px/1.3 var(--display);color:var(--fg2);transition:color .2s}
+  .mobile-menu a:hover{color:var(--accent)}
+}
+
+/* ── Hero ───────────────────────────────────────────── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:72px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 40%,rgba(201,162,75,.06),transparent 70%)}
+.hero-content{position:relative;z-index:1}
+.hero-status{display:inline-flex;align-items:center;gap:8px;font:500 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:32px}
+.hero-status::before{content:"";width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font:900 clamp(48px,9vw,120px)/0.9 var(--display);letter-spacing:-.03em;text-transform:uppercase;max-width:14ch}
+.hero h1 em{font-style:normal;display:block;color:var(--accent)}
+.hero-sub{margin-top:clamp(20px,3vw,32px);font:300 clamp(16px,1.8vw,22px)/1.6 var(--font);color:var(--fg2);max-width:42ch}
+.hero-sub strong{font-weight:600;color:var(--fg)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:16px;margin-top:clamp(28px,4vw,48px)}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;font:600 15px/1 var(--display);padding:16px 32px;background:var(--accent);color:var(--bg);border-radius:50px;letter-spacing:.02em;transition:transform .25s var(--ease),box-shadow .25s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,162,75,.3)}
+.btn-outline{display:inline-flex;align-items:center;gap:10px;font:600 15px/1 var(--display);padding:16px 32px;border:1px solid var(--border2);color:var(--fg);border-radius:50px;letter-spacing:.02em;transition:border-color .25s,background .25s}
+.btn-outline:hover{border-color:var(--fg);background:rgba(255,255,255,.05)}
+.hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font:400 11px/1 var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--fg3);animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+.hero-scroll::after{content:"";width:1px;height:40px;background:linear-gradient(var(--fg3),transparent)}
+
+/* ── Marquee ────────────────────────────────────────── */
+.marquee{overflow:hidden;padding:clamp(20px,3vw,32px) 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.marquee-track{display:flex;gap:clamp(24px,4vw,48px);animation:scroll 30s linear infinite;width:max-content}
+.marquee-track span{font:700 clamp(14px,1.4vw,18px)/1 var(--display);text-transform:uppercase;letter-spacing:.06em;color:var(--fg3);white-space:nowrap;display:flex;align-items:center;gap:clamp(24px,4vw,48px)}
+.marquee-track span::after{content:"◆";font-size:8px;color:var(--accent)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ── Stats ──────────────────────────────────────────── */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px)}
+.stat{text-align:center;padding:clamp(28px,4vw,48px) 16px;border:1px solid var(--border);border-radius:12px;background:var(--bg2);transition:border-color .3s,transform .3s}
+.stat:hover{border-color:var(--accent-dim);transform:translateY(-4px)}
+.stat-num{font:800 clamp(36px,5vw,64px)/1 var(--display);letter-spacing:-.03em;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-label{margin-top:12px;font:500 14px/1.4 var(--font);color:var(--fg2)}
+@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* ── Section headers ────────────────────────────────── */
+.section-label{font:500 12px/1 var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.section-title{font:800 clamp(32px,5vw,64px)/1.05 var(--display);letter-spacing:-.02em;max-width:16ch}
+.section-desc{margin-top:20px;font:300 clamp(16px,1.4vw,20px)/1.6 var(--font);color:var(--fg2);max-width:48ch}
+.section-header{margin-bottom:clamp(48px,7vw,80px)}
+
+/* ── About split ────────────────────────────────────── */
+.about-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,80px);align-items:center}
+.about-portrait{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/5}
+.about-portrait img{width:100%;height:100%;object-fit:cover}
+.about-portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.4),transparent 50%)}
+.about-text h3{font:700 clamp(22px,2.4vw,32px)/1.2 var(--display);margin-bottom:20px}
+.about-text p{color:var(--fg2);margin-bottom:16px;line-height:1.7}
+.about-text p strong{color:var(--fg);font-weight:600}
+.about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.about-tags span{font:500 12px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border:1px solid var(--border2);border-radius:50px;color:var(--fg2);transition:border-color .2s,color .2s}
+.about-tags span:hover{border-color:var(--accent);color:var(--accent)}
+@media(max-width:800px){.about-grid{grid-template-columns:1fr}.about-portrait{max-width:400px}}
+
+/* ── Services ───────────────────────────────────────── */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.service-card{padding:clamp(28px,3vw,40px);border:1px solid var(--border);border-radius:12px;background:var(--bg2);transition:border-color .3s,transform .3s}
+.service-card:hover{border-color:var(--accent-dim);transform:translateY(-4px)}
+.service-num{font:500 12px/1 var(--mono);color:var(--accent);letter-spacing:.1em;margin-bottom:16px}
+.service-card h3{font:700 clamp(20px,1.8vw,24px)/1.2 var(--display);margin-bottom:12px}
+.service-card p{font-size:15px;line-height:1.6;color:var(--fg2)}
+.service-tech{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.service-tech span{font:400 11px/1 var(--mono);padding:5px 10px;border:1px solid var(--border);border-radius:50px;color:var(--fg3)}
+@media(max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.services-grid{grid-template-columns:1fr}}
+
+/* ── Work / Projects ────────────────────────────────── */
+.projects-grid{display:grid;gap:clamp(20px,3vw,32px)}
+.project{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:center;padding:clamp(24px,3vw,40px);border:1px solid var(--border);border-radius:16px;background:var(--bg2);transition:border-color .4s}
+.project:hover{border-color:var(--border2)}
+.project:nth-child(even){direction:rtl}
+.project:nth-child(even)>*{direction:ltr}
+.project-visual{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:16/10;background:var(--bg3)}
+.project-visual img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.project:hover .project-visual img{transform:scale(1.03)}
+.project-info .section-label{margin-bottom:12px}
+.project-title{font:700 clamp(24px,2.6vw,36px)/1.15 var(--display);letter-spacing:-.01em}
+.project-desc{margin-top:12px;font-size:15px;line-height:1.6;color:var(--fg2)}
+.project-metrics{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.project-metrics span{font:500 13px/1 var(--mono);padding:8px 14px;border:1px solid var(--border2);border-radius:50px;color:var(--accent)}
+.project-stack{margin-top:16px;font:400 12px/1.5 var(--mono);color:var(--fg3)}
+.project-badge{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font:500 12px/1 var(--mono);color:var(--fg3);letter-spacing:.04em}
+.project-badge::before{content:"";width:6px;height:6px;background:#22c55e;border-radius:50%}
+@media(max-width:800px){
+  .project,.project:nth-child(even){grid-template-columns:1fr;direction:ltr}
+}
+
+/* ── Process ────────────────────────────────────────── */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:step}
+.process-step{position:relative;padding:clamp(28px,3vw,40px) clamp(20px,2vw,28px);border:1px solid var(--border);border-radius:12px;background:var(--bg2);counter-increment:step;transition:border-color .3s}
+.process-step:hover{border-color:var(--accent-dim)}
+.process-step::before{content:counter(step,decimal-leading-zero);font:700 48px/1 var(--display);color:var(--accent-dim);letter-spacing:-.03em;display:block;margin-bottom:20px}
+.process-step h3{font:700 20px/1.2 var(--display);margin-bottom:10px}
+.process-step p{font-size:14px;line-height:1.6;color:var(--fg2)}
+@media(max-width:900px){.process-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.process-grid{grid-template-columns:1fr}}
+
+/* ── Outbound / BD section ──────────────────────────── */
+.bd-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,80px);align-items:start}
+.bd-card{padding:clamp(28px,3vw,40px);border:1px solid var(--border);border-radius:12px;background:var(--bg2)}
+.bd-card h3{font:700 clamp(20px,2vw,26px)/1.2 var(--display);margin-bottom:16px}
+.bd-card p{font-size:15px;line-height:1.6;color:var(--fg2);margin-bottom:12px}
+.bd-stat{display:flex;align-items:baseline;gap:12px;padding:16px 0;border-bottom:1px solid var(--border)}
+.bd-stat:last-child{border-bottom:0}
+.bd-stat .stat-num{font:800 clamp(28px,3vw,40px)/1 var(--display);min-width:100px}
+.bd-stat span{font-size:15px;color:var(--fg2)}
+@media(max-width:800px){.bd-split{grid-template-columns:1fr}}
+
+/* ── Testimonials ───────────────────────────────────── */
+.testimonials{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.testimonial{padding:clamp(28px,3vw,40px);border:1px solid var(--border);border-radius:12px;background:var(--bg2);display:flex;flex-direction:column;gap:20px}
+.testimonial blockquote{font:italic 300 clamp(17px,1.6vw,20px)/1.6 var(--font);color:var(--fg);margin:0;flex:1}
+.testimonial-author{display:flex;flex-direction:column;gap:4px;padding-top:16px;border-top:1px solid var(--border)}
+.testimonial-author strong{font:600 15px/1.3 var(--display)}
+.testimonial-author span{font:400 13px/1.3 var(--font);color:var(--fg3)}
+@media(max-width:700px){.testimonials{grid-template-columns:1fr}}
+
+/* ── Contact ────────────────────────────────────────── */
+.contact{text-align:center;padding:clamp(100px,15vw,200px) 0}
+.contact h2{font:900 clamp(40px,8vw,100px)/0.95 var(--display);letter-spacing:-.03em;text-transform:uppercase}
+.contact h2 em{font-style:normal;color:var(--accent)}
+.contact p{margin:24px auto 0;font:300 clamp(16px,1.4vw,20px)/1.6 var(--font);color:var(--fg2);max-width:40ch}
+.contact-ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:40px}
+.contact-mail{margin-top:32px;font:400 clamp(14px,1.2vw,16px)/1 var(--mono);color:var(--fg3)}
+.contact-mail a{color:var(--fg2);border-bottom:1px solid var(--border2);padding-bottom:2px;transition:color .2s,border-color .2s}
+.contact-mail a:hover{color:var(--accent);border-color:var(--accent)}
+
+/* ── Footer ─────────────────────────────────────────── */
+.footer{padding:32px 0;border-top:1px solid var(--border)}
+.footer-inner{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px}
+.footer-left{font:400 14px/1.5 var(--font);color:var(--fg3)}
+.footer-left a{color:var(--fg2);text-decoration:underline;text-underline-offset:3px}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font:400 13px/1 var(--font);color:var(--fg3);transition:color .2s}
+.footer-links a:hover{color:var(--fg)}
+
+/* ── Reveal animations ──────────────────────────────── */
+[data-reveal]{opacity:0;transform:translateY(40px);transition:opacity .8s var(--ease),transform .8s var(--ease-out)}
+[data-reveal].visible{opacity:1;transform:translateY(0)}
+[data-reveal-delay="1"]{transition-delay:.1s}
+[data-reveal-delay="2"]{transition-delay:.2s}
+[data-reveal-delay="3"]{transition-delay:.3s}
+[data-reveal-delay="4"]{transition-delay:.4s}
+
+/* ── Grain texture ──────────────────────────────────── */
+body::before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  [data-reveal]{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#top">Het<span>.</span>Soni</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <span class="nav-sep"></span>
+      <a href="#services">Services</a>
+      <span class="nav-sep"></span>
+      <a href="#work">Work</a>
+      <span class="nav-sep"></span>
+      <a href="#outbound">Outbound</a>
+      <span class="nav-sep"></span>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-social">
+      <a href="https://www.linkedin.com/in/hetsoni/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+      <a href="https://www.instagram.com/soni.consultancyservices/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c2.67 0 2.99.01 4.04.06 2.43.11 3.56 1.26 3.67 3.67.05 1.05.06 1.37.06 4.04s-.01 2.99-.06 4.04c-.11 2.41-1.24 3.56-3.67 3.67-1.05.05-1.37.06-4.04.06s-2.99-.01-4.04-.06c-2.43-.11-3.56-1.26-3.67-3.67-.05-1.05-.06-1.37-.06-4.04s.01-2.99.06-4.04c.11-2.41 1.24-3.56 3.67-3.67 1.05-.05 1.37-.06 4.04-.06zM12 0C9.28 0 8.94.01 7.88.06 4.18.23 2.23 2.18.06 5.88.01 6.94 0 7.28 0 10s.01 3.06.06 4.12c.17 3.7 2.12 5.65 5.82 5.82C6.94 23.99 7.28 24 10 24s3.06-.01 4.12-.06c3.7-.17 5.65-2.12 5.82-5.82.05-1.06.06-1.4.06-4.12s-.01-3.06-.06-4.12c-.17-3.7-2.12-5.65-5.82-5.82C13.06.01 12.72 0 10 0h2zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a>
+      <a href="https://medium.com/@hetsoni9398" target="_blank" rel="noopener" aria-label="Medium"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42zm2.82 0c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75c.66 0 1.19 2.58 1.19 5.75z"/></svg></a>
+    </div>
+    <a class="nav-cta" href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener">Let's Connect</a>
+    <button class="burger" id="burger" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#work">Work</a>
+  <a href="#outbound">Outbound</a>
+  <a href="#contact">Contact</a>
+  <a class="nav-cta" href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener">Let's Connect</a>
+</div>
+
+<!-- Hero -->
+<section class="hero wrap" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-status">Available for projects</p>
+    <h1 data-reveal>I Build Apps<em>& Close Deals.</em></h1>
+    <p class="hero-sub" data-reveal data-reveal-delay="1">I create <strong>digital products</strong> that ship to the App Store — and the <strong>outbound systems</strong> that sell them. React Native, MERN, AI, and signal-based B2B pipelines.</p>
+    <div class="hero-ctas" data-reveal data-reveal-delay="2">
+      <a class="btn-primary" href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener">Book a Free Call <span aria-hidden="true">→</span></a>
+      <a class="btn-outline" href="#work">View Work</a>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true"><span>Scroll</span></div>
+</section>
+
+<!-- Tech marquee -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>React Native</span><span>MERN Stack</span><span>Next.js</span><span>Node.js</span><span>MongoDB</span><span>AWS</span><span>Claude AI</span><span>TypeScript</span><span>PostgreSQL</span><span>Outbound Systems</span><span>Lead Gen</span><span>Apollo</span>
+    <span>React Native</span><span>MERN Stack</span><span>Next.js</span><span>Node.js</span><span>MongoDB</span><span>AWS</span><span>Claude AI</span><span>TypeScript</span><span>PostgreSQL</span><span>Outbound Systems</span><span>Lead Gen</span><span>Apollo</span>
+  </div>
+</div>
+
+<!-- Stats -->
+<section class="section wrap">
+  <div class="stats" data-reveal>
+    <div class="stat">
+      <div class="stat-num" data-count="4">4+</div>
+      <div class="stat-label">Apps Shipped & Live</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">35</div>
+      <div class="stat-label">SQLs in 60 Days</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">30+</div>
+      <div class="stat-label">Countries Served</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">+22%</div>
+      <div class="stat-label">Reply Rate Lift</div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section wrap" id="about">
+  <div class="about-grid">
+    <div class="about-portrait" data-reveal>
+      <img src="../personal-site/assets/het-soni-portrait.webp" width="560" height="700" alt="Het Soni" loading="lazy"/>
+    </div>
+    <div class="about-text" data-reveal data-reveal-delay="1">
+      <p class="section-label">About</p>
+      <h3>I build the product. Then I build the pipeline to sell it.</h3>
+      <p>Founder of <strong>Soni Consultancy Services</strong> — a boutique studio that ships React Native & MERN apps with AI built in. The senior engineer on your first call is the one who writes your code.</p>
+      <p>On the business side, I run <strong>signal-based outbound systems</strong> for B2B startups: buying signals first, research before every message, and a hard cap on follow-ups. 35 SQLs in 60 days. +22% reply rate on rebuilt sequences.</p>
+      <p><strong>5+ years</strong> of senior experience across mobile development, full-stack engineering, AI integration, and B2B business development.</p>
+      <div class="about-tags">
+        <span>React Native</span>
+        <span>MERN Stack</span>
+        <span>AI / Claude</span>
+        <span>B2B Outbound</span>
+        <span>Lead Gen</span>
+        <span>AWS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider wrap"></div>
+
+<!-- Services -->
+<section class="section wrap" id="services">
+  <div class="section-header" data-reveal>
+    <p class="section-label">Services</p>
+    <h2 class="section-title">What I Build & What I Sell.</h2>
+    <p class="section-desc">From idea to App Store — and from cold list to signed deal.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card" data-reveal>
+      <div class="service-num">01</div>
+      <h3>React Native Apps</h3>
+      <p>Cross-platform iOS & Android from one codebase. Push, maps, payments, biometrics, offline. Store submission included.</p>
+      <div class="service-tech"><span>React Native</span><span>Expo</span><span>TypeScript</span></div>
+    </div>
+    <div class="service-card" data-reveal data-reveal-delay="1">
+      <div class="service-num">02</div>
+      <h3>MERN & Web Apps</h3>
+      <p>MongoDB, Express, React, Node, Next.js. REST & GraphQL APIs, admin dashboards, real-time features, multi-tenancy.</p>
+      <div class="service-tech"><span>Node.js</span><span>Next.js</span><span>MongoDB</span></div>
+    </div>
+    <div class="service-card" data-reveal data-reveal-delay="2">
+      <div class="service-num">03</div>
+      <h3>AI Integration</h3>
+      <p>Claude & GPT features baked into your product. RAG pipelines, embeddings, vector search, agents, guardrails and cost control.</p>
+      <div class="service-tech"><span>Claude API</span><span>GPT</span><span>RAG</span></div>
+    </div>
+    <div class="service-card" data-reveal data-reveal-delay="1">
+      <div class="service-num">04</div>
+      <h3>MVP Development</h3>
+      <p>Scoped hard, shipped in 10-16 weeks on fixed price. Core/Supporting/Later scope cut. Analytics from day one.</p>
+      <div class="service-tech"><span>React Native</span><span>MERN</span><span>Fixed price</span></div>
+    </div>
+    <div class="service-card" data-reveal data-reveal-delay="2">
+      <div class="service-num">05</div>
+      <h3>Outbound Systems</h3>
+      <p>Signal-based prospecting, AI-assisted research, personalized sequences, and a hard two-touch cap. Built to produce SQLs that convert.</p>
+      <div class="service-tech"><span>Apollo</span><span>Claude</span><span>LinkedIn</span></div>
+    </div>
+    <div class="service-card" data-reveal data-reveal-delay="3">
+      <div class="service-num">06</div>
+      <h3>DevOps & Cloud</h3>
+      <p>CI/CD pipelines, containerised deploys, auto-scaling AWS infrastructure. Docker, monitoring, 99.9% uptime.</p>
+      <div class="service-tech"><span>AWS</span><span>Docker</span><span>CI/CD</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider wrap"></div>
+
+<!-- Work -->
+<section class="section wrap" id="work">
+  <div class="section-header" data-reveal>
+    <p class="section-label">Selected Work</p>
+    <h2 class="section-title">Products That Shipped.</h2>
+    <p class="section-desc">Real apps, live on the App Store and Google Play. All product names withheld under NDA.</p>
+  </div>
+  <div class="projects-grid">
+
+    <article class="project" data-reveal>
+      <div class="project-visual">
+        <img src="../assets/portfolio/hr-payroll-sim-punch.webp" alt="HR & Payroll Platform — attendance screen" loading="lazy" width="600" height="375"/>
+      </div>
+      <div class="project-info">
+        <p class="section-label">Mobile App</p>
+        <h3 class="project-title">HR & Payroll Platform</h3>
+        <p class="project-desc">Real-time biometric attendance, automated payroll rules per branch, and centralised records across Company, Branch and Staff roles.</p>
+        <div class="project-metrics">
+          <span>40% faster payroll</span>
+          <span>3 user roles</span>
+          <span>16 weeks</span>
+        </div>
+        <p class="project-stack">React Native · React · Node.js · MongoDB</p>
+        <p class="project-badge">Live on the App Store & Google Play</p>
+      </div>
+    </article>
+
+    <article class="project" data-reveal>
+      <div class="project-visual">
+        <img src="../assets/portfolio/retail-ops-sim-checklist.webp" alt="Retail Operations Platform — checklist screen" loading="lazy" width="600" height="375"/>
+      </div>
+      <div class="project-info">
+        <p class="section-label">Mobile App</p>
+        <h3 class="project-title">Retail Operations Platform</h3>
+        <p class="project-desc">Unified operational checklists, gamified LMS, issue logs and customer analytics — standardising multi-store operations with real-time visibility.</p>
+        <div class="project-metrics">
+          <span>4 modules unified</span>
+          <span>Gamified LMS</span>
+          <span>32 weeks</span>
+        </div>
+        <p class="project-stack">React Native · React · Node.js · MongoDB</p>
+        <p class="project-badge">Live on the App Store & Google Play</p>
+      </div>
+    </article>
+
+    <article class="project" data-reveal>
+      <div class="project-visual">
+        <img src="../assets/portfolio/ride-hailing-sim-map.webp" alt="Ride-Hailing Platform — live map screen" loading="lazy" width="600" height="375"/>
+      </div>
+      <div class="project-info">
+        <p class="section-label">Mobile App</p>
+        <h3 class="project-title">Ride-Hailing Platform</h3>
+        <p class="project-desc">AI fare prediction, real-time tracking, driver-rating assurance, SOS safety features and eco-friendly vehicle options. ~3 min average booking time.</p>
+        <div class="project-metrics">
+          <span>3 min avg. booking</span>
+          <span>AI fare prediction</span>
+          <span>25 weeks</span>
+        </div>
+        <p class="project-stack">React Native · Next.js · PostgreSQL · AWS</p>
+        <p class="project-badge">Live on the App Store & Google Play</p>
+      </div>
+    </article>
+
+    <article class="project" data-reveal>
+      <div class="project-visual">
+        <img src="../assets/portfolio/creator-marketplace-1.webp" alt="Creator-Venue Marketplace — main screen" loading="lazy" width="600" height="375"/>
+      </div>
+      <div class="project-info">
+        <p class="section-label">Mobile App</p>
+        <h3 class="project-title">Creator–Venue Marketplace</h3>
+        <p class="project-desc">Influencer-to-venue collaboration with slot booking, in-app content sharing, chat and a points & rewards engine.</p>
+        <div class="project-metrics">
+          <span>+35% downloads</span>
+          <span>+20% bookings</span>
+          <span>24 weeks</span>
+        </div>
+        <p class="project-stack">React Native · Chat · Rewards · Maps</p>
+        <p class="project-badge">Live on the App Store</p>
+      </div>
+    </article>
+
+    <article class="project" data-reveal>
+      <div class="project-visual" style="background:linear-gradient(135deg,#1a2332,#0d1520)">
+      </div>
+      <div class="project-info">
+        <p class="section-label">Mobile App</p>
+        <h3 class="project-title">B2B Wholesale Platform</h3>
+        <p class="project-desc">Points-based loyalty engine, tiered pricing catalogue and real-time inventory tracking for retailers and wholesale distributors.</p>
+        <div class="project-metrics">
+          <span>-30% order time</span>
+          <span>+20% retention</span>
+        </div>
+        <p class="project-stack">React.js · Node.js · ERP Integration</p>
+        <p class="project-badge">Live on the App Store & Google Play</p>
+      </div>
+    </article>
+
+    <article class="project" data-reveal>
+      <div class="project-visual" style="background:linear-gradient(135deg,#1a2a1a,#0d1a10)">
+      </div>
+      <div class="project-info">
+        <p class="section-label">Platform</p>
+        <h3 class="project-title">Healthcare Staffing Platform</h3>
+        <p class="project-desc">Digital hiring platform connecting hospitals with nurses for shift-based work. AI-based matching, credential vault with auto-verification, geo-filtered search.</p>
+        <div class="project-metrics">
+          <span>&lt;30 min fill time</span>
+          <span>78% want flex shifts</span>
+          <span>26 weeks</span>
+        </div>
+        <p class="project-stack">React Native · Next.js · Express.js · PostgreSQL</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<div class="divider wrap"></div>
+
+<!-- Outbound / BD -->
+<section class="section wrap" id="outbound">
+  <div class="section-header" data-reveal>
+    <p class="section-label">Outbound Systems</p>
+    <h2 class="section-title">Pipelines That Close.</h2>
+    <p class="section-desc">Signal-based outbound for B2B startups — buying signals first, research before every message, hard cap on follow-ups.</p>
+  </div>
+  <div class="bd-split">
+    <div data-reveal>
+      <div class="bd-card">
+        <h3>Results I Can Put a Number On</h3>
+        <div class="bd-stat">
+          <div class="stat-num">+22%</div>
+          <span>Reply rate on rebuilt outbound sequences</span>
+        </div>
+        <div class="bd-stat">
+          <div class="stat-num">35</div>
+          <span>Sales-qualified leads in 60 days for a SaaS client</span>
+        </div>
+        <div class="bd-stat">
+          <div class="stat-num">&gt;50%</div>
+          <span>Drop in outbound volume per prospect after a hard two-touch cap</span>
+        </div>
+        <div class="bd-stat">
+          <div class="stat-num">0</div>
+          <span>Repeat touches on anyone who said no</span>
+        </div>
+      </div>
+    </div>
+    <div data-reveal data-reveal-delay="1">
+      <div class="bd-card">
+        <h3>The 7-Step System</h3>
+        <p>AI does the research, enrichment and ranking. A person decides who deserves attention.</p>
+        <div class="bd-stat"><div class="stat-num" style="min-width:40px;font-size:20px">01</div><span><strong>Signal</strong> — Start from a reason, not a list</span></div>
+        <div class="bd-stat"><div class="stat-num" style="min-width:40px;font-size:20px">02</div><span><strong>Research</strong> — Read what they posted first</span></div>
+        <div class="bd-stat"><div class="stat-num" style="min-width:40px;font-size:20px">03</div><span><strong>Enrich</strong> — Company, role, contact data</span></div>
+        <div class="bd-stat"><div class="stat-num" style="min-width:40px;font-size:20px">04</div><span><strong>Qualify</strong> — ICP fit check</span></div>
+        <div class="bd-stat"><div class="stat-num" style="min-width:40px;font-size:20px">05</div><span><strong>Prioritize</strong> — AI ranks, human decides</span></div>
+        <div class="bd-stat"><div class="stat-num" style="min-width:40px;font-size:20px">06</div><span><strong>Outreach</strong> — One specific message per person</span></div>
+        <div class="bd-stat"><div class="stat-num" style="min-width:40px;font-size:20px">07</div><span><strong>Follow-up</strong> — Two touches, then stop</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider wrap"></div>
+
+<!-- Process -->
+<section class="section wrap">
+  <div class="section-header" data-reveal>
+    <p class="section-label">Process</p>
+    <h2 class="section-title">How I Work.</h2>
+  </div>
+  <div class="process-grid">
+    <div class="process-step" data-reveal>
+      <h3>Discovery</h3>
+      <p>Understanding your vision, goals and constraints. You get a scoped proposal within 48 hours.</p>
+    </div>
+    <div class="process-step" data-reveal data-reveal-delay="1">
+      <h3>Design & Plan</h3>
+      <p>Clickable UX, system architecture, and a clear build timeline before a single line of code.</p>
+    </div>
+    <div class="process-step" data-reveal data-reveal-delay="2">
+      <h3>Build & Ship</h3>
+      <p>Weekly working software. The senior engineer who scoped it is the one building it.</p>
+    </div>
+    <div class="process-step" data-reveal data-reveal-delay="3">
+      <h3>Launch & Scale</h3>
+      <p>Store submission, monitoring, iteration on real usage. I stay to make sure it works.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider wrap"></div>
+
+<!-- Testimonials -->
+<section class="section wrap">
+  <div class="section-header" data-reveal>
+    <p class="section-label">Testimonials</p>
+    <h2 class="section-title">What They Say.</h2>
+  </div>
+  <div class="testimonials" data-reveal>
+    <div class="testimonial">
+      <blockquote>"I've had the pleasure of collaborating with Het. Having strong technical knowledge, particularly in DevOps and Power BI, and always approaching challenges with a solution-oriented mindset."</blockquote>
+      <div class="testimonial-author">
+        <strong>Shalin Bhatt</strong>
+        <span>Business Consultant for Startups & SMBs</span>
+      </div>
+    </div>
+    <div class="testimonial">
+      <blockquote>"Het is a friendly, positive, responsible person and it was amazing meeting him on my networking sessions about digital marketing."</blockquote>
+      <div class="testimonial-author">
+        <strong>Jiri Borc</strong>
+        <span>Networking & Community Building</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact wrap" id="contact">
+  <div data-reveal>
+    <p class="section-label">Get In Touch</p>
+    <h2>Let's Be<br/><em>Creative.</em></h2>
+    <p>Whether you need an app built, a pipeline fixed, or both — let's talk.</p>
+    <div class="contact-ctas">
+      <a class="btn-primary" href="https://calendly.com/het-soni-soniconsultancyservices/introductory" target="_blank" rel="noopener">Book a Free Call <span aria-hidden="true">→</span></a>
+      <a class="btn-outline" href="https://www.linkedin.com/in/hetsoni/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      <a class="btn-outline" href="https://wa.me/918160682185" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <p class="contact-mail"><a href="mailto:het.soni@soniconsultancyservices.com">het.soni@soniconsultancyservices.com</a></p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer wrap">
+  <div class="footer-inner">
+    <p class="footer-left">&copy; 2026 Het Soni · Ahmedabad, India · <a href="https://soniconsultancyservices.com/" target="_blank" rel="noopener">Soni Consultancy Services</a></p>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/hetsoni/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/soni.consultancyservices/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://medium.com/@hetsoni9398" target="_blank" rel="noopener">Medium</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── Custom cursor ──────────────────────────────────── */
+  if(!reduce && window.matchMedia && matchMedia('(hover:hover) and (pointer:fine)').matches){
+    document.documentElement.classList.add('has-cursor');
+    var dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing');
+    var mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',function(e){
+      mx=e.clientX;my=e.clientY;
+      dot.style.left=mx+'px';dot.style.top=my+'px';
+    });
+    (function loop(){
+      rx+=(mx-rx)*.12;ry+=(my-ry)*.12;
+      ring.style.left=rx+'px';ring.style.top=ry+'px';
+      requestAnimationFrame(loop);
+    })();
+    var hovers='a,button,[data-reveal],.project,.service-card,.stat,.process-step,.testimonial';
+    document.addEventListener('mouseover',function(e){
+      if(e.target.closest(hovers)){dot.classList.add('hover');ring.classList.add('hover')}
+    });
+    document.addEventListener('mouseout',function(e){
+      if(e.target.closest(hovers)){dot.classList.remove('hover');ring.classList.remove('hover')}
+    });
+  }
+
+  /* ── Reveal on scroll ───────────────────────────────── */
+  if(!reduce){
+    var reveals=document.querySelectorAll('[data-reveal]');
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
+    },{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+    reveals.forEach(function(el){io.observe(el)});
+  }else{
+    document.querySelectorAll('[data-reveal]').forEach(function(el){el.classList.add('visible')});
+  }
+
+  /* ── Mobile menu ────────────────────────────────────── */
+  var burger=document.getElementById('burger'),menu=document.getElementById('mobileMenu');
+  if(burger&&menu){
+    burger.addEventListener('click',function(){menu.classList.toggle('open')});
+    menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open')})});
+  }
+
+  /* ── Active nav on scroll ───────────────────────────── */
+  var sections=document.querySelectorAll('section[id]');
+  var navLinks=document.querySelectorAll('.nav-links a');
+  var navIo=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id=e.target.getAttribute('id');
+        navLinks.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+id)});
+      }
+    });
+  },{threshold:.3});
+  sections.forEach(function(s){navIo.observe(s)});
+
+  /* ── Parallax hero glow ─────────────────────────────── */
+  if(!reduce){
+    var heroBg=document.querySelector('.hero-bg');
+    window.addEventListener('scroll',function(){
+      var t=window.scrollY;
+      if(t<window.innerHeight&&heroBg){heroBg.style.transform='translateY('+t*.3+'px)'}
+    },{passive:true});
+  }
+})();
+</script>
+</body>
+</html>
