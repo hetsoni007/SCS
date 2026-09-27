@@ -8,13 +8,14 @@ modified date for <lastmod>. Run from the repo root after adding/editing pages:
 
     python3 generate-sitemap.py
 
-Excludes: 404.html, anything in .git/ or .deploy/, and any page with
+Excludes: 404.html, anything in .git/ or .deploy/, the separate apps (site-3d/,
+site-hud/, personal-site/), any node_modules/, and any page with
 <meta name="robots" content="noindex">.
 """
 import os, re, glob, datetime
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-EXCLUDE_DIRS = ('.git', '.deploy')
+EXCLUDE_DIRS = ('.git', '.deploy', 'site-3d', 'site-hud', 'personal-site')
 
 def priority(loc):
     if loc.rstrip('/') == 'https://soniconsultancyservices.com':
@@ -30,7 +31,7 @@ def priority(loc):
 entries = []
 for path in glob.glob(os.path.join(ROOT, '**', '*.html'), recursive=True):
     rel = os.path.relpath(path, ROOT)
-    if any(rel.startswith(d + os.sep) for d in EXCLUDE_DIRS) or rel == '404.html':
+    if any(rel.startswith(d + os.sep) for d in EXCLUDE_DIRS) or rel == '404.html' or 'node_modules' in rel.split(os.sep):
         continue
     html = open(path, encoding='utf-8').read()
     if re.search(r'<meta name="robots"[^>]*noindex', html):
